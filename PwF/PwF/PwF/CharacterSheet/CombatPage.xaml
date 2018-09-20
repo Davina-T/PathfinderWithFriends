@@ -1,11 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PwF.CharacterSheet.CombatPage">
+             x:Class="PwF.CharacterSheet.CombatPage"
+             xmlns:navi="clr-namespace:Pwf.Navigation">
     <ContentPage.Content>
 
         <AbsoluteLayout
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+
+            <AbsoluteLayout.BindingContext>
+                <navi:ViewModel/>
+            </AbsoluteLayout.BindingContext>
 
             <!-- The Top Bar of the Application -->
             <AbsoluteLayout 
@@ -511,7 +516,8 @@
                             WidthRequest="300"
                             HeightRequest="300"
                             AbsoluteLayout.LayoutBounds=".5,1050,.9,50"
-                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"
+                            Command="{Binding OpenCharacterSheet}"/>
 
                     </AbsoluteLayout>
 

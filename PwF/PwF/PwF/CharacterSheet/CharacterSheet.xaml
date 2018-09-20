@@ -1,10 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PwF.CharacterSheet.CharacterSheet">
+             x:Class="PwF.CharacterSheet.CharacterSheet"
+             xmlns:navi="clr-namespace:Pwf.Navigation">
     <ContentPage.Content>
         <AbsoluteLayout
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+
+            <AbsoluteLayout.BindingContext>
+                <navi:ViewModel/>
+            </AbsoluteLayout.BindingContext>
 
             <!-- The Top Bar of the Application -->
             <AbsoluteLayout 
@@ -189,7 +194,8 @@
                             WidthRequest="300"
                             HeightRequest="300"
                             AbsoluteLayout.LayoutBounds=".05,250,.45,120"
-                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"
+                            Command="{Binding OpenCombatPage}"/>
 
                         <!-- The Button used to Open the Skills Page -->
                         <Button
@@ -563,7 +569,8 @@
                             WidthRequest="300"
                             HeightRequest="300"
                             AbsoluteLayout.LayoutBounds=".5,1160,.9,50"
-                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"
+                            Command="{Binding OpenCharacterList}"/>
 
                     </AbsoluteLayout>
 
