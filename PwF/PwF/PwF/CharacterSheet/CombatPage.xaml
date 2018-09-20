@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PwF.CharacterSheet.CombatPage"
+             xmlns:navi="clr-namespace:Pwf.Navigation">
+    <ContentPage.Content>
+
+        <AbsoluteLayout
+            AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+
+            <AbsoluteLayout.BindingContext>
+                <navi:ViewModel/>
+            </AbsoluteLayout.BindingContext>
+
+            <!-- The Top Bar of the Application -->
+            <AbsoluteLayout 
+                BackgroundColor="#1B2C34"
+                AbsoluteLayout.LayoutBounds="0,0,1,.1"  
+                AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+                <!-- The Label for displaying the Character's Name -->
+                <Label
+                    Text="Character Name"
+                    TextColor="#C7BC91"
+                    Font="Bold, 32"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                    AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+                </Label>
+            </AbsoluteLayout>
+
+            <!-- The Main Pages Content -->
+            <AbsoluteLayout
+                BackgroundColor="#607F6F"
+                AbsoluteLayout.LayoutBounds="0,1,1,.9"  
+                AbsoluteLayout.LayoutFlags="All">
+
+                <!-- The ScrollView for Displaying the Pages Content -->
+                <ScrollView
+                    BackgroundColor="#C1DAC5"
+                    AbsoluteLayout.LayoutBounds=".5,.5,.9,.9"  
+                    AbsoluteLayout.LayoutFlags="All">
+
+                    <!-- The Layout that Contains the Pages Content -->
+                    <AbsoluteLayout
+                        AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                        AbsoluteLayout.LayoutFlags="All">
+
+                        <!-- The Field Relating to the Health Data -->
+                        <AbsoluteLayout
+                            BackgroundColor="#000000"
+                            AbsoluteLayout.LayoutBounds=".5,20,.9,60"
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
+
+                            <AbsoluteLayout
+                                BackgroundColor="#FFFFFF"
+                                AbsoluteLayout.LayoutBounds=".5,.5,.98,.9"
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The Field Relating to Displaying the Health Data
+                                The third position of the "AbsoluteLayout.LayoutBounds" variable -->
+                                <AbsoluteLayout
+                                    BackgroundColor="#FF0000"
+                                    AbsoluteLayout.LayoutBounds="0,0,.55,1"
+                                    AbsoluteLayout.LayoutFlags="All">
+
+                                </AbsoluteLayout>
+
+                                <!-- The Labels Relating to the Health Data -->
+                                <Label
+                                    Text="Health"
+                                    Font="Bold, 18"
+                                    VerticalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds=".1,0,.9,1"
+                                    AbsoluteLayout.LayoutFlags="All"/>
+
+                                <Label
+                                    Text="11/20"
+                                    Font="Bold, 18"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                    AbsoluteLayout.LayoutFlags="All"/>
+
+                            </AbsoluteLayout>
+
+                        </AbsoluteLayout>
+
+                        <!-- The Field Relating to AC -->
+                        <AbsoluteLayout
+                            BackgroundColor="#000000"
+                            AbsoluteLayout.LayoutBounds=".075,100,.3,80"
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
+
+                            <AbsoluteLayout
+                                BackgroundColor="#FFFFFF"
+                                AbsoluteLayout.LayoutBounds=".5,.5,.975,.975"
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The Field to Contain the AC Label -->
+                                <AbsoluteLayout
+                                    BackgroundColor="#66ff99"
+                                    AbsoluteLayout.LayoutBounds="0,0,1,.5"
+                                    AbsoluteLayout.LayoutFlags="All">
+
+                                    <Label
+                                        Text="AC"
+                                        Font="Bold, 20"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                        AbsoluteLayout.LayoutFlags="All"/>
+
+                                </AbsoluteLayout>
+
+                                <!-- The Label to conatin the AC Data -->
+                                <Label
+                                    Text="*14*"
+                                    Font="18"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="0,1,1,.5"
+                                    AbsoluteLayout.LayoutFlags="All">
+
+                                </Label>
+
+                            </AbsoluteLayout>
+
+                        </AbsoluteLayout>
+
+                        <!-- The Field Relating to Initiative -->
+                        <AbsoluteLayout
+                            BackgroundColor="#000000"
+                            AbsoluteLayout.LayoutBounds=".9,100,.5,80"
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
+
+                            <AbsoluteLayout
+                                BackgroundColor="#FFFFFF"
+                                AbsoluteLayout.LayoutBounds=".5,.5,.985,.975"
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The Field to Contain the Initiative -->
+                                <AbsoluteLayout
+                                    BackgroundColor="#66ff99"
+                                    AbsoluteLayout.LayoutBounds="0,0,1,.5"
+                                    AbsoluteLayout.LayoutFlags="All">
+
+                                    <Label
+                                        Text="Initiative"
+                                        Font="Bold, 20"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                        AbsoluteLayout.LayoutFlags="All"/>
+
+                                </AbsoluteLayout>
+
+                                <!-- The Label to conatin the Initiative Data -->
+                                <Label
+                                    Text="*Dice*"
+                                    Font="18"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="0,1,1,.5"
+                                    AbsoluteLayout.LayoutFlags="All">
+
+                                </Label>
+
+                            </AbsoluteLayout>
+
+                        </AbsoluteLayout>
+
+                        <!-- The Field Relating to the Weapons -->
+                        <AbsoluteLayout
+                            BackgroundColor="#000000"
+                            AbsoluteLayout.LayoutBounds="0.5,200,.9,150"
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
+
+                            <AbsoluteLayout
+                                BackgroundColor="#FFFFFF"
+                                AbsoluteLayout.LayoutBounds=".5,.5,.985,.975"
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The Field to Contain the Weapons -->
+                                <AbsoluteLayout
+                                    BackgroundColor="#ff0000"
+                                    AbsoluteLayout.LayoutBounds="0,0,1,.2"
+                                    AbsoluteLayout.LayoutFlags="All">
+
+                                    <Label
+                                        Text="Weapons"
+                                        Font="Bold, 20"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                        AbsoluteLayout.LayoutFlags="All"/>
+
+                                </AbsoluteLayout>
+
+                                <!-- The Field to Contain the Weapons -->
+                                <ScrollView
+                                    BackgroundColor="White"
+                                    AbsoluteLayout.LayoutBounds="0,1,1,.8"
+                                    AbsoluteLayout.LayoutFlags="All">
+
+
+
+                                </ScrollView>
+
+
+                            </AbsoluteLayout>
+
+                        </AbsoluteLayout>
+
+                        <!-- The Button used to Open the Skills Page -->
+                        <Button
+                            Text="Skills"
+                            Font="Bold, 24"
+                            BorderColor="Black"
+                            BorderRadius="10"
+                            BorderWidth="2"
+                            BackgroundColor="#66FF99"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="300"
+                            HeightRequest="300"
+                            AbsoluteLayout.LayoutBounds=".1,370,.4,60"
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <!-- The Button used to Open the Spells Page -->
+                        <Button
+                            Text="Spells"
+                            Font="Bold, 24"
+                            BorderColor="Black"
+                            BorderRadius="10"
+                            BorderWidth="2"
+                            BackgroundColor="#66ffff"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="300"
+                            HeightRequest="300"
+                            AbsoluteLayout.LayoutBounds=".9,370,.4,60"
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <!-- The Button used for Saves and Throws -->
+                        <Button
+                            Text="Saves and Throws"
+                            Font="Bold, 20"
+                            BorderColor="Black"
+                            BorderRadius="20"
+                            BorderWidth="2"
+                            BackgroundColor="#66ff99"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="300"
+                            HeightRequest="300"
+                            AbsoluteLayout.LayoutBounds=".5,450,.9,50"
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <!-- The Field and Button Relating to the Status Effects -->
+                        <!-- The Field Relating to the Status Effects -->
+                        <AbsoluteLayout
+                            BackgroundColor="#000000"
+                            AbsoluteLayout.LayoutBounds="0.5,520,.9,200"
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
+
+                            <AbsoluteLayout
+                                BackgroundColor="#FFFFFF"
+                                AbsoluteLayout.LayoutBounds=".5,.5,.975,.975"
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The Field to Contain the Status Label -->
+                                <AbsoluteLayout
+                                    BackgroundColor="#FF9900"
+                                    AbsoluteLayout.LayoutBounds="0,0,1,.2"
+                                    AbsoluteLayout.LayoutFlags="All">
+
+                                    <Label
+                                        Text="Status"
+                                        Font="Bold, 20"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                        AbsoluteLayout.LayoutFlags="All"/>
+
+                                </AbsoluteLayout>
+
+                                <!-- The Field to Contain the Status Effects -->
+                                <ScrollView
+                                    BackgroundColor="White"
+                                    AbsoluteLayout.LayoutBounds="0,1,1,.8"
+                                    AbsoluteLayout.LayoutFlags="All">
+
+
+
+                                </ScrollView>
+
+
+                            </AbsoluteLayout>
+
+                        </AbsoluteLayout>
+
+                        <!-- The Button used to Remove Status Effects -->
+                        <Button
+                            Text="Remove"
+                            Font="20"
+                            BorderColor="Black"
+                            BorderWidth="2"
+                            BackgroundColor="White"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="300"
+                            HeightRequest="300"
+                            AbsoluteLayout.LayoutBounds=".1,720,.45,50"
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <!-- The Button used to Add Status Effects -->
+                        <Button
+                            Text="Add"
+                            Font="20"
+                            BorderColor="Black"
+                            BorderWidth="2"
+                            BackgroundColor="White"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="300"
+                            HeightRequest="300"
+                            AbsoluteLayout.LayoutBounds=".9,720,.45,50"
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <!-- The Field Relating to the Stats -->
+                        <AbsoluteLayout
+                                BackgroundColor="#000000"
+                                AbsoluteLayout.LayoutBounds=".1,790,.475,210"
+                                AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
+
+                            <AbsoluteLayout
+                                BackgroundColor="#FFFFFF"
+                                AbsoluteLayout.LayoutBounds=".5,.5,.975,.975"
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The Field to Contain the Stats Label -->
+                                <AbsoluteLayout
+                                    BackgroundColor="#66FF99"
+                                    AbsoluteLayout.LayoutBounds="0,0,1,.15"
+                                    AbsoluteLayout.LayoutFlags="All">
+
+                                    <Label
+                                        Text="Stats"
+                                        Font="Bold, 20"
+                                        HorizontalOptions="Center"
+                                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                        AbsoluteLayout.LayoutFlags="All"/>
+
+                                </AbsoluteLayout>
+
+                                <!-- The Labels Relating to the Strength Data -->
+                                <Label
+                                    Text="STR:"
+                                    Font="Bold, 20"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="0,.2,.5,.125"
+                                    AbsoluteLayout.LayoutFlags="All" />
+
+                                <Label
+                                    Text="*10*"
+                                    Font="Bold, 20"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="1,.2,.5,.125"
+                                    AbsoluteLayout.LayoutFlags="All" />
+
+                                <!-- The Labels Relating to the Dexterity Data -->
+                                <Label
+                                    Text="Dex:"
+                                    Font="Bold, 20"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="0,.36,.5,.125"
+                                    AbsoluteLayout.LayoutFlags="All" />
+
+                                <Label
+                                    Text="*10*"
+                                    Font="Bold, 20"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="1,.36,.5,.125"
+                                    AbsoluteLayout.LayoutFlags="All" />
+
+                                <!-- The Labels Relating to the Constitution Data -->
+                                <Label
+                                    Text="Con:"
+                                    Font="Bold, 20"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="0,.52,.5,.125"
+                                    AbsoluteLayout.LayoutFlags="All" />
+
+                                <Label
+                                    Text="*10*"
+                                    Font="Bold, 20"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="1,.52,.5,.125"
+                                    AbsoluteLayout.LayoutFlags="All" />
+
+                                <!-- The Labels Relating to the Intelligence Data -->
+                                <Label
+                                    Text="Int:"
+                                    Font="Bold, 20"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="0,.68,.5,.125"
+                                    AbsoluteLayout.LayoutFlags="All" />
+
+                                <Label
+                                    Text="*10*"
+                                    Font="Bold, 20"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="1,.68,.5,.125"
+                                    AbsoluteLayout.LayoutFlags="All" />
+
+                                <!-- The Labels Relating to the Wisdom Data -->
+                                <Label
+                                    Text="Wis:"
+                                    Font="Bold, 20"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="0,.84,.5,.125"
+                                    AbsoluteLayout.LayoutFlags="All" />
+
+                                <Label
+                                    Text="*10*"
+                                    Font="Bold, 20"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="1,.84,.5,.125"
+                                    AbsoluteLayout.LayoutFlags="All" />
+
+                                <!-- The Labels Relating to the Charisma Data -->
+                                <Label
+                                    Text="Cha:"
+                                    Font="Bold, 20"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="0,1,.5,.125"
+                                    AbsoluteLayout.LayoutFlags="All" />
+
+                                <Label
+                                    Text="*10*"
+                                    Font="Bold, 20"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="1,1,.5,.125"
+                                    AbsoluteLayout.LayoutFlags="All" />
+
+                            </AbsoluteLayout>
+
+
+                        </AbsoluteLayout>
+
+                        <!-- The Field Relating to CMB -->
+                        <AbsoluteLayout
+                            BackgroundColor="#000000"
+                            AbsoluteLayout.LayoutBounds=".925,790,.4,80"
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
+
+                            <AbsoluteLayout
+                                BackgroundColor="#FFFFFF"
+                                AbsoluteLayout.LayoutBounds=".5,.5,.975,.975"
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The Field to Contain the CMB Label -->
+                                <AbsoluteLayout
+                                    BackgroundColor="#33ffff"
+                                    AbsoluteLayout.LayoutBounds="0,0,1,.5"
+                                    AbsoluteLayout.LayoutFlags="All">
+
+                                    <Label
+                                        Text="CMB"
+                                        Font="Bold, 20"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                        AbsoluteLayout.LayoutFlags="All"/>
+
+                                </AbsoluteLayout>
+
+                                <!-- The Label to conatin the CMB Data -->
+                                <Label
+                                    Text="*14*"
+                                    Font="18"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="0,1,1,.5"
+                                    AbsoluteLayout.LayoutFlags="All">
+
+                                </Label>
+
+                            </AbsoluteLayout>
+
+                        </AbsoluteLayout>
+
+                        <!-- The Button used to Leave Combat -->
+                        <Button
+                            Text="Leave Combat"
+                            Font="Bold, 20"
+                            BorderColor="Black"
+                            BorderRadius="20"
+                            BorderWidth="2"
+                            BackgroundColor="#ff9900"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="300"
+                            HeightRequest="300"
+                            AbsoluteLayout.LayoutBounds=".5,1050,.9,50"
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"
+                            Command="{Binding OpenCharacterSheet}"/>
+
+                    </AbsoluteLayout>
+
+                </ScrollView>
+
+            </AbsoluteLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
