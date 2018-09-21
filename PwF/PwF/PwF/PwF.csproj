@@ -9,15 +9,12 @@
   </ItemGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
     <Folder Include="CharacterSheet\" />
-=======
     <EmbeddedResource Update="CharacterSheet\CharacterSheet.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="CharacterSheet\CombatPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
->>>>>>> 613c5a86c1f54660f5ac0e97e7158223f6277abf
   </ItemGroup>
 </Project>
