@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PwF.CharacterList.CharacterList">
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- <Label Text="CHOOSE CHARACTER"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand"
+                TextColor="#C4DCC4"
+                BackgroundColor="#1B2C34"/>-->
+            <!-- Gotta fill the label to the edge of the screen and add padding between the text and the top and bottom of the label -->
+
+
+            <!-- These aren't quite right but we don't need them this release  
+            <Button Text="Characters"
+                VerticalOptions="End" 
+                HorizontalOptions="StartAndExpand"
+                TextColor="#1B2C34"
+                BackgroundColor="#C4DCC4"/>
+            
+            <Button Text="Sessions"
+                VerticalOptions="End" 
+                HorizontalOptions="EndAndExpand"
+                TextColor="#C4DCC4"
+                BackgroundColor="#1B2C34"/>
+            -->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
