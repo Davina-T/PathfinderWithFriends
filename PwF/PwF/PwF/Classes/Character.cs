@@ -5,22 +5,30 @@ using System.Text;
 
 namespace PwF.Classes
 {
+    //Barebones Charactersheet:
     public class Character
     {
+        //Set the character's name:
         public Character(string name)
         {
             Name = name;
         }
+
+        //Character's name:
         private string name;
 
+        //Handle character's name:
         public string Name {
+
+            //Get the character's name:
             get { return name; }
+            //Set the character's name: (Unchangable)
             private set { name = value; }
         }
 
-        private string alignment;
+        private Enum alignment;
 
-        public string Alignment {
+        public Enum Alignment {
             get { return alignment; }
             set { alignment = value; }
         }

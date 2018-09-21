@@ -11,9 +11,9 @@ namespace PwF.Classes{
 
         public void CreateCharacter()
         {
-            var character1 = new Character("Rctor")
+            var character = new Character("Rctor")
             {
-                Alignment = "UG",
+                Alignment = Alignment.ChaoticGood,
                 CharacterLevel = 38,
                 Deity = "None",
                 Homeland = "Earth",
