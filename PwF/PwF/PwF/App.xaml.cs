@@ -12,7 +12,7 @@ namespace PwF
 		{
 			InitializeComponent();
 
-            CharacterList.CharacterList mainPage = new CharacterList.CharacterList();
+            CharacterSheet.CharacterSheet mainPage = new CharacterSheet.CharacterSheet();
 
             MainPage = new NavigationPage(mainPage);
             Pwf.Navigation.PageNavigationManager.Instance.Navigation = MainPage.Navigation;
