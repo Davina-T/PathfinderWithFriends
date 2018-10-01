@@ -28,6 +28,8 @@ namespace PwF.CharacterList
         int level = 2;
         int money = 30;
 
+        public ViewModel viewModel = new ViewModel();
+
         public CharacterList()
         {
             InitializeComponent();
@@ -110,6 +112,8 @@ namespace PwF.CharacterList
         // Creates a button for each character the user has
         public void CreateCharacterButtons()
         {
+            BindingContext = viewModel;
+
             // Loops the button creation process based on the number of characters
             for (int i = 0; i < numberOfCharacters; i++)
             {
@@ -208,7 +212,7 @@ namespace PwF.CharacterList
                 };
                 AbsoluteLayout.SetLayoutBounds(button, new Rectangle(0, 0, 1, 1));
                 AbsoluteLayout.SetLayoutFlags(button, AbsoluteLayoutFlags.All);
-                button.SetBinding(Button.CommandProperty, new Binding("OpenCharacterSheet"));
+                button.SetBinding(Button.CommandProperty, "OpenCharacterSheet");
 
                 // Place the button and all the labels inside a layout
                 AbsoluteLayout buttonLayout = new AbsoluteLayout
@@ -236,6 +240,8 @@ namespace PwF.CharacterList
         // Create the button that starts the character creation process
         public void CreateNewCharacterButton()
         {
+            BindingContext = viewModel;
+
             // Create the button
             Button button = new Button
             {
@@ -246,8 +252,8 @@ namespace PwF.CharacterList
             AbsoluteLayout.SetLayoutBounds(button, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(button, AbsoluteLayoutFlags.All);
 
-            // Bind the button to a navigation command (DOESN'T WORK)
-            button.SetBinding(Button.CommandProperty, new Binding("OpenCharacterSheet"));
+            // Bind the button to a navigation command
+            button.SetBinding(Button.CommandProperty, "OpenCharacterSheet");
 
             // Add the button to a layout
             AbsoluteLayout buttonLayout = new AbsoluteLayout
