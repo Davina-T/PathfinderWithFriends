@@ -7,13 +7,11 @@ using PwF.Enums;
 namespace PwF.Classes{
 
     //Update Character Sheet:
-    public class UpdateCharacterSheet{
+    class UpdateCharacterSheet{
 
-        public Character character;
-
-        public void CreateCharacter(int index)
+        public void CreateCharacter()
         {
-            character = new Character("Rictor")
+            var character = new Character("Rctor")
             {
                 Alignment = Alignment.ChaoticGood,
                 CharacterLevel = 38,

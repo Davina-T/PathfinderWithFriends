@@ -2,38 +2,29 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PwF.CharacterSheet.CharacterSheet"
-             xmlns:navi="clr-namespace:Pwf.Navigation"
-             xmlns:character="clr-namespace:PwF.Classes">
+             xmlns:navi="clr-namespace:Pwf.Navigation">
     <ContentPage.Content>
         <AbsoluteLayout
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
 
-            <!--<AbsoluteLayout.BindingContext>
+            <AbsoluteLayout.BindingContext>
                 <navi:ViewModel/>
-            </AbsoluteLayout.BindingContext>-->
+            </AbsoluteLayout.BindingContext>
 
             <!-- The Top Bar of the Application -->
             <AbsoluteLayout 
                 BackgroundColor="#1B2C34"
                 AbsoluteLayout.LayoutBounds="0,0,1,.1"  
                 AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
-
-                
-
                 <!-- The Label for displaying the Character's Name -->
                 <Label
-                    Text="{Binding character.Name}"
+                    Text="Character Name"
                     TextColor="#C7BC91"
                     Font="Bold, 32"
                     HorizontalOptions="Center" 
                     VerticalOptions="Center" 
                     AbsoluteLayout.LayoutBounds="0,0,1,1"  
                     AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
-
-                    <Label.BindingContext>
-                        <character:UpdateCharacterSheet/>
-                    </Label.BindingContext>
-
                 </Label>
             </AbsoluteLayout>
 
