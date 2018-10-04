@@ -20,7 +20,7 @@ namespace PwF.CharacterList
         AbsoluteLayout titleText;
 
         // Will be a call to the DB
-        int numberOfCharacters = 8;
+        int numberOfCharacters = 4;
 
         String name = "Bob";
         String race = "Halfling";
@@ -33,6 +33,8 @@ namespace PwF.CharacterList
         public CharacterList()
         {
             InitializeComponent();
+
+            NavigationPage.SetHasNavigationBar(this, false);
 
             SetupStackLayout();
             CreateCharacterButtons();
@@ -242,12 +244,31 @@ namespace PwF.CharacterList
         {
             BindingContext = viewModel;
 
+            // Create the label for the button
+            Label label = new Label
+            {
+                Text = "Create New Character",
+                FontSize = 24,
+                HorizontalOptions = LayoutOptions.Center,
+            };
+            AbsoluteLayout.SetLayoutBounds(label, new Rectangle(0, 0.45, 1, 0.33));
+            AbsoluteLayout.SetLayoutFlags(label, AbsoluteLayoutFlags.All);
+
+            //AbsoluteLayout labelLayout = new AbsoluteLayout
+            //{
+            //    Children =
+            //        {
+            //            label,
+            //        }
+            //};
+            //AbsoluteLayout.SetLayoutBounds(labelLayout, new Rectangle(0, 0.45, 1, 0.33));
+            //AbsoluteLayout.SetLayoutFlags(labelLayout, AbsoluteLayoutFlags.All);
+
             // Create the button
             Button button = new Button
             {
-                Text = "Create New\nCharacter",
-                HorizontalOptions = LayoutOptions.Center,
-                FontSize = 24,
+                Opacity = 0,
+                BackgroundColor = Color.FromHex("#000000"),
             };
             AbsoluteLayout.SetLayoutBounds(button, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(button, AbsoluteLayoutFlags.All);
@@ -261,6 +282,7 @@ namespace PwF.CharacterList
                 BackgroundColor = Color.FromHex("#C4DCC4"),
                 Children =
                     {
+                        label,
                         button,
                     }
             };
