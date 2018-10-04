@@ -1,4 +1,5 @@
-﻿using PwF.Enums;
+﻿using Pwf.ViewModels;
+using PwF.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Text;
 namespace PwF.Classes
 {
     //Barebones Charactersheet:
-    public class Character
+    public class Character : ViewModelBase
     {
         //Set the character's name:
         public Character(string name)
@@ -23,7 +24,9 @@ namespace PwF.Classes
             //Get the character's name:
             get { return name; }
             //Set the character's name: (Unchangable)
-            private set { name = value; }
+            private set { name = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -36,7 +39,9 @@ namespace PwF.Classes
             //Get the character's alignment:
             get { return alignment; }
             //Set the character's alignment:
-            set { alignment = value; }
+            set { alignment = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -49,7 +54,9 @@ namespace PwF.Classes
             //Get the character's level:
             get { return level; }
             //Set the character's level:
-            set { level = value; }
+            set { level = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -62,7 +69,9 @@ namespace PwF.Classes
             //Get the character's deity:
             get { return deity; }
             //Set the character's deity:
-            set { deity = value; }
+            set { deity = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -75,7 +84,9 @@ namespace PwF.Classes
             //Get the character's homeland:
             get { return homeland; }
             //Set the character's homeland:
-            set { homeland = value; }
+            set { homeland = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -88,7 +99,9 @@ namespace PwF.Classes
             //Get the character's race:
             get { return race; }
             //Set the character's race:
-            set { race = value; }
+            set { race = value;
+                OnPropertyChanged();
+            }
         }
 
         //Character's size:
@@ -100,7 +113,9 @@ namespace PwF.Classes
             //Get the character's size:
             get { return size; }
             //Set the character's size:
-            set { size = value; }
+            set { size = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -113,7 +128,9 @@ namespace PwF.Classes
             //Get the character's gender:
             get { return gender; }
             //Get the character's gender:
-            set { gender = value; }
+            set { gender = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -126,7 +143,9 @@ namespace PwF.Classes
             //Get the character's age:
             get { return age; }
             //Set the character's age:
-            set { age = value; }
+            set { age = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -139,7 +158,9 @@ namespace PwF.Classes
             //Get the character's height:
             get { return height; }
             //Set the character's height:
-            set { height = value; }
+            set { height = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -152,7 +173,9 @@ namespace PwF.Classes
             //Get the character's weight:
             get { return weight; }
             //Set the character's weight:
-            set { weight = value; }
+            set { weight = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -165,7 +188,9 @@ namespace PwF.Classes
             //Get the character's hairType:
             get { return hairType; }
             //Set the character's hairType:
-            set { hairType = value; }
+            set { hairType = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -178,7 +203,9 @@ namespace PwF.Classes
             //Get the character's hairColour:
             get { return hairColour; }
             //Set the character's hairColour:
-            set { hairColour = value; }
+            set { hairColour = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -191,7 +218,9 @@ namespace PwF.Classes
             //Get the character's eyeColour:
             get { return eyeColour; }
             //Get the character's eyeColour:
-            set { eyeColour = value; }
+            set { eyeColour = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -204,7 +233,9 @@ namespace PwF.Classes
             //Get the character's Class:
             get { return Class; }
             //Set the character's Class:
-            set { Class = value; }
+            set { Class = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -217,7 +248,9 @@ namespace PwF.Classes
             //Get the character's cp:
             get { return cp; }
             //Set the character's cp:
-            set { cp = value; }
+            set { cp = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -230,7 +263,9 @@ namespace PwF.Classes
             //Get the character's sp:
             get { return sp; }
             //Set the character's sp:
-            set { sp = value; }
+            set { sp = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -243,7 +278,9 @@ namespace PwF.Classes
             //Get the character's gp:
             get { return gp; }
             //Set the character's gp:
-            set { gp = value; }
+            set { gp = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -256,7 +293,9 @@ namespace PwF.Classes
             //Get the character's pp:
             get { return pp; }
             //Set the character's pp:
-            set { pp = value; }
+            set { pp = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -269,7 +308,9 @@ namespace PwF.Classes
             //Get the character's health:
             get { return health; }
             //Set the character's health:
-            set { health = value; }
+            set { health = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -282,7 +323,9 @@ namespace PwF.Classes
             //Get the character's strength:
             get { return strength; }
             //Set the character's strength:
-            set { strength = value; }
+            set { strength = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -295,7 +338,9 @@ namespace PwF.Classes
             //Get the character's dexterity:
             get { return dexterity; }
             //Set the character's dexterity:
-            set { dexterity = value; }
+            set { dexterity = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -308,7 +353,9 @@ namespace PwF.Classes
             //Get the character's constitution:
             get { return constitution; }
             //Set the character's constitution:
-            set { constitution = value; }
+            set { constitution = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -321,7 +368,9 @@ namespace PwF.Classes
             //Get the character's intelligence:
             get { return intelligence; }
             //Set the character's intelligence:
-            set { intelligence = value; }
+            set { intelligence = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -334,7 +383,9 @@ namespace PwF.Classes
             //Get the character's wisdom:
             get { return wisdom; }
             //Set the character's wisdom:
-            set { wisdom = value; }
+            set { wisdom = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -347,7 +398,9 @@ namespace PwF.Classes
             //Get the character's charisma:
             get { return charisma; }
             //Set the character's charisma:
-            set { charisma = value; }
+            set { charisma = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -360,7 +413,7 @@ namespace PwF.Classes
             //Get the character's statusEffects:
             get => statusEffects;
             //Set the character's statusEffects:
-            set => statusEffects.Add(value); //?
+            set => statusEffects = value; //?
 
         }
 
@@ -373,7 +426,7 @@ namespace PwF.Classes
             //Get the character's languages:
             get => languages;
             //Set the character's languages:
-            set => languages.Add(value); //?
+            set => languages = value; //?
 
         }
 

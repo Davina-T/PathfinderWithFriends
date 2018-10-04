@@ -9,11 +9,6 @@
 
         <AbsoluteLayout
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
-
-            <AbsoluteLayout.BindingContext>
-                <navi:ViewModel/>
-            </AbsoluteLayout.BindingContext>
-
             <!-- The Top Bar of the Application -->
             <AbsoluteLayout 
                 BackgroundColor="#1B2C34"

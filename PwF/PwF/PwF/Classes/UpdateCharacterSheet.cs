@@ -7,9 +7,9 @@ using PwF.Enums;
 namespace PwF.Classes{
 
     //Update Character Sheet:
-    class UpdateCharacterSheet{
+    public static class UpdateCharacterSheet{
 
-        public void CreateCharacter()
+        public static Character CreateCharacter()
         {
 
             //Character Creattion
@@ -41,9 +41,10 @@ namespace PwF.Classes{
                 Intelligence = 50,
                 Wisdom = 55,
                 Charisma = 21,
-                StatusEffects = "Sick", //?
-                Languages = "Common", //?
+                //StatusEffects = "Sick", //?
+                //Languages = "Common", //?
             };
+            return character;
         }
 
     }
