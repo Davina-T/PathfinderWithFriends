@@ -1,5 +1,4 @@
-﻿using PwF.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +7,13 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace PwF.CharacterSheet
+namespace PwF.Template
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CharacterSheet : ContentPage
+	public partial class BasePage : ContentPage
 	{
-		public CharacterSheet ()
+		public BasePage ()
 		{
-            BindingContext = new CharacterSheetViewModel();
 			InitializeComponent ();
 		}
 	}
