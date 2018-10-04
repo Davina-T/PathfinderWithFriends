@@ -12,7 +12,8 @@ namespace PwF
 		{
 			InitializeComponent();
 
-            CharacterSheet.CharacterSheet mainPage = new CharacterSheet.CharacterSheet();
+            //CharacterSheet.CharacterSheet mainPage = new CharacterSheet.CharacterSheet();
+            CharacterCreation.RacePage mainPage = new CharacterCreation.RacePage();
             
             MainPage = new NavigationPage(mainPage);
             Pwf.Navigation.PageNavigationManager.Instance.Navigation = MainPage.Navigation;
