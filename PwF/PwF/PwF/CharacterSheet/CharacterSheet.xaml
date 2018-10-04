@@ -19,6 +19,7 @@
                 BackgroundColor="#1B2C34"
                 AbsoluteLayout.LayoutBounds="0,0,1,.1"  
                 AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+
                 <!-- The Label for displaying the Character's Name -->
                 <Label
                     Text="Character Name"
