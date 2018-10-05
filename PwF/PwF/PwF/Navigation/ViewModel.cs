@@ -6,13 +6,13 @@ using Xamarin.Forms;
 
 namespace Pwf.Navigation
 {
-    public class HomeViewModel {
+    public class ViewModel {
         public ICommand OpenCombatPage { protected set; get; }
         public ICommand OpenCharacterSheet { protected set; get; }
         public ICommand OpenCharacterList { protected set; get; }
         private PageNavigationManager navManager;
 
-        public HomeViewModel() {
+        public ViewModel() {
             navManager = PageNavigationManager.Instance;
 
             OpenCharacterList = new Command(() => {

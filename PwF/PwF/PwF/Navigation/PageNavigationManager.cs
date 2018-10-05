@@ -1,5 +1,4 @@
 ﻿using PwF.CharacterSheet;
-using PwF.CharacterCreation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -39,20 +38,6 @@ namespace Pwf.Navigation
 
         public void ShowCombatPage() {
             navigation.PushAsync(new CombatPage());
-        }
-
-        public void ShowLevelPage() {
-            // change navigation to send to Level Page
-            //navigation.PushAsync(new CharacterSheet());
-        }
-
-        public void ShowRacePage() {
-            navigation.PushAsync(new PwF.CharacterCreation.RacePage());
-        }
-
-        public void ShowClassPage() {
-            // change navigation to send to Class Page
-            //navigation.PushAsync(new CharacterSheet());
         }
 
     }

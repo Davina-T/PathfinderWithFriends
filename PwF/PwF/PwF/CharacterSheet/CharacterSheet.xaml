@@ -10,15 +10,18 @@
         <AbsoluteLayout
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
 
+            <AbsoluteLayout.BindingContext>
+                <navi:ViewModel/>
+            </AbsoluteLayout.BindingContext>
+
             <!-- The Top Bar of the Application -->
             <AbsoluteLayout 
                 BackgroundColor="#1B2C34"
-                AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                AbsoluteLayout.LayoutBounds="0,0,1,.1"  
                 AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
-
                 <!-- The Label for displaying the Character's Name -->
                 <Label
-                    Text="{Binding Character.Name}"
+                    Text="Character Name"
                     TextColor="#C7BC91"
                     Font="Bold, 32"
                     HorizontalOptions="Center" 
@@ -54,7 +57,7 @@
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional" />
 
                         <Label
-                            Text="{Binding Character.Race}"
+                            Text="*Race*"
                             Font="24"
                             HorizontalOptions="Center"
                             AbsoluteLayout.LayoutBounds="0,50,.5,100"
@@ -70,7 +73,7 @@
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional" />
 
                         <Label
-                            Text="{Binding Character.charClass}"
+                            Text="*Class*"
                             Font="24"
                             HorizontalOptions="Center"
                             AbsoluteLayout.LayoutBounds="0,140,.5,100"
@@ -98,7 +101,7 @@
 
                                 <!-- The Labels Relating to the Copper Pieces Data -->
                                 <Label
-                                    Text="{Binding Character.MoneyCP, StringFormat='CP: {0}'}"
+                                    Text="CP: *0*"
                                     Font="16"
                                     HorizontalOptions="Center"
                                     AbsoluteLayout.LayoutBounds="0,.55,.5,.3"
@@ -106,7 +109,7 @@
 
                                 <!-- The Labels Relating to the Silver Pieces Data -->
                                 <Label
-                                    Text="{Binding Character.MoneySP, StringFormat='SP: {0}'}"
+                                    Text="SP: *0*"
                                     Font="16"
                                     HorizontalOptions="Center"
                                     AbsoluteLayout.LayoutBounds="1,.55,.5,.3"
@@ -114,7 +117,7 @@
 
                                 <!-- The Labels Relating to the Gold Pieces Data -->
                                 <Label
-                                    Text="{Binding Character.MoneyGP, StringFormat='GP: {0}'}"
+                                    Text="GP: *0*"
                                     Font="16"
                                     HorizontalOptions="Center"
                                     AbsoluteLayout.LayoutBounds="0,.95,.5,.3"
@@ -122,7 +125,7 @@
 
                                 <!-- The Labels Relating to the Platinum Pieces Data -->
                                 <Label
-                                    Text="{Binding Character.MoneyPP, StringFormat='PP: {0}'}"
+                                    Text="PP: *0*"
                                     Font="16"
                                     HorizontalOptions="Center"
                                     AbsoluteLayout.LayoutBounds="1,.95,.5,.3"
@@ -134,7 +137,7 @@
 
                         <!-- The Labels Relating to the Level Data -->
                         <Label
-                            Text="{Binding Character.CharacterLevel, StringFormat='Level: {0}'}"
+                            Text="Level: *1*"
                             Font="Bold, 24"
                             HorizontalOptions="Center"
                             AbsoluteLayout.LayoutBounds=".9,140,.45,100"
@@ -167,9 +170,9 @@
                                     VerticalOptions="Center"
                                     AbsoluteLayout.LayoutBounds=".1,0,.9,1"
                                     AbsoluteLayout.LayoutFlags="All"/>
-                                
+
                                 <Label
-                                    Text="{Binding Character.Health}"
+                                    Text="11/20"
                                     Font="Bold, 18"
                                     VerticalOptions="Center"
                                     HorizontalOptions="Center"
@@ -278,7 +281,7 @@
                                     AbsoluteLayout.LayoutFlags="All" />
 
                                 <Label
-                                    Text="{Binding Character.Strength}"
+                                    Text="*10*"
                                     Font="Bold, 20"
                                     HorizontalOptions="Center"
                                     VerticalOptions="Center"
@@ -295,7 +298,7 @@
                                     AbsoluteLayout.LayoutFlags="All" />
 
                                 <Label
-                                    Text="{Binding Character.Dexterity}"
+                                    Text="*10*"
                                     Font="Bold, 20"
                                     HorizontalOptions="Center"
                                     VerticalOptions="Center"
@@ -312,7 +315,7 @@
                                     AbsoluteLayout.LayoutFlags="All" />
 
                                 <Label
-                                    Text="{Binding Character.Constitution}"
+                                    Text="*10*"
                                     Font="Bold, 20"
                                     HorizontalOptions="Center"
                                     VerticalOptions="Center"
@@ -329,7 +332,7 @@
                                     AbsoluteLayout.LayoutFlags="All" />
 
                                 <Label
-                                    Text="{Binding Character.Intelligence}"
+                                    Text="*10*"
                                     Font="Bold, 20"
                                     HorizontalOptions="Center"
                                     VerticalOptions="Center"
@@ -346,7 +349,7 @@
                                     AbsoluteLayout.LayoutFlags="All" />
 
                                 <Label
-                                    Text="{Binding Character.Wisdom}"
+                                    Text="*10*"
                                     Font="Bold, 20"
                                     HorizontalOptions="Center"
                                     VerticalOptions="Center"
@@ -363,7 +366,7 @@
                                     AbsoluteLayout.LayoutFlags="All" />
 
                                 <Label
-                                    Text="{Binding Character.Charisma}"
+                                    Text="*10*"
                                     Font="Bold, 20"
                                     HorizontalOptions="Center"
                                     VerticalOptions="Center"
