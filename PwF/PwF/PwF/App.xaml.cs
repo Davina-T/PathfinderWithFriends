@@ -11,7 +11,7 @@ namespace PwF
 		public App ()
 		{
 			InitializeComponent();
-
+      
             CharacterCreation.ClassPage mainPage = new CharacterCreation.ClassPage();
             
             MainPage = new NavigationPage(mainPage);
