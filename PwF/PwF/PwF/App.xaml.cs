@@ -11,8 +11,8 @@ namespace PwF
 		public App ()
 		{
 			InitializeComponent();
-
-            CreateCharacter.LevelPage mainPage = new CreateCharacter.LevelPage();
+      
+            CharacterCreation.ClassPage mainPage = new CharacterCreation.ClassPage();
             
             MainPage = new NavigationPage(mainPage);
             Pwf.Navigation.PageNavigationManager.Instance.Navigation = MainPage.Navigation;

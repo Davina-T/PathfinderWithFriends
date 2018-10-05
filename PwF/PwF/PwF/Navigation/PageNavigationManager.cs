@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using PwF.CharacterList;
 
 namespace Pwf.Navigation
 {
@@ -29,7 +30,7 @@ namespace Pwf.Navigation
 
         public void ShowCharacterList() {
             // change navigation to send to main page (character list page)
-            //navigation.PushAsync(new CharacterSheet());
+            navigation.PushAsync(new CharacterList());
         }
 
         public void ShowCharacterSheet() {
