@@ -25,4 +25,13 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="CreateCharacter\TesterPage.xaml.cs">
+      <DependentUpon>TesterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="CreateCharacter\LevelPage.xaml.cs">
+      <DependentUpon>LevelPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

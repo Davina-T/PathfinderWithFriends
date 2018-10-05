@@ -1,4 +1,5 @@
 ﻿using PwF.CharacterSheet;
+using PwF.CreateCharacter;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -53,6 +54,8 @@ namespace Pwf.Navigation
         public void ShowClassPage() {
             // change navigation to send to Class Page
             //navigation.PushAsync(new CharacterSheet());
+        public void ShowTesterPage() {
+            navigation.PushAsync(new TesterPage());
         }
 
     }
