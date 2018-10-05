@@ -9,6 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="CharacterCreation\ClassPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="CharacterSheet\CharacterSheet.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
