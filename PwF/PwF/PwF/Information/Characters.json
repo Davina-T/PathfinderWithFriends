@@ -1,0 +1,22 @@
+﻿{"Characters":
+	[
+		{
+			"Player":"", "Name":"", "Race":"", "Class":"", "Level":"", 
+			"Details":{ "Alignment":{}, "Diety":"", "Homeland":"", "Size":"", "Gender":"", 
+			"Age":"", "Height":"", "Weight":"", "Hair":"", "Eyes":"", "Backstory":""},
+			"AbilityScores":[], "Skills":[], "Feats":[], "Languages":[], "Spells":[], 
+			"Gold":{"CP":"", "SP":"", "GP":"", "PP":""},
+			"Equipment":{"Weapons":[], "Armour":[], "Gear":[]},
+			"TotoalHP":"", "CurrentHP":""
+		},
+		{
+			"Player":"", "Name":"", "Race":"", "Class":"", "Level":"", 
+			"Details":{ "Alignment":{}, "Diety":"", "Homeland":"", "Size":"", "Gender":"", 
+			"Age":"", "Height":"", "Weight":"", "Hair":"", "Eyes":"", "Backstory":""},
+			"AbilityScores":[], "Skills":[], "Feats":[], "Languages":[], "Spells":[], 
+			"Gold":{"CP":"", "SP":"", "GP":"", "PP":""},
+			"Equipment":{"Weapons":[], "Armour":[], "Gear":[]},
+			"TotoalHP":"", "CurrentHP":""
+		}
+	]
+};
