@@ -17,7 +17,7 @@ namespace Pwf.Navigation
 
             OpenCharacterList = new Command(() => {
                 // change the navManager to call the method in PageNavigationManager
-                //navManager.ShowCharacterSheet();
+                navManager.ShowCharacterList();
             });
 
             OpenCharacterSheet = new Command(() => {
@@ -27,7 +27,6 @@ namespace Pwf.Navigation
             OpenCombatPage = new Command(() => {
                 navManager.ShowCombatPage();
             });
-
         }
 
     }

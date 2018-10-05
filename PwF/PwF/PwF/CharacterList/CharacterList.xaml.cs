@@ -7,16 +7,34 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using Pwf.Navigation;
+
 namespace PwF.CharacterList
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CharacterList : ContentPage
-	{
-        StackLayout layout;
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class CharacterList : ContentPage
+    {
+        AbsoluteLayout layout;
+        ScrollView scroll;
+        AbsoluteLayout allButtons;
+        AbsoluteLayout titleText;
 
-        public CharacterList ()
-		{
-			InitializeComponent ();
+        // Will be a call to the DB
+        int numberOfCharacters = 4;
+
+        String name = "Bob";
+        String race = "Halfling";
+        String characterClass = "Bard";
+        int level = 2;
+        int money = 30;
+
+        public ViewModel viewModel = new ViewModel();
+
+        public CharacterList()
+        {
+            InitializeComponent();
+
+            NavigationPage.SetHasNavigationBar(this, false);
 
             SetupStackLayout();
             CreateCharacterButtons();
@@ -24,61 +42,255 @@ namespace PwF.CharacterList
 
         }
 
+        // Creates the title label and the absolute layouts used to make the page
         public void SetupStackLayout()
         {
+            // Creates the title label
             Label label = new Label
             {
                 Text = "CHOOSE CHARACTER",
-                VerticalOptions = LayoutOptions.Start,
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalOptions = LayoutOptions.Center,
                 TextColor = Color.FromHex("#C4DCC4"),
-                BackgroundColor = Color.FromHex("#1B2C34")
+                FontSize = 32,
+                FontAttributes = FontAttributes.Bold
             };
+            AbsoluteLayout.SetLayoutBounds(label, new Rectangle(0, 0, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(label, AbsoluteLayoutFlags.All);
 
-            layout = new StackLayout
+            // Initialises the layout that will contain the title label
+            titleText = new AbsoluteLayout
             {
-                BackgroundColor = Color.FromHex("#607F6F"),
-
+                BackgroundColor = Color.FromHex("#1B2C34"),
                 Children =
                 {
                     label
                 }
             };
+            AbsoluteLayout.SetLayoutBounds(titleText, new Rectangle(0, 0, 1, 0.1));
+            AbsoluteLayout.SetLayoutFlags(titleText, AbsoluteLayoutFlags.All);
+
+            // Initialises the layout that will contain all the buttons
+            allButtons = new AbsoluteLayout
+            {
+
+            };
+            AbsoluteLayout.SetLayoutBounds(allButtons, new Rectangle(0, 0, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(allButtons, AbsoluteLayoutFlags.All);
+
+            // Initialises the scroll that will contain the allButtons layout
+            scroll = new ScrollView
+            {
+                Content = allButtons
+            };
+            AbsoluteLayout.SetLayoutBounds(scroll, new Rectangle(0, 0, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(scroll, AbsoluteLayoutFlags.All);
+
+            // Creates the layout that contains the scroll view
+            AbsoluteLayout scrollLayout = new AbsoluteLayout
+            {
+                Children =
+                {
+                    scroll
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(scrollLayout, new Rectangle(0, 0.7, 1, 0.8));
+            AbsoluteLayout.SetLayoutFlags(scrollLayout, AbsoluteLayoutFlags.All);
+
+            // Initialises the layout that will contain everything on the page
+            layout = new AbsoluteLayout
+            {
+                BackgroundColor = Color.FromHex("#607F6F"),
+
+                Children =
+                {
+                    titleText,
+                    scrollLayout
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(layout, new Rectangle(0, 0, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(layout, AbsoluteLayoutFlags.All);
         }
 
+        // Creates a button for each character the user has
         public void CreateCharacterButtons()
         {
-            // Will be a call to the DB
-            int numberOfCharacters = 2;
+            BindingContext = viewModel;
+
+            // Loops the button creation process based on the number of characters
             for (int i = 0; i < numberOfCharacters; i++)
             {
+                // Create a label that displays the name of the character
+                Label cName = new Label
+                {
+                    Text = name,
+                    FontSize = 24,
+                    HorizontalOptions = LayoutOptions.Center
+                };
+                AbsoluteLayout.SetLayoutBounds(cName, new Rectangle(0.5, 0, 1, 0.33));
+                AbsoluteLayout.SetLayoutFlags(cName, AbsoluteLayoutFlags.All);
+
+                // Create a label that displays the race of the character, place it inside a layout for positioning
+                Label cRace = new Label
+                {
+                    Text = race,
+                    FontSize = 24,
+                };
+                AbsoluteLayout.SetLayoutBounds(cRace, new Rectangle(0, 0, 1, 1));
+                AbsoluteLayout.SetLayoutFlags(cRace, AbsoluteLayoutFlags.All);
+
+                AbsoluteLayout raceLayout = new AbsoluteLayout
+                {
+                    Children =
+                    {
+                        cRace,
+                    }
+                };
+                AbsoluteLayout.SetLayoutBounds(raceLayout, new Rectangle(0.05, 0.45, 0.5, 0.33));
+                AbsoluteLayout.SetLayoutFlags(raceLayout, AbsoluteLayoutFlags.All);
+                
+                // Create a label that displays the level of the character, place it inside a layout for positioning
+                Label cLevel = new Label
+                {
+                    Text = "lvl " + level.ToString(),
+                    FontSize = 24,
+                };
+                AbsoluteLayout.SetLayoutBounds(cLevel, new Rectangle(0, 0, 1, 1));
+                AbsoluteLayout.SetLayoutFlags(cLevel, AbsoluteLayoutFlags.All);
+
+                AbsoluteLayout levelLayout = new AbsoluteLayout
+                {
+                    Children =
+                    {
+                        cLevel,
+                    }
+                };
+                AbsoluteLayout.SetLayoutBounds(levelLayout, new Rectangle(0.05, 0.9, 0.5, 0.33));
+                AbsoluteLayout.SetLayoutFlags(levelLayout, AbsoluteLayoutFlags.All);
+
+                // Create a label that displays the class of the character, place it inside a layout for positioning
+                Label cClass = new Label
+                {
+                    Text = characterClass,
+                    FontSize = 24,
+                };
+                AbsoluteLayout.SetLayoutBounds(cClass, new Rectangle(0, 0, 1, 1));
+                AbsoluteLayout.SetLayoutFlags(cClass, AbsoluteLayoutFlags.All);
+
+                AbsoluteLayout classLayout = new AbsoluteLayout
+                {
+                    HorizontalOptions = LayoutOptions.Center,
+                    Children =
+                    {
+                        cClass,
+                    }
+                };
+                AbsoluteLayout.SetLayoutBounds(classLayout, new Rectangle(0.75, 0.45, 0.5, 0.33));
+                AbsoluteLayout.SetLayoutFlags(classLayout, AbsoluteLayoutFlags.All);
+
+                // Create a label that displays the money of the character, place it inside a layout for positioning
+                Label cMoney = new Label
+                {
+                    Text = money.ToString() + "gp",
+                    FontSize = 24,
+                };
+                AbsoluteLayout.SetLayoutBounds(cMoney, new Rectangle(0, 0.5, 1, 1));
+                AbsoluteLayout.SetLayoutFlags(cMoney, AbsoluteLayoutFlags.All);
+
+                AbsoluteLayout moneyLayout = new AbsoluteLayout
+                {
+                    HorizontalOptions = LayoutOptions.Center,
+                    Children =
+                    {
+                        cMoney,
+                    }
+                };
+                AbsoluteLayout.SetLayoutBounds(moneyLayout, new Rectangle(0.75, 0.9, 0.5, 0.33));
+                AbsoluteLayout.SetLayoutFlags(moneyLayout, AbsoluteLayoutFlags.All);
+
+                // Create a button and place it over the labels, set opacity to 0 so the labels remain visible
                 Button button = new Button
                 {
-                    Text = "Example Character",
-                    VerticalOptions = LayoutOptions.End,
-                    HorizontalOptions = LayoutOptions.Center,
-                    TextColor = Color.FromHex("#000000"),
-                    BackgroundColor = Color.FromHex("#C4DCC4"),
-                    //Command = Binding.Create<>
+                    Opacity = 0,
                 };
-                //button.SetBinding(Button.NavigationProperty, OpenCharacterSheet);
-                layout.Children.Add(button);
+                AbsoluteLayout.SetLayoutBounds(button, new Rectangle(0, 0, 1, 1));
+                AbsoluteLayout.SetLayoutFlags(button, AbsoluteLayoutFlags.All);
+                button.SetBinding(Button.CommandProperty, "OpenCharacterSheet");
+
+                // Place the button and all the labels inside a layout
+                AbsoluteLayout buttonLayout = new AbsoluteLayout
+                {
+                    BackgroundColor = Color.FromHex("#C4DCC4"),
+                    Children =
+                    {
+                        cName,
+                        raceLayout,
+                        levelLayout,
+                        classLayout,
+                        moneyLayout,
+                        button,
+                    }
+                };
+                AbsoluteLayout.SetLayoutBounds(buttonLayout, new Rectangle(0.5, (150 * i), 0.75, 100));
+                AbsoluteLayout.SetLayoutFlags(buttonLayout, AbsoluteLayoutFlags.XProportional | AbsoluteLayoutFlags.WidthProportional);
+                
+                // Add this layout to the allButtons layout
+                allButtons.Children.Add(buttonLayout);
             }
             Content = layout;
         }
 
+        // Create the button that starts the character creation process
         public void CreateNewCharacterButton()
         {
-            Button button = new Button
+            BindingContext = viewModel;
+
+            // Create the label for the button
+            Label label = new Label
             {
                 Text = "Create New Character",
-                VerticalOptions = LayoutOptions.End,
+                FontSize = 24,
                 HorizontalOptions = LayoutOptions.Center,
-                TextColor = Color.FromHex("#000000"),
-                BackgroundColor = Color.FromHex("#C4DCC4")
             };
+            AbsoluteLayout.SetLayoutBounds(label, new Rectangle(0, 0.45, 1, 0.33));
+            AbsoluteLayout.SetLayoutFlags(label, AbsoluteLayoutFlags.All);
+
+            //AbsoluteLayout labelLayout = new AbsoluteLayout
+            //{
+            //    Children =
+            //        {
+            //            label,
+            //        }
+            //};
+            //AbsoluteLayout.SetLayoutBounds(labelLayout, new Rectangle(0, 0.45, 1, 0.33));
+            //AbsoluteLayout.SetLayoutFlags(labelLayout, AbsoluteLayoutFlags.All);
+
+            // Create the button
+            Button button = new Button
+            {
+                Opacity = 0,
+                BackgroundColor = Color.FromHex("#000000"),
+            };
+            AbsoluteLayout.SetLayoutBounds(button, new Rectangle(0, 0, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(button, AbsoluteLayoutFlags.All);
+
+            // Bind the button to a navigation command
+            button.SetBinding(Button.CommandProperty, "OpenCharacterSheet");
+
+            // Add the button to a layout
+            AbsoluteLayout buttonLayout = new AbsoluteLayout
+            {
+                BackgroundColor = Color.FromHex("#C4DCC4"),
+                Children =
+                    {
+                        label,
+                        button,
+                    }
+            };
+            AbsoluteLayout.SetLayoutBounds(buttonLayout, new Rectangle(0.5, (150 * numberOfCharacters), 0.75, 100));
+            AbsoluteLayout.SetLayoutFlags(buttonLayout, AbsoluteLayoutFlags.XProportional | AbsoluteLayoutFlags.WidthProportional);
             
-            layout.Children.Add(button);
+            // Add the layout to the allButtons layout
+            allButtons.Children.Add(buttonLayout);
             Content = layout;
         }
     }
