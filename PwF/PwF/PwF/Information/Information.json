@@ -1,0 +1,121 @@
+﻿{"information": {
+	"Races": {
+		[
+		"Name":"Dwarves", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Elves", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Gnomes", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Half-Elves", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Half-Orcs", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Halflings", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Humans", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Aasimars", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Catfolk", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Dhampirs", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Drow", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Fetchlings", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Goblins", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Hobgoblins", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Ifrits", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Kobolds", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Orcs", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Oreads", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Ratfolk", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Sylphs", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Tengus", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Tieflings", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		],
+		[
+		"Name":"Undines", "PhysicalDescription":"", "Society":"", "Relations":"", "AlignmentAndReligion":[], 
+		"mNames":[], "fName":[], "RTraits":[], "ARTraits":[], "FClass":[], "Archetypes":[], "Equipment":[], 
+		"RFeats":[], "RSpells":[], "RMagicItems":[]
+		]
+	},
+	"Classes":{
+	}
+}};
