@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 using PwF.CharacterList;
+using PwF.CharacterCreation;
 
 namespace Pwf.Navigation
 {
@@ -38,6 +39,20 @@ namespace Pwf.Navigation
 
         public void ShowCombatPage() {
             navigation.PushAsync(new CombatPage());
+        }
+
+        public void ShowLevelPage() {
+            // change navigation to send to Level Page
+            //navigation.PushAsync(new CharacterSheet());
+        }
+
+        public void ShowRacePage() {
+            navigation.PushAsync(new RacePage());
+        }
+
+        public void ShowClassPage() {
+            // change navigation to send to Class Page
+            //navigation.PushAsync(new CharacterSheet());
         }
 
     }
