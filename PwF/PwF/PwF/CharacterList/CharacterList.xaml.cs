@@ -274,7 +274,7 @@ namespace PwF.CharacterList
             AbsoluteLayout.SetLayoutFlags(button, AbsoluteLayoutFlags.All);
 
             // Bind the button to a navigation command
-            button.SetBinding(Button.CommandProperty, "OpenCharacterSheet");
+            button.SetBinding(Button.CommandProperty, "OpenLevelPage");
 
             // Add the button to a layout
             AbsoluteLayout buttonLayout = new AbsoluteLayout

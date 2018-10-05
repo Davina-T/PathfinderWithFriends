@@ -12,7 +12,7 @@ namespace PwF
 		{
 			InitializeComponent();
 
-            CharacterCreation.RacePage mainPage = new CharacterCreation.RacePage();
+            CharacterList.CharacterList mainPage = new CharacterList.CharacterList();
       
             //CharacterCreation.ClassPage mainPage = new CharacterCreation.ClassPage();
             
