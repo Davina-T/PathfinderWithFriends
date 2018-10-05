@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PwF.CharacterCreation.RacePage"
              xmlns:cell="clr-namespace:PwF.Cells"
-             xmlns:local="clr-namespace:DNDTest.CharacterCreation">
+             NavigationPage.HasNavigationBar="false">
     
     <ContentPage.Content>
 
