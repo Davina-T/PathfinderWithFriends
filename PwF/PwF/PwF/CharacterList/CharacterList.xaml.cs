@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PwF.Cells.PwF.Cells;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,6 +15,8 @@ namespace PwF.CharacterList
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterList : ContentPage
     {
+        CharacterListViewModel viewModel = new CharacterListViewModel();
+
         AbsoluteLayout layout;
         ScrollView scroll;
         AbsoluteLayout allButtons;
@@ -27,8 +30,6 @@ namespace PwF.CharacterList
         String characterClass = "Bard";
         int level = 2;
         int money = 30;
-
-        public ViewModel viewModel = new ViewModel();
 
         public CharacterList()
         {
@@ -274,7 +275,7 @@ namespace PwF.CharacterList
             AbsoluteLayout.SetLayoutFlags(button, AbsoluteLayoutFlags.All);
 
             // Bind the button to a navigation command
-            button.SetBinding(Button.CommandProperty, "OpenLevelPage");
+            button.SetBinding(Button.CommandProperty, "StartNewCharacter");
 
             // Add the button to a layout
             AbsoluteLayout buttonLayout = new AbsoluteLayout
