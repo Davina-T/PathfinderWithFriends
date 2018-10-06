@@ -2,17 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PwF.CharacterCreation.LevelPage"
-             xmlns:navi="clr-namespace:Pwf.Navigation"
+             xmlns:local="clr-namespace:PwF.CharacterCreation"
              NavigationPage.HasNavigationBar="false">
     
     <ContentPage.Content>
-        
+
         <AbsoluteLayout
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
-
-            <AbsoluteLayout.BindingContext>
-                <navi:ViewModel/>
-            </AbsoluteLayout.BindingContext>
 
             <!-- The Top Bar of the Application -->
             <AbsoluteLayout 
@@ -45,9 +41,10 @@
 
                     <!-- The Layout that Contains the Pages Content -->
                     <AbsoluteLayout
+                        x:Name="ContainingLayout"
                         AbsoluteLayout.LayoutBounds="0,0,1,1"  
                         AbsoluteLayout.LayoutFlags="All">
-                        
+
                         <!-- Character Level Label -->
                         <Label
                             Text="Enter Character Level:"
@@ -61,6 +58,7 @@
                         <Entry
                             Keyboard="Numeric"
                             x:Name="levelEntry"
+                            Text="{Binding Level}"
                             FontSize="22"
                             HorizontalTextAlignment="Center"
                             BackgroundColor="White"

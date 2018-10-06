@@ -14,9 +14,9 @@ namespace PwF
 
             //CharacterList.CharacterList mainPage = new CharacterList.CharacterList();
 
-            //CharacterCreation.LevelPage mainPage = new CharacterCreation.LevelPage();
+            CharacterCreation.LevelPage mainPage = new CharacterCreation.LevelPage();
 
-            CharacterCreation.RacePage mainPage = new CharacterCreation.RacePage();
+            //CharacterList.CharacterList mainPage = new CharacterList.CharacterList();
 
             MainPage = new NavigationPage(mainPage);
             Pwf.Navigation.PageNavigationManager.Instance.Navigation = MainPage.Navigation;

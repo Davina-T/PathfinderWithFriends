@@ -22,6 +22,7 @@ namespace PwF.CharacterCreation
             RightArrow.BindingContext = viewModel;
             var tapGestureRecognizer1 = new TapGestureRecognizer();
             tapGestureRecognizer1.Tapped += (s, e) => {
+                //DisplayAlert("Alert", "Next Page", "OK");
                 viewModel.NextPage();
             };
             RightArrow.GestureRecognizers.Add(tapGestureRecognizer1);
@@ -30,6 +31,7 @@ namespace PwF.CharacterCreation
             LeftArrow.BindingContext = viewModel;
             var tapGestureRecognizer2 = new TapGestureRecognizer();
             tapGestureRecognizer2.Tapped += (s, e) => {
+                //DisplayAlert("Alert", "Previous Page", "OK");
                 viewModel.PrevPage();
             };
             LeftArrow.GestureRecognizers.Add(tapGestureRecognizer2);
@@ -38,9 +40,12 @@ namespace PwF.CharacterCreation
             InfoButton.BindingContext = viewModel;
             var tapGestureRecognizer3 = new TapGestureRecognizer();
             tapGestureRecognizer3.Tapped += (s, e) => {
+                DisplayAlert("Alert", "Information View", "OK");
                 viewModel.ViewInfo();
             };
             LeftArrow.GestureRecognizers.Add(tapGestureRecognizer3);
+
+            ContainingLayout.BindingContext = viewModel;
         }
 	}
 }

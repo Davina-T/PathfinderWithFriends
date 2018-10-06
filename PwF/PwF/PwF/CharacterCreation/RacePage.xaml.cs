@@ -12,8 +12,7 @@ namespace PwF.CharacterCreation
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RacePage : ContentPage {
-
-        string Race = "";
+        
         RaceViewModel viewModel = new RaceViewModel();
 
 
@@ -28,6 +27,7 @@ namespace PwF.CharacterCreation
             RightArrow.BindingContext = viewModel;
             var tapGestureRecognizer1 = new TapGestureRecognizer();
             tapGestureRecognizer1.Tapped += (s, e) => {
+                //DisplayAlert("Alert", "Next Page", "OK");
                 viewModel.NextPage();
             };
             RightArrow.GestureRecognizers.Add(tapGestureRecognizer1);
@@ -36,6 +36,7 @@ namespace PwF.CharacterCreation
             LeftArrow.BindingContext = viewModel;
             var tapGestureRecognizer2 = new TapGestureRecognizer();
             tapGestureRecognizer2.Tapped += (s, e) => {
+                //DisplayAlert("Alert", "Previous Page", "OK");
                 viewModel.PrevPage();
             };
             LeftArrow.GestureRecognizers.Add(tapGestureRecognizer2);
@@ -44,17 +45,18 @@ namespace PwF.CharacterCreation
             InfoButton.BindingContext = viewModel;
             var tapGestureRecognizer3 = new TapGestureRecognizer();
             tapGestureRecognizer3.Tapped += (s, e) => {
+                //DisplayAlert("Alert", "Info Page", "OK");
                 viewModel.ViewInfo();
             };
-            LeftArrow.GestureRecognizers.Add(tapGestureRecognizer3);
+            InfoButton.GestureRecognizers.Add(tapGestureRecognizer3);
 
         }
 
         void OnItemSelected(object sender, System.EventArgs e) {
             if (SelectionGroup.SelectedItem != null) {
                 CustomCell temp = (CustomCell)SelectionGroup.SelectedItem;
-                DisplayAlert("OnItemSelected", temp.Title, "OK");
-                viewModel.SelectedRace = temp.Title;
+                //DisplayAlert("OnItemSelected", temp.Title, "OK");
+                viewModel.SelectedRace = temp;
                 // save the Race option
             }
         }

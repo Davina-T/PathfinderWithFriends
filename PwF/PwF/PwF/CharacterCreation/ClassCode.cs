@@ -13,15 +13,6 @@ namespace PwF.CharacterCreation
         public static string[] getClasses()
         {
 
-            /*var assembly = typeof(RacePage).GetTypeInfo().Assembly;
-            Stream stream = assembly.GetManifestResourceStream($"{assembly.GetName().Name}.Information.json");
-
-            using (var reader = new System.IO.StreamReader(stream)) {
-
-                var json = reader.ReadToEnd();
-                var data = JsonConvert.DeserializeObject(json);
-            }*/
-
             string[] value = new string[] {
                 "Bard", "Rogue", "Warrior", "Wizard"};
             return value;

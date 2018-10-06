@@ -14,7 +14,7 @@ namespace PwF.CharacterCreation
     {
         private PageNavigationManager navManager;
 
-        public string SelectedClass { get; set; }
+        public CustomCell SelectedClass { get; set; }
         public List<CustomCell> CustomCells { get; }
 
         public ClassViewModel()
@@ -30,10 +30,10 @@ namespace PwF.CharacterCreation
 
         public void NextPage()
         {
-            if (SelectedClass != "" && SelectedClass != null)
+            if (SelectedClass != null && SelectedClass.Title != "")
             {
-                // save the Selected Class
-                // Navigate to the next page
+                Statics.CharacterCreating.CreatingCharacter.Class = SelectedClass.Title;
+                navManager.ShowTesterPage();
             }
         }
 

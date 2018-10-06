@@ -13,7 +13,6 @@ namespace PwF.CharacterCreation
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ClassPage : ContentPage
 	{
-        string Race = "";
         ClassViewModel viewModel = new ClassViewModel();
 
 
@@ -31,7 +30,7 @@ namespace PwF.CharacterCreation
             RightArrow.BindingContext = viewModel;
             var tapGestureRecognizer1 = new TapGestureRecognizer();
             tapGestureRecognizer1.Tapped += (s, e) => {
-                DisplayAlert("Alert", "Next Page", "OK");
+                //DisplayAlert("Alert", "Next Page", "OK");
                 viewModel.NextPage();
             };
             RightArrow.GestureRecognizers.Add(tapGestureRecognizer1);
@@ -40,7 +39,7 @@ namespace PwF.CharacterCreation
             LeftArrow.BindingContext = viewModel;
             var tapGestureRecognizer2 = new TapGestureRecognizer();
             tapGestureRecognizer2.Tapped += (s, e) => {
-                DisplayAlert("Alert", "Previous Page", "OK");
+                //DisplayAlert("Alert", "Previous Page", "OK");
                 viewModel.PrevPage();
             };
             LeftArrow.GestureRecognizers.Add(tapGestureRecognizer2);
@@ -49,7 +48,7 @@ namespace PwF.CharacterCreation
             InfoButton.BindingContext = viewModel;
             var tapGestureRecognizer3 = new TapGestureRecognizer();
             tapGestureRecognizer3.Tapped += (s, e) => {
-                DisplayAlert("Alert", "Information Page", "OK");
+                //DisplayAlert("Alert", "Information Page", "OK");
                 viewModel.ViewInfo();
             };
             InfoButton.GestureRecognizers.Add(tapGestureRecognizer3);
@@ -61,8 +60,8 @@ namespace PwF.CharacterCreation
             if (SelectionGroup.SelectedItem != null)
             {
                 CustomCell temp = (CustomCell)SelectionGroup.SelectedItem;
-                DisplayAlert("OnItemSelected", temp.Title, "OK");
-                viewModel.SelectedClass = temp.Title;
+                //DisplayAlert("OnItemSelected", temp.Title, "OK");
+                viewModel.SelectedClass = temp;
                 // save the Class option
             }
         }

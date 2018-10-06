@@ -8,17 +8,24 @@ namespace PwF.CharacterCreation
     class LevelViewModel
     {
         private PageNavigationManager navManager;
+        public int Level { get; set; }
+
         public LevelViewModel()
         {
             navManager = PageNavigationManager.Instance;
+            Level = Statics.CharacterCreating.CreatingCharacter.Level;
         }
         public void NextPage()
         {
-            navManager.ShowRacePage();
+            if(Level > 0) {
+                Statics.CharacterCreating.CreatingCharacter.Level = Level;
+                navManager.ShowRacePage();
+            }
         }
 
         public void PrevPage()
         {
+            Statics.CharacterCreating.CreatingCharacter.Level = 0;
             navManager.ShowCharacterList();
         }
 

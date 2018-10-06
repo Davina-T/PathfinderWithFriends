@@ -9,8 +9,5 @@ namespace PwF.Statics
 
         public static Objects.Character CreatingCharacter = new Objects.Character();
 
-        public static void giveName(string name) {
-            CreatingCharacter.Name = name;
-        }
     }
 }
