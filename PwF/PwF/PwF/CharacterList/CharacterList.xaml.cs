@@ -208,14 +208,20 @@ namespace PwF.CharacterList
                 AbsoluteLayout.SetLayoutBounds(moneyLayout, new Rectangle(0.75, 0.9, 0.5, 0.33));
                 AbsoluteLayout.SetLayoutFlags(moneyLayout, AbsoluteLayoutFlags.All);
 
-                // Create a button and place it over the labels, set opacity to 0 so the labels remain visible
-                Button button = new Button
+                // Create the AbsoluteLayout that will be used as a button
+                AbsoluteLayout fauxButton = new AbsoluteLayout
                 {
                     Opacity = 0,
                 };
-                AbsoluteLayout.SetLayoutBounds(button, new Rectangle(0, 0, 1, 1));
-                AbsoluteLayout.SetLayoutFlags(button, AbsoluteLayoutFlags.All);
-                button.SetBinding(Button.CommandProperty, "OpenCharacterSheet");
+                AbsoluteLayout.SetLayoutBounds(fauxButton, new Rectangle(0, 0, 1, 1));
+                AbsoluteLayout.SetLayoutFlags(fauxButton, AbsoluteLayoutFlags.All);
+
+                var tapGestureRecognizer = new TapGestureRecognizer();
+                tapGestureRecognizer.Tapped += (s, e) => {
+                    //DisplayAlert("Alert", "Howdy", "OK");
+                    viewModel.OpenCharacterSheet();
+                };
+                fauxButton.GestureRecognizers.Add(tapGestureRecognizer);
 
                 // Place the button and all the labels inside a layout
                 AbsoluteLayout buttonLayout = new AbsoluteLayout
@@ -228,7 +234,7 @@ namespace PwF.CharacterList
                         levelLayout,
                         classLayout,
                         moneyLayout,
-                        button,
+                        fauxButton,
                     }
                 };
                 AbsoluteLayout.SetLayoutBounds(buttonLayout, new Rectangle(0.5, (150 * i), 0.75, 100));
@@ -255,27 +261,20 @@ namespace PwF.CharacterList
             AbsoluteLayout.SetLayoutBounds(label, new Rectangle(0, 0.45, 1, 0.33));
             AbsoluteLayout.SetLayoutFlags(label, AbsoluteLayoutFlags.All);
 
-            //AbsoluteLayout labelLayout = new AbsoluteLayout
-            //{
-            //    Children =
-            //        {
-            //            label,
-            //        }
-            //};
-            //AbsoluteLayout.SetLayoutBounds(labelLayout, new Rectangle(0, 0.45, 1, 0.33));
-            //AbsoluteLayout.SetLayoutFlags(labelLayout, AbsoluteLayoutFlags.All);
-
-            // Create the button
-            Button button = new Button
+            // Create the AbsoluteLayout that will be used as a button
+            AbsoluteLayout fauxButton = new AbsoluteLayout
             {
                 Opacity = 0,
-                BackgroundColor = Color.FromHex("#000000"),
             };
-            AbsoluteLayout.SetLayoutBounds(button, new Rectangle(0, 0, 1, 1));
-            AbsoluteLayout.SetLayoutFlags(button, AbsoluteLayoutFlags.All);
-
-            // Bind the button to a navigation command
-            button.SetBinding(Button.CommandProperty, "StartNewCharacter");
+            AbsoluteLayout.SetLayoutBounds(fauxButton, new Rectangle(0, 0, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(fauxButton, AbsoluteLayoutFlags.All);
+            
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += (s, e) => {
+                //DisplayAlert("Alert", "Howdy", "OK");
+                viewModel.StartNewCharacter();
+            };
+            fauxButton.GestureRecognizers.Add(tapGestureRecognizer);
 
             // Add the button to a layout
             AbsoluteLayout buttonLayout = new AbsoluteLayout
@@ -284,7 +283,7 @@ namespace PwF.CharacterList
                 Children =
                     {
                         label,
-                        button,
+                        fauxButton,
                     }
             };
             AbsoluteLayout.SetLayoutBounds(buttonLayout, new Rectangle(0.5, (150 * numberOfCharacters), 0.75, 100));
