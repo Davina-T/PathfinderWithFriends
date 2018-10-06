@@ -27,10 +27,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="CreateCharacter\TesterPage.xaml.cs">
+    <Compile Update="CharacterCreation\TesterPage.xaml.cs">
       <DependentUpon>TesterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="CreateCharacter\LevelPage.xaml.cs">
+    <Compile Update="CharacterCreation\LevelPage.xaml.cs">
       <DependentUpon>LevelPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>

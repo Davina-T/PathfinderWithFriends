@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace PwF.CreateCharacter
+namespace PwF.CharacterCreation
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class TesterPage : ContentPage

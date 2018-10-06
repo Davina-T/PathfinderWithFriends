@@ -32,16 +32,14 @@ namespace PwF.CharacterCreation
         {
             if (SelectedClass != "" && SelectedClass != null)
             {
-                // save the Selected Race
-                //navManager.ShowClassPage();
-                //navManager.ShowCharacterSheet();
+                // save the Selected Class
+                // Navigate to the next page
             }
         }
 
         public void PrevPage()
         {
-            //navManager.ShowLevelPage();
-            //navManager.ShowCharacterSheet();
+            navManager.ShowRacePage();
         }
 
         public void ViewInfo()
