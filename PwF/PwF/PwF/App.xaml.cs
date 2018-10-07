@@ -12,9 +12,9 @@ namespace PwF
 		{
 			InitializeComponent();
 
-            //CharacterList.CharacterList mainPage = new CharacterList.CharacterList();
+            CharacterList.CharacterList mainPage = new CharacterList.CharacterList();
 
-            CharacterCreation.LevelPage mainPage = new CharacterCreation.LevelPage();
+            //CharacterCreation.LevelPage mainPage = new CharacterCreation.LevelPage();
 
             //CharacterList.CharacterList mainPage = new CharacterList.CharacterList();
 

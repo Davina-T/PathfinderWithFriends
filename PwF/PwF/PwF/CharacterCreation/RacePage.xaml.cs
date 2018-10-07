@@ -14,6 +14,7 @@ namespace PwF.CharacterCreation
     public partial class RacePage : ContentPage {
         
         RaceViewModel viewModel = new RaceViewModel();
+        Compendium temp = new Compendium();
 
 
         public RacePage() {
@@ -45,8 +46,23 @@ namespace PwF.CharacterCreation
             InfoButton.BindingContext = viewModel;
             var tapGestureRecognizer3 = new TapGestureRecognizer();
             tapGestureRecognizer3.Tapped += (s, e) => {
-                //DisplayAlert("Alert", "Info Page", "OK");
-                viewModel.ViewInfo();
+                //DisplayAlert("Alert", "Information View", "OK");
+                //viewModel.ViewInfo();
+                String levelCompendium = "Select the race for your character.\n\n" +
+                "There's probably too much information across all the races to fit here, " +
+                "should we show the stat buffs in the list view, then put the flavour for " +
+                "the selected race in the compendium?";
+                AbsoluteLayout overlay = temp.CreateOverlay(levelCompendium);
+                pageContainer.Children.Add(overlay);
+
+                // add the binding for the compendium overlay and a tap recognizer
+                overlay.BindingContext = viewModel;
+                var tapGestureRecognizer4 = new TapGestureRecognizer();
+                tapGestureRecognizer4.Tapped += (s2, e2) => {
+                    //DisplayAlert("Alert", "Remove Overlay", "OK");
+                    pageContainer.Children.Remove(overlay);
+                };
+                overlay.GestureRecognizers.Add(tapGestureRecognizer4);
             };
             InfoButton.GestureRecognizers.Add(tapGestureRecognizer3);
 

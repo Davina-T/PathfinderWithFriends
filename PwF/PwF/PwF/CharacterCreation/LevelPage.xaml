@@ -8,10 +8,11 @@
     <ContentPage.Content>
 
         <AbsoluteLayout
-            AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+            AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional"
+            x:Name = "pageContainer">
 
             <!-- The Top Bar of the Application -->
-            <AbsoluteLayout 
+            <AbsoluteLayout
                 BackgroundColor="#1B2C34"
                 AbsoluteLayout.LayoutBounds="0,0,1,.1"  
                 AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">

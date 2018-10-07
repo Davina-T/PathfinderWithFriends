@@ -13,6 +13,7 @@ namespace PwF.CharacterCreation
 	public partial class LevelPage : ContentPage
     {
         LevelViewModel viewModel = new LevelViewModel();
+        Compendium temp = new Compendium();
 
         public LevelPage()
 		{
@@ -40,10 +41,22 @@ namespace PwF.CharacterCreation
             InfoButton.BindingContext = viewModel;
             var tapGestureRecognizer3 = new TapGestureRecognizer();
             tapGestureRecognizer3.Tapped += (s, e) => {
-                DisplayAlert("Alert", "Information View", "OK");
-                viewModel.ViewInfo();
+                //DisplayAlert("Alert", "Information View", "OK");
+                //viewModel.ViewInfo();
+                String levelCompendium = "Select the starting level for your character.\n\nUnless your DM specificies otherwise you should start on level 1.";
+                AbsoluteLayout overlay = temp.CreateOverlay(levelCompendium);
+                pageContainer.Children.Add(overlay);
+
+                // add the binding for the compendium overlay and a tap recognizer
+                overlay.BindingContext = viewModel;
+                var tapGestureRecognizer4 = new TapGestureRecognizer();
+                tapGestureRecognizer4.Tapped += (s2, e2) => {
+                    //DisplayAlert("Alert", "Remove Overlay", "OK");
+                    pageContainer.Children.Remove(overlay);
+                };
+                overlay.GestureRecognizers.Add(tapGestureRecognizer4);
             };
-            LeftArrow.GestureRecognizers.Add(tapGestureRecognizer3);
+            InfoButton.GestureRecognizers.Add(tapGestureRecognizer3);
 
             ContainingLayout.BindingContext = viewModel;
         }
