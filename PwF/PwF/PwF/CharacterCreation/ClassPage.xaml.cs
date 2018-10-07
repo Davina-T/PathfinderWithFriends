@@ -50,20 +50,7 @@ namespace PwF.CharacterCreation
             tapGestureRecognizer3.Tapped += (s, e) => {
                 //DisplayAlert("Alert", "Information View", "OK");
                 //viewModel.ViewInfo();
-                String levelCompendium = "Select the class for your character.\n\n" +
-                "There's probably too much information across all the classes to fit here, " +
-                "should we show the stat buffs in the list view, then put the flavour for " +
-                "the selected class in the compendium?\n\n" +
-                "Testing scroll\n\n" +
-                "Testing scroll\n\n" +
-                "Testing scroll\n\n" +
-                "Testing scroll\n\n" +
-                "Testing scroll\n\n" +
-                "Testing scroll\n\n" +
-                "Testing scroll\n\n" +
-                "Testing scroll\n\n" +
-                "Testing scroll\n\n";
-                AbsoluteLayout overlay = temp.CreateOverlay(levelCompendium);
+                AbsoluteLayout overlay = temp.CreateOverlay(viewModel.GetCompendiumEntry());
                 pageContainer.Children.Add(overlay);
 
                 // add the binding for the compendium overlay and a tap recognizer

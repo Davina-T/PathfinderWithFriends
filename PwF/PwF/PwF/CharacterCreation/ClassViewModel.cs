@@ -46,5 +46,22 @@ namespace PwF.CharacterCreation
         {
             // open the informative page
         }
-	}
+
+        public String GetCompendiumEntry()
+        {
+            String compendiumEntry;
+
+            if (SelectedClass != null && SelectedClass.Title != "")
+            {
+                compendiumEntry = "You've selected " + SelectedClass.Title + "\n\n" +
+                "Information on " + SelectedClass.Title + " will go here.";
+            }
+            else
+            {
+                compendiumEntry = "Select the class for your character";
+            }
+
+            return compendiumEntry;
+        }
+    }
 }

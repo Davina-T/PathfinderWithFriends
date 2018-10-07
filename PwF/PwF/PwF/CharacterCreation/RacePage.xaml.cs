@@ -48,11 +48,7 @@ namespace PwF.CharacterCreation
             tapGestureRecognizer3.Tapped += (s, e) => {
                 //DisplayAlert("Alert", "Information View", "OK");
                 //viewModel.ViewInfo();
-                String levelCompendium = "Select the race for your character.\n\n" +
-                "There's probably too much information across all the races to fit here, " +
-                "should we show the stat buffs in the list view, then put the flavour for " +
-                "the selected race in the compendium?";
-                AbsoluteLayout overlay = temp.CreateOverlay(levelCompendium);
+                AbsoluteLayout overlay = temp.CreateOverlay(viewModel.GetCompendiumEntry());
                 pageContainer.Children.Add(overlay);
 
                 // add the binding for the compendium overlay and a tap recognizer

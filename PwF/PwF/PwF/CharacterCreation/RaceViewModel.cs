@@ -42,5 +42,22 @@ namespace PwF.CharacterCreation
         public void ViewInfo() {
             // open the informative page
         }
+
+        public String GetCompendiumEntry()
+        {
+            String compendiumEntry;
+
+            if (SelectedRace != null && SelectedRace.Title != "")
+            {
+                compendiumEntry = "You've selected " + SelectedRace.Title + "\n\n" +
+                "Information on " + SelectedRace.Title + " will go here.";
+            }
+            else
+            {
+                compendiumEntry = "Select the race for your character";
+            }
+
+            return compendiumEntry;
+        }
     }
 }

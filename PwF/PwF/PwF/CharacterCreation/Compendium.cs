@@ -12,6 +12,13 @@ namespace PwF.CharacterCreation
             // Initialise the return variable
             AbsoluteLayout overlay;
 
+            AbsoluteLayout temp = new AbsoluteLayout
+            {
+                Opacity = 0,
+            };
+            AbsoluteLayout.SetLayoutBounds(temp, new Rectangle(0, 0, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(temp, AbsoluteLayoutFlags.All);
+            
             // Create the semi-transparent shadow effect
             AbsoluteLayout background = new AbsoluteLayout
             {
@@ -47,6 +54,7 @@ namespace PwF.CharacterCreation
                 {
                     background,
                     foreground,
+                    temp,
                 }
             };
             AbsoluteLayout.SetLayoutBounds(overlay, new Rectangle(0, 0, 1, 1));
