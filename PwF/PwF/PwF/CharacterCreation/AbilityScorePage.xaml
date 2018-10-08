@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PwF.Template.BasePage"
-             xmlns:local="clr-namespace:Pwf.Navigation"
+             x:Class="PwF.CharacterCreation.AbilityScorePage"
+             xmlns:local="clr-namespace:PwF.CharacterCreation"
              NavigationPage.HasNavigationBar="false">
-    
+
     <ContentPage.Content>
-        
+
         <AbsoluteLayout
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
 
             <AbsoluteLayout.BindingContext>
-                <local:ViewModel/>
+                <local:AbilityScoreViewModel/>
             </AbsoluteLayout.BindingContext>
 
             <!-- The Top Bar of the Application -->
@@ -21,7 +21,7 @@
                 AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
                 <!-- The Label for displaying the Character's Name -->
                 <Label
-                    Text="Character Name"
+                    Text="Ability Scores"
                     TextColor="#C7BC91"
                     Font="Bold, 32"
                     HorizontalOptions="Center" 
@@ -83,4 +83,5 @@
 
         </AbsoluteLayout>
     </ContentPage.Content>
+
 </ContentPage>

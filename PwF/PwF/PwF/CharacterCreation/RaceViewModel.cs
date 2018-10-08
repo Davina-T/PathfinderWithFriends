@@ -36,7 +36,7 @@ namespace PwF.CharacterCreation
 
         public void PrevPage() {
             Statics.CharacterCreating.CreatingCharacter.Race = null;
-            navManager.ShowLevelPage();
+            navManager.ShowLevelPage(false);
         }
 
         public void ViewInfo() {

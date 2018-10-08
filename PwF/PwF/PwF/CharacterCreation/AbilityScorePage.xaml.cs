@@ -7,18 +7,17 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace PwF.Template
+namespace PwF.CharacterCreation
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class BasePage : ContentPage
+	public partial class AbilityScorePage : ContentPage
 	{
+        AbilityScoreViewModel viewModel = new AbilityScoreViewModel();
 
-        BasePageViewModel viewModel = new BasePageViewModel();
 
-        public BasePage ()
+        public AbilityScorePage ()
 		{
 			InitializeComponent ();
-
 
             // add the binding for the right arrow and a tap recognizer
             RightArrow.BindingContext = viewModel;
