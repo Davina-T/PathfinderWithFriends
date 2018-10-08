@@ -23,7 +23,7 @@ namespace PwF.CharacterCreation
         }
 
         public void PrevPage() {
-            navManager.ShowLevelPage(false);
+            navManager.ShowFamiliarPage(false);
         }
 
         public void ViewInfo() {
