@@ -32,8 +32,8 @@
 
                 <!-- The ScrollView for Displaying the Pages Content -->
                 <ScrollView
-                    BackgroundColor="#C1DAC5"
-                    AbsoluteLayout.LayoutBounds=".5,.5,.9,.9"  
+                    BackgroundColor="#607F6F"
+                    AbsoluteLayout.LayoutBounds=".5,.5,1,1"  
                     AbsoluteLayout.LayoutFlags="All">
 
                     <!-- The Layout that Contains the Pages Content -->
@@ -43,7 +43,7 @@
 
                         <Label 
                             Text="Name"
-                            TextColor="#000000"
+                            TextColor="#C7BC91"
                             Font="24"
                             HorizontalOptions="Start" 
                             AbsoluteLayout.LayoutBounds="0.1, 0.05, 0.3, 0.1"  
@@ -53,18 +53,40 @@
                         <Entry
                             BackgroundColor="#ffffff"
                             AbsoluteLayout.LayoutBounds="0.75, 0.05, 0.4, 0.1"  
-                            AbsoluteLayout.LayoutFlags="All">                            
+                            AbsoluteLayout.LayoutFlags="All"
+                            Margin ="0">                            
                         </Entry>
 
                         <Label 
                             Text="Alignment"
-                            TextColor="#000000"
+                            TextColor="#C7BC91"
                             Font="24"
                             HorizontalOptions="Start" 
                             AbsoluteLayout.LayoutBounds="0.1, 0.15, 0.3, 0.1"  
                             AbsoluteLayout.LayoutFlags="All">
                         </Label>
+                        
+                        <Entry
+                            BackgroundColor="#ffffff"
+                            AbsoluteLayout.LayoutBounds="0.75, 0.15, 0.4, 0.1"  
+                            AbsoluteLayout.LayoutFlags="All">
+                        </Entry>
 
+                        <Label 
+                            Text="Deity"
+                            TextColor="#C7BC91"
+                            Font="24"
+                            HorizontalOptions="Start" 
+                            AbsoluteLayout.LayoutBounds="0.1, 0.25, 0.3, 0.1"  
+                            AbsoluteLayout.LayoutFlags="All">
+                        </Label>
+
+                        <Entry
+                            BackgroundColor="#ffffff"
+                            AbsoluteLayout.LayoutBounds="0.75, 0.25, 0.4, 0.1"  
+                            AbsoluteLayout.LayoutFlags="All"
+                            Margin ="0">
+                        </Entry>
                     </AbsoluteLayout>
 
                 </ScrollView>
