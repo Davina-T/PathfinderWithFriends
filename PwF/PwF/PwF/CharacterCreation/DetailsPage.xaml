@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PwF.CharacterCreation.DetailsPage">
+    <ContentPage.Content>
+
+        <AbsoluteLayout
+            AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+
+            <!-- The Top Bar of the Application -->
+            <AbsoluteLayout 
+                BackgroundColor="#1B2C34"
+                AbsoluteLayout.LayoutBounds="0,0,1,.1"  
+                AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+                <!-- The Label for displaying the Character's Name -->
+                <Label
+                    Text="Character Details"
+                    TextColor="#C7BC91"
+                    Font="Bold, 32"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                    AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+                </Label>
+            </AbsoluteLayout>
+
+            <!-- The Main Pages Content -->
+            <AbsoluteLayout
+                BackgroundColor="#607F6F"
+                AbsoluteLayout.LayoutBounds="0,1,1,.9"  
+                AbsoluteLayout.LayoutFlags="All">
+
+                <!-- The ScrollView for Displaying the Pages Content -->
+                <ScrollView
+                    BackgroundColor="#C1DAC5"
+                    AbsoluteLayout.LayoutBounds=".5,.5,.9,.9"  
+                    AbsoluteLayout.LayoutFlags="All">
+
+                    <!-- The Layout that Contains the Pages Content -->
+                    <AbsoluteLayout
+                        AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                        AbsoluteLayout.LayoutFlags="All">
+
+                        <Label 
+                            Text="Name"
+                            TextColor="#000000"
+                            Font="24"
+                            HorizontalOptions="Start" 
+                            AbsoluteLayout.LayoutBounds="0.1, 0.05, 0.3, 0.1"  
+                            AbsoluteLayout.LayoutFlags="All">
+                        </Label>
+
+                        <Entry
+                            BackgroundColor="#ffffff"
+                            AbsoluteLayout.LayoutBounds="0.75, 0.05, 0.4, 0.1"  
+                            AbsoluteLayout.LayoutFlags="All">                            
+                        </Entry>
+
+                        <Label 
+                            Text="Alignment"
+                            TextColor="#000000"
+                            Font="24"
+                            HorizontalOptions="Start" 
+                            AbsoluteLayout.LayoutBounds="0.1, 0.15, 0.3, 0.1"  
+                            AbsoluteLayout.LayoutFlags="All">
+                        </Label>
+
+                    </AbsoluteLayout>
+
+                </ScrollView>
+
+            </AbsoluteLayout>
+            
+            <!-- The bottom Bar of the Application -->
+            <AbsoluteLayout 
+                BackgroundColor="#1B2C34"
+                AbsoluteLayout.LayoutBounds="0,1,1,.1"  
+                AbsoluteLayout.LayoutFlags="All">
+
+                <!-- Image for the Previous Page button -->
+                <Image x:Name="LeftArrow" Source="ArrowLeft.PNG"
+                       AbsoluteLayout.LayoutBounds=".1,.5,.2,.8"  
+                       AbsoluteLayout.LayoutFlags="All">
+                </Image>
+
+                <!-- Image for the Information button -->
+                <Image x:Name="InfoButton" Source="InfoIcon.PNG"
+                       AbsoluteLayout.LayoutBounds=".5,.5,.3,1"  
+                       AbsoluteLayout.LayoutFlags="All">
+                </Image>
+
+                <!-- Image for the Mext Page button -->
+                <Image x:Name="RightArrow" Source="ArrowRight.PNG"
+                       AbsoluteLayout.LayoutBounds=".9,.5,.2,.8"  
+                       AbsoluteLayout.LayoutFlags="All">
+
+                </Image>
+
+            </AbsoluteLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

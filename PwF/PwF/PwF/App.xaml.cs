@@ -14,7 +14,7 @@ namespace PwF
 
             //CharacterList.CharacterList mainPage = new CharacterList.CharacterList();
 
-            CharacterCreation.LevelPage mainPage = new CharacterCreation.LevelPage();
+            CharacterCreation.DetailsPage mainPage = new CharacterCreation.DetailsPage();
 
             //CharacterList.CharacterList mainPage = new CharacterList.CharacterList();
 
