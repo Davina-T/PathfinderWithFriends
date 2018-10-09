@@ -11,7 +11,6 @@ namespace PwF.CharacterCreation
         private PageNavigationManager navManager;
         public AbilityScores Scores { get; set; }
 
-
         public AbilityScoreViewModel() {
             navManager = PageNavigationManager.Instance;
         }

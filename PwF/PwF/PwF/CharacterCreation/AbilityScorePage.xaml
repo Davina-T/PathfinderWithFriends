@@ -9,7 +9,6 @@
 
         <AbsoluteLayout
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
-
             <AbsoluteLayout.BindingContext>
                 <local:AbilityScoreViewModel/>
             </AbsoluteLayout.BindingContext>
@@ -19,7 +18,8 @@
                 BackgroundColor="#1B2C34"
                 AbsoluteLayout.LayoutBounds="0,0,1,.1"  
                 AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
-                <!-- The Label for displaying the Character's Name -->
+
+                <!-- The Label for displaying the page's Name -->
                 <Label
                     Text="Ability Scores"
                     TextColor="#C7BC91"
@@ -48,10 +48,245 @@
                         AbsoluteLayout.LayoutBounds="0,0,1,1"  
                         AbsoluteLayout.LayoutFlags="All">
 
+                        <!-- The Labels for displaying the Character's Name -->
+                        <Label
+                            Text="Pick from the numbers below."
+                            TextColor="Black"
+                            HorizontalOptions="Center" 
+                            VerticalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0,.01,1,.05"  
+                            AbsoluteLayout.LayoutFlags="All">
+                        </Label>
+
+                        <!-- Image for the dice button -->
+                        <Image x:Name="td20" Source="td20.png"
+                            AbsoluteLayout.LayoutBounds=".5,.02,.2,.25"  
+                            AbsoluteLayout.LayoutFlags="All">
+                        </Image>
+
+                        <!-- The results of the dice roll -->
+                        <AbsoluteLayout
+                            AbsoluteLayout.LayoutBounds=".5,.25,.6,.1"
+                            AbsoluteLayout.LayoutFlags="All"
+                            BackgroundColor="White">
+
+                            <!-- The Labels for displaying the dice roles -->
+                            <Label
+                                Text="10"
+                                TextColor="Black"
+                                HorizontalOptions="Center" 
+                                VerticalOptions="Center" 
+                                AbsoluteLayout.LayoutBounds=".0,0,.25,1"  
+                                AbsoluteLayout.LayoutFlags="All">
+                            </Label>
+
+                            <Label
+                                Text="10"
+                                TextColor="Black"
+                                HorizontalOptions="Center" 
+                                VerticalOptions="Center" 
+                                AbsoluteLayout.LayoutBounds=".25,0,.25,1"  
+                                AbsoluteLayout.LayoutFlags="All">
+                            </Label>
+
+                            <Label
+                                Text="10"
+                                TextColor="Black"
+                                HorizontalOptions="Center" 
+                                VerticalOptions="Center" 
+                                AbsoluteLayout.LayoutBounds=".5,0,.25,1"  
+                                AbsoluteLayout.LayoutFlags="All">
+                            </Label>
+
+                            <Label
+                                Text="10"
+                                TextColor="Black"
+                                HorizontalOptions="Center" 
+                                VerticalOptions="Center" 
+                                AbsoluteLayout.LayoutBounds=".75,0,.25,1"  
+                                AbsoluteLayout.LayoutFlags="All">
+                            </Label>
+
+                            <Label
+                                Text="10"
+                                TextColor="Black"
+                                HorizontalOptions="Center" 
+                                VerticalOptions="Center" 
+                                AbsoluteLayout.LayoutBounds="1,0,.25,1"  
+                                AbsoluteLayout.LayoutFlags="All">
+                            </Label>
+                        </AbsoluteLayout>
+
+                        <!-- The ability score inputs -->
+                        <AbsoluteLayout
+                            AbsoluteLayout.LayoutBounds="0,1,1,.65"  
+                            AbsoluteLayout.LayoutFlags="All">
+
+                            <!-- Strength -->
+                            <AbsoluteLayout
+                                AbsoluteLayout.LayoutBounds="0,0,.5,.33"  
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The ImaGE -->
+                                <Image
+                                    AbsoluteLayout.LayoutBounds=".1,0,.5,1"  
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    x:Name="Strength"
+                                    Source="Strength.png">
+                                </Image>
+
+                                <!-- Character Strength Entry -->
+                                <Entry
+                                    Keyboard="Numeric"
+                                    x:Name="strengthEntry"
+                                    Text="{Binding Strength}"
+                                    FontSize="22"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="Center"
+                                    BackgroundColor="White"
+                                    AbsoluteLayout.LayoutBounds=".9,.5,.3,.5"
+                                    AbsoluteLayout.LayoutFlags="All"/>
+
+                            </AbsoluteLayout>
+
+                            <!-- Intelligence -->
+                            <AbsoluteLayout
+                                AbsoluteLayout.LayoutBounds="1,0,.5,.33"  
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The ImaGE -->
+                                <Image
+                                    AbsoluteLayout.LayoutBounds=".1,0,.5,1"  
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    x:Name="Intelligence"
+                                    Source="Intelligence.png">
+                                </Image>
+
+                                <!-- Character Intelligence Entry -->
+                                <Entry
+                                    Keyboard="Numeric"
+                                    x:Name="intelligenceEntry"
+                                    Text="{Binding Intelligence}"
+                                    FontSize="22"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="Center"
+                                    BackgroundColor="White"
+                                    AbsoluteLayout.LayoutBounds=".9,.5,.3,.5"
+                                    AbsoluteLayout.LayoutFlags="All"/>
+
+                            </AbsoluteLayout>
+
+                            <!-- Dexterity -->
+                            <AbsoluteLayout
+                                AbsoluteLayout.LayoutBounds="0,.5,.5,.33"  
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The ImaGE -->
+                                <Image
+                                    AbsoluteLayout.LayoutBounds=".1,0,.5,1"  
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    x:Name="Dexterity"
+                                    Source="Dexterity.png">
+                                </Image>
+
+                                <!-- Character Dexterity Entry -->
+                                <Entry
+                                    Keyboard="Numeric"
+                                    x:Name="dexterityEntry"
+                                    Text="{Binding Dexterity}"
+                                    FontSize="22"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="Center"
+                                    BackgroundColor="White"
+                                    AbsoluteLayout.LayoutBounds=".9,.5,.3,.5"
+                                    AbsoluteLayout.LayoutFlags="All"/>
+
+                            </AbsoluteLayout>
+
+                            <!-- Wisdom -->
+                            <AbsoluteLayout
+                                AbsoluteLayout.LayoutBounds="1,.5,.5,.33"  
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The ImaGE -->
+                                <Image
+                                    AbsoluteLayout.LayoutBounds=".1,0,.5,1"  
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    x:Name="Wisdom"
+                                    Source="Wisdom.png">
+                                </Image>
+
+                                <!-- Character Wisdom Entry -->
+                                <Entry
+                                    Keyboard="Numeric"
+                                    x:Name="wisdomEntry"
+                                    Text="{Binding Wisdom}"
+                                    FontSize="22"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="Center"
+                                    BackgroundColor="White"
+                                    AbsoluteLayout.LayoutBounds=".9,.5,.3,.5"
+                                    AbsoluteLayout.LayoutFlags="All"/>
+
+
+                            </AbsoluteLayout>
+
+                            <!-- Constitution -->
+                            <AbsoluteLayout
+                                AbsoluteLayout.LayoutBounds="0,1,.5,.33"  
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The ImaGE -->
+                                <Image
+                                    AbsoluteLayout.LayoutBounds=".1,0,.5,1"  
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    x:Name="Constitution"
+                                    Source="Constitution.png">
+                                </Image>
+
+                                <!-- Character Constitution Entry -->
+                                <Entry
+                                    Keyboard="Numeric"
+                                    x:Name="constitutionEntry"
+                                    Text="{Binding Constitution}"
+                                    FontSize="22"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="Center"
+                                    BackgroundColor="White"
+                                    AbsoluteLayout.LayoutBounds=".9,.5,.3,.5"
+                                    AbsoluteLayout.LayoutFlags="All"/>
+
+                            </AbsoluteLayout>
+
+                            <!-- Charisma -->
+                            <AbsoluteLayout
+                                AbsoluteLayout.LayoutBounds="1,1,.5,.33"  
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The ImaGE -->
+                                <Image
+                                    AbsoluteLayout.LayoutBounds=".1,0,.5,1"  
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    x:Name="Charisma"
+                                    Source="Charisma.png">
+                                </Image>
+
+                                <!-- Character Charisma Entry -->
+                                <Entry
+                                    Keyboard="Numeric"
+                                    x:Name="charismaEntry"
+                                    Text="{Binding Charisma}"
+                                    FontSize="22"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="Center"
+                                    BackgroundColor="White"
+                                    AbsoluteLayout.LayoutBounds=".9,.5,.3,.5"
+                                    AbsoluteLayout.LayoutFlags="All"/>
+
+                            </AbsoluteLayout>
+                        </AbsoluteLayout>
                     </AbsoluteLayout>
-
                 </ScrollView>
-
             </AbsoluteLayout>
 
             <!-- The bottom Bar of the Application -->
@@ -80,8 +315,6 @@
                 </Image>
 
             </AbsoluteLayout>
-
         </AbsoluteLayout>
     </ContentPage.Content>
-
 </ContentPage>
