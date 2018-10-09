@@ -33,7 +33,7 @@
                 <!-- The ScrollView for Displaying the Pages Content -->
                 <ScrollView
                     BackgroundColor="#607F6F"
-                    AbsoluteLayout.LayoutBounds="0,0.1,1,0.9"  
+                    AbsoluteLayout.LayoutBounds="0.5,0.5,.9,0.9"  
                     AbsoluteLayout.LayoutFlags="All">
 
                     <!-- The Layout that Contains the Pages Content -->
@@ -44,107 +44,177 @@
                         <Label 
                             Text="Name"
                             TextColor="#C7BC91"
-                            Font="24"
-                            HorizontalOptions="Start" 
-                            AbsoluteLayout.LayoutBounds="0.1, 0.05, 0.3, 0.1"  
-                            AbsoluteLayout.LayoutFlags="All">
-                        </Label>
+                            Font="26"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 20, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Entry
                             BackgroundColor="#ffffff"
-                            AbsoluteLayout.LayoutBounds="0.75, 0.05, 0.4, 0.1"  
-                            AbsoluteLayout.LayoutFlags="All">                            
-                        </Entry>
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 20, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Label 
                             Text="Alignment"
                             TextColor="#C7BC91"
-                            Font="24"
-                            HorizontalOptions="Start" 
-                            AbsoluteLayout.LayoutBounds="0.1, 0.25, 0.3, 0.1"  
-                            AbsoluteLayout.LayoutFlags="All">
-                        </Label>
+                            Font="26"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 100, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
-                        <Entry
-                            BackgroundColor="#ffffff"
-                            AbsoluteLayout.LayoutBounds="0.75, 0.25, 0.4, 0.1"  
-                            AbsoluteLayout.LayoutFlags="All">
-                        </Entry>
+                        <Picker Title=""
+                            BackgroundColor="White"
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 100, 0.5, 50"   
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
+                            <Picker.Items>
+                                <x:String>Lawful Good</x:String>
+                                <x:String>Lawful Neutral</x:String>
+                                <x:String>Lawful Evil</x:String>
+                                <x:String>Neutral Good</x:String>
+                                <x:String>Neutral</x:String>
+                                <x:String>Neutral Evil</x:String>
+                                <x:String>Chaotic Good</x:String>
+                                <x:String>Chaotic Neutral</x:String>
+                                <x:String>Chaotic Evil</x:String>
+                            </Picker.Items>
+                        </Picker>
 
                         <Label 
                             Text="Deity"
                             TextColor="#C7BC91"
-                            Font="24"
-                            HorizontalOptions="Start" 
-                            AbsoluteLayout.LayoutBounds="0.1, 0.45, 0.3, 0.1"  
-                            AbsoluteLayout.LayoutFlags="All">
-                        </Label>
+                            Font="26"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 180, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Entry
                             BackgroundColor="#ffffff"
-                            AbsoluteLayout.LayoutBounds="0.75, 0.45, 0.4, 0.1"  
-                            AbsoluteLayout.LayoutFlags="All">
-                        </Entry>
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 180, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Label 
                             Text="Homeland"
                             TextColor="#C7BC91"
-                            Font="24"
-                            HorizontalOptions="Start" 
-                            AbsoluteLayout.LayoutBounds="0.1, 0.65, 0.3, 0.1"  
-                            AbsoluteLayout.LayoutFlags="All">
-                        </Label>
+                            Font="26"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 260, 0.5, 50" 
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Entry
                             BackgroundColor="#ffffff"
-                            AbsoluteLayout.LayoutBounds="0.75, 0.65, 0.4, 0.1"  
-                            AbsoluteLayout.LayoutFlags="All">
-                        </Entry>
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 260, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Label 
                             Text="Size"
                             TextColor="#C7BC91"
-                            Font="24"
-                            HorizontalOptions="Start" 
-                            AbsoluteLayout.LayoutBounds="0.1, 0.85, 0.3, 0.1"  
-                            AbsoluteLayout.LayoutFlags="All">
-                        </Label>
+                            Font="26"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 340, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Entry
                             BackgroundColor="#ffffff"
-                            AbsoluteLayout.LayoutBounds="0.75, 0.85, 0.4, 0.1"  
-                            AbsoluteLayout.LayoutFlags="All">
-                        </Entry>
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 340, 0.5, 50"   
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Label 
                             Text="Gender"
                             TextColor="#C7BC91"
                             Font="24"
-                            HorizontalOptions="Start" 
-                            AbsoluteLayout.LayoutBounds="0.1, 1.05, 0.3, 0.1"  
-                            AbsoluteLayout.LayoutFlags="All">
-                        </Label>
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 420, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
-                        <Entry
-                            BackgroundColor="#ffffff"
-                            AbsoluteLayout.LayoutBounds="0.75, 1.05, 0.4, 0.1"  
-                            AbsoluteLayout.LayoutFlags="All">
-                        </Entry>
+
+                        <Picker Title=""
+                            BackgroundColor="White"
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 420, 0.5, 50"   
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
+                            <Picker.Items>
+                                <x:String>Female</x:String>
+                                <x:String>Male</x:String>
+                            </Picker.Items>
+                        </Picker>
 
                         <Label 
                             Text="Age"
                             TextColor="#C7BC91"
                             Font="24"
-                            HorizontalOptions="Start" 
-                            AbsoluteLayout.LayoutBounds="0.1, 1.25, 0.3, 0.1"  
-                            AbsoluteLayout.LayoutFlags="All">
-                        </Label>
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 500, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>    
+
+                        <Entry
+                            Keyboard="Numeric"
+                            BackgroundColor="#ffffff"
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 500, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Label 
+                            Text="Height"
+                            TextColor="#C7BC91"
+                            Font="24"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 580, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Entry
+                            Keyboard="Numeric"
+                            BackgroundColor="#ffffff"
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 580, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Label 
+                            Text="Weight"
+                            TextColor="#C7BC91"
+                            Font="24"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 660, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Entry
+                            Keyboard="Numeric"
+                            BackgroundColor="#ffffff"
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 660, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Label 
+                            Text="Hair"
+                            TextColor="#C7BC91"
+                            Font="24"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 740, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Entry
                             BackgroundColor="#ffffff"
-                            AbsoluteLayout.LayoutBounds="0.75, 1.05, 0.4, 0.1"  
-                            AbsoluteLayout.LayoutFlags="All">
-                        </Entry>
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 740, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Label 
+                            Text="Eyes"
+                            TextColor="#C7BC91"
+                            Font="24"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 820, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Entry
+                            BackgroundColor="#ffffff"
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 820, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                     </AbsoluteLayout>
 
@@ -170,7 +240,7 @@
                        AbsoluteLayout.LayoutFlags="All">
                 </Image>
 
-                <!-- Image for the Mext Page button -->
+                <!-- Image for the Next Page button -->
                 <Image x:Name="RightArrow" Source="ArrowRight.PNG"
                        AbsoluteLayout.LayoutBounds=".9,.5,.2,.8"  
                        AbsoluteLayout.LayoutFlags="All">
