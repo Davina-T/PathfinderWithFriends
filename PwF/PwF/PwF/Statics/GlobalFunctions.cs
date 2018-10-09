@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace PwF.Statics
 {
@@ -15,6 +16,53 @@ namespace PwF.Statics
             temp = (Math.Floor(((double)scoreValue - 10) / 2));
             return (int)temp;
 
+        }
+
+        public static AbsoluteLayout getPopupBase(string title, Command exitCommand) {
+            Label popUpTitleText = new Label {
+                Text = title,
+                FontSize = 24,
+                XAlign = TextAlignment.Center,
+                YAlign = TextAlignment.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(popUpTitleText, new Rectangle(.5, .5, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(popUpTitleText, AbsoluteLayoutFlags.All);
+
+            AbsoluteLayout popUpTitle = new AbsoluteLayout {
+                BackgroundColor = Color.FromHex("#FFAA00"),
+
+                Children =
+                {
+                    popUpTitleText
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(popUpTitle, new Rectangle(0, 0, 1, .2));
+            AbsoluteLayout.SetLayoutFlags(popUpTitle, AbsoluteLayoutFlags.All);
+
+            Button popUpCloseButton = new Button {
+                BackgroundColor = Color.FromHex("#BB0000"),
+                Text = "Close",
+                FontSize = 20,
+                Command = exitCommand
+
+
+            };
+            AbsoluteLayout.SetLayoutBounds(popUpCloseButton, new Rectangle(0, 1, 1, .2));
+            AbsoluteLayout.SetLayoutFlags(popUpCloseButton, AbsoluteLayoutFlags.All);
+
+            AbsoluteLayout popUp = new AbsoluteLayout {
+                BackgroundColor = Color.FromHex("#FFFFFF"),
+
+                Children =
+                {
+                    popUpTitle,
+                    popUpCloseButton
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(popUp, new Rectangle(.5, .5, .6, .4));
+            AbsoluteLayout.SetLayoutFlags(popUp, AbsoluteLayoutFlags.All);
+
+            return popUp;
         }
     }
 }

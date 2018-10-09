@@ -8,6 +8,7 @@
     <ContentPage.Content>
 
         <AbsoluteLayout
+            x:Name="PageContent"
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
             <AbsoluteLayout.BindingContext>
                 <local:AbilityScoreViewModel/>
@@ -45,6 +46,7 @@
 
                     <!-- The Layout that Contains the Pages Content -->
                     <AbsoluteLayout
+                        x:Name="ConentContainer"
                         AbsoluteLayout.LayoutBounds="0,0,1,1"  
                         AbsoluteLayout.LayoutFlags="All">
 
