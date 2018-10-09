@@ -33,13 +33,13 @@
                 <!-- The ScrollView for Displaying the Pages Content -->
                 <ScrollView
                     BackgroundColor="#607F6F"
-                    AbsoluteLayout.LayoutBounds=".5,.5,.9,.9"  
+                    AbsoluteLayout.LayoutBounds="0,0.1,1,0.9"  
                     AbsoluteLayout.LayoutFlags="All">
 
                     <!-- The Layout that Contains the Pages Content -->
                     <AbsoluteLayout
                         AbsoluteLayout.LayoutBounds="0,0,1,1"  
-                        AbsoluteLayout.LayoutFlags="All">
+                        AbsoluteLayout.LayoutFlags="XProportional, YProportional, WidthProportional">
 
                         <Label 
                             Text="Name"
@@ -64,7 +64,7 @@
                             AbsoluteLayout.LayoutBounds="0.1, 0.25, 0.3, 0.1"  
                             AbsoluteLayout.LayoutFlags="All">
                         </Label>
-                        
+
                         <Entry
                             BackgroundColor="#ffffff"
                             AbsoluteLayout.LayoutBounds="0.75, 0.25, 0.4, 0.1"  
@@ -85,7 +85,7 @@
                             AbsoluteLayout.LayoutBounds="0.75, 0.45, 0.4, 0.1"  
                             AbsoluteLayout.LayoutFlags="All">
                         </Entry>
-                        
+
                         <Label 
                             Text="Homeland"
                             TextColor="#C7BC91"
