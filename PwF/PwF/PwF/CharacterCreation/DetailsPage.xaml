@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PwF.CharacterCreation.DetailsPage">
+             x:Class="PwF.CharacterCreation.DetailsPage"
+             xmlns:local="clr-namespace:PwF.CharacterCreation">
     <ContentPage.Content>
 
         <AbsoluteLayout
@@ -41,7 +42,7 @@
                         AbsoluteLayout.LayoutBounds="0,0,1,1"  
                         AbsoluteLayout.LayoutFlags="XProportional, YProportional, WidthProportional">
 
-                        <Label 
+                        <Label
                             Text="Name"
                             TextColor="#C7BC91"
                             Font="26"
@@ -50,6 +51,7 @@
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Entry
+                            x:Name="Name"
                             BackgroundColor="#ffffff"
                             FontSize="22"
                             AbsoluteLayout.LayoutBounds="1, 20, 0.5, 50"  
@@ -64,6 +66,7 @@
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Picker Title=""
+                            x:Name="Alignment"
                             BackgroundColor="White"
                             FontSize="22"
                             AbsoluteLayout.LayoutBounds="1, 100, 0.5, 50"   
@@ -90,6 +93,7 @@
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Entry
+                            x:Name="Deity"
                             BackgroundColor="#ffffff"
                             FontSize="22"
                             AbsoluteLayout.LayoutBounds="1, 180, 0.5, 50"  
@@ -104,6 +108,7 @@
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Entry
+                            x:Name="Homeland"
                             BackgroundColor="#ffffff"
                             FontSize="22"
                             AbsoluteLayout.LayoutBounds="1, 260, 0.5, 50"  
@@ -118,6 +123,7 @@
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Entry
+                            x:Name="cSize"
                             BackgroundColor="#ffffff"
                             FontSize="22"
                             AbsoluteLayout.LayoutBounds="1, 340, 0.5, 50"   
@@ -133,6 +139,7 @@
 
 
                         <Picker Title=""
+                            x:Name="Gender"
                             BackgroundColor="White"
                             FontSize="22"
                             AbsoluteLayout.LayoutBounds="1, 420, 0.5, 50"   
@@ -149,9 +156,10 @@
                             Font="24"
                             HorizontalOptions="Center" 
                             AbsoluteLayout.LayoutBounds="0, 500, 0.5, 50"  
-                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>    
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Entry
+                            x:Name="Age"
                             Keyboard="Numeric"
                             BackgroundColor="#ffffff"
                             FontSize="22"
@@ -167,6 +175,7 @@
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Entry
+                            x:Name="cHeight"
                             Keyboard="Numeric"
                             BackgroundColor="#ffffff"
                             FontSize="22"
@@ -182,6 +191,7 @@
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Entry
+                            x:Name="Weight"
                             Keyboard="Numeric"
                             BackgroundColor="#ffffff"
                             FontSize="22"
@@ -197,6 +207,7 @@
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Entry
+                            x:Name="Hair"
                             BackgroundColor="#ffffff"
                             FontSize="22"
                             AbsoluteLayout.LayoutBounds="1, 740, 0.5, 50"  
@@ -211,6 +222,7 @@
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Entry
+                            x:Name="Eyes"
                             BackgroundColor="#ffffff"
                             FontSize="22"
                             AbsoluteLayout.LayoutBounds="1, 820, 0.5, 50"  
