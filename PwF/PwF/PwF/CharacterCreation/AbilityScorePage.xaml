@@ -68,59 +68,123 @@
 
                         <!-- The results of the dice roll -->
                         <AbsoluteLayout
-                            AbsoluteLayout.LayoutBounds=".5,.25,.6,.1"
+                            AbsoluteLayout.LayoutBounds=".5,.25,.8,.1"
                             AbsoluteLayout.LayoutFlags="All"
                             BackgroundColor="White">
 
                             <!-- The Labels for displaying the dice roles -->
-                            <Label
-                                Text="10"
-                                TextColor="Black"
-                                HorizontalOptions="Center" 
-                                VerticalOptions="Center" 
-                                AbsoluteLayout.LayoutBounds=".0,0,.25,1"  
+                            <AbsoluteLayout
+                                x:Name="Number1Container"
+                                AbsoluteLayout.LayoutBounds=".083,0,.166,1" 
                                 AbsoluteLayout.LayoutFlags="All">
-                            </Label>
+                                
+                                <Label
+                                    x:Name="Number1"
+                                    Text="{Binding Numbers[0]}"
+                                    TextColor="Black"
+                                    FontSize="20"
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center" 
+                                    AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                                    AbsoluteLayout.LayoutFlags="All">
+                                </Label>
+                                
+                            </AbsoluteLayout>
 
-                            <Label
-                                Text="10"
-                                TextColor="Black"
-                                HorizontalOptions="Center" 
-                                VerticalOptions="Center" 
-                                AbsoluteLayout.LayoutBounds=".25,0,.25,1"  
+                            <AbsoluteLayout
+                                x:Name="Number2Container"
+                                AbsoluteLayout.LayoutBounds=".25,0,.166,1" 
                                 AbsoluteLayout.LayoutFlags="All">
-                            </Label>
 
-                            <Label
-                                Text="10"
-                                TextColor="Black"
-                                HorizontalOptions="Center" 
-                                VerticalOptions="Center" 
-                                AbsoluteLayout.LayoutBounds=".5,0,.25,1"  
-                                AbsoluteLayout.LayoutFlags="All">
-                            </Label>
+                                <Label
+                                    x:Name="Number2"
+                                    Text="{Binding Numbers[1]}"
+                                    TextColor="Black"
+                                    FontSize="20"
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center" 
+                                    AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                                    AbsoluteLayout.LayoutFlags="All">
+                                </Label>
 
-                            <Label
-                                Text="10"
-                                TextColor="Black"
-                                HorizontalOptions="Center" 
-                                VerticalOptions="Center" 
-                                AbsoluteLayout.LayoutBounds=".75,0,.25,1"  
-                                AbsoluteLayout.LayoutFlags="All">
-                            </Label>
+                            </AbsoluteLayout>
 
-                            <Label
-                                Text="10"
-                                TextColor="Black"
-                                HorizontalOptions="Center" 
-                                VerticalOptions="Center" 
-                                AbsoluteLayout.LayoutBounds="1,0,.25,1"  
+                            <AbsoluteLayout
+                                x:Name="Number3Container"
+                                AbsoluteLayout.LayoutBounds=".416,0,.166,1" 
                                 AbsoluteLayout.LayoutFlags="All">
-                            </Label>
+
+                                <Label
+                                    x:Name="Number3"
+                                    Text="{Binding Numbers[2]}"
+                                    TextColor="Black"
+                                    FontSize="20"
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center" 
+                                    AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                                    AbsoluteLayout.LayoutFlags="All">
+                                </Label>
+
+                            </AbsoluteLayout>
+
+                            <AbsoluteLayout
+                                x:Name="Number4Container"
+                                AbsoluteLayout.LayoutBounds=".583,0,.166,1" 
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <Label
+                                    x:Name="Number4"
+                                    Text="{Binding Numbers[3]}"
+                                    TextColor="Black"
+                                    FontSize="20"
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center" 
+                                    AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                                    AbsoluteLayout.LayoutFlags="All">
+                                </Label>
+
+                            </AbsoluteLayout>
+
+                            <AbsoluteLayout
+                                x:Name="Number5Container"
+                                AbsoluteLayout.LayoutBounds=".75,0,.166,1" 
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <Label
+                                    x:Name="Number5"
+                                    Text="{Binding Numbers[4]}"
+                                    TextColor="Black"
+                                    FontSize="20"
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center" 
+                                    AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                                    AbsoluteLayout.LayoutFlags="All">
+                                </Label>
+
+                            </AbsoluteLayout>
+
+                            <AbsoluteLayout
+                                x:Name="Number6Container"
+                                AbsoluteLayout.LayoutBounds=".916,0,.166,1" 
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <Label
+                                    x:Name="Number6"
+                                    Text="{Binding Numbers[5]}"
+                                    TextColor="Black"
+                                    FontSize="20"
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center" 
+                                    AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                                    AbsoluteLayout.LayoutFlags="All">
+                                </Label>
+
+                            </AbsoluteLayout>
                         </AbsoluteLayout>
 
                         <!-- The ability score inputs -->
                         <AbsoluteLayout
+                            x:Name="ResultsLayout"
                             AbsoluteLayout.LayoutBounds="0,1,1,.65"  
                             AbsoluteLayout.LayoutFlags="All">
 
@@ -141,7 +205,7 @@
                                 <Entry
                                     Keyboard="Numeric"
                                     x:Name="strengthEntry"
-                                    Text="{Binding Strength}"
+                                    Text="{Binding Scores.Strength.Value}"
                                     FontSize="22"
                                     HorizontalTextAlignment="Center"
                                     VerticalOptions="Center"
@@ -168,7 +232,7 @@
                                 <Entry
                                     Keyboard="Numeric"
                                     x:Name="intelligenceEntry"
-                                    Text="{Binding Intelligence}"
+                                    Text="{Binding Scores.Intelligence.Value}"
                                     FontSize="22"
                                     HorizontalTextAlignment="Center"
                                     VerticalOptions="Center"
@@ -195,7 +259,7 @@
                                 <Entry
                                     Keyboard="Numeric"
                                     x:Name="dexterityEntry"
-                                    Text="{Binding Dexterity}"
+                                    Text="{Binding Scores.Dexterity.Value}"
                                     FontSize="22"
                                     HorizontalTextAlignment="Center"
                                     VerticalOptions="Center"
@@ -222,7 +286,7 @@
                                 <Entry
                                     Keyboard="Numeric"
                                     x:Name="wisdomEntry"
-                                    Text="{Binding Wisdom}"
+                                    Text="{Binding Scores.Wisdom.Value}"
                                     FontSize="22"
                                     HorizontalTextAlignment="Center"
                                     VerticalOptions="Center"
@@ -250,7 +314,7 @@
                                 <Entry
                                     Keyboard="Numeric"
                                     x:Name="constitutionEntry"
-                                    Text="{Binding Constitution}"
+                                    Text="{Binding Scores.Constitution.Value}"
                                     FontSize="22"
                                     HorizontalTextAlignment="Center"
                                     VerticalOptions="Center"
@@ -277,7 +341,7 @@
                                 <Entry
                                     Keyboard="Numeric"
                                     x:Name="charismaEntry"
-                                    Text="{Binding Charisma}"
+                                    Text="{Binding Scores.Charisma.Value}"
                                     FontSize="22"
                                     HorizontalTextAlignment="Center"
                                     VerticalOptions="Center"
@@ -286,6 +350,7 @@
                                     AbsoluteLayout.LayoutFlags="All"/>
 
                             </AbsoluteLayout>
+
                         </AbsoluteLayout>
                     </AbsoluteLayout>
                 </ScrollView>

@@ -10,11 +10,14 @@ namespace PwF.CharacterCreation
     {
         private PageNavigationManager navManager;
         public AbilityScores Scores { get; set; }
-        private readonly Dice D6; 
+        private readonly Dice D6;
+        public List<int> Numbers { get; set; }
 
         public AbilityScoreViewModel() {
             navManager = PageNavigationManager.Instance;
             D6 = new Dice(6);
+            Scores = new AbilityScores();
+            Numbers = new List<int> { 0, 0, 0, 0, 0, 0 };
         }
 
         public void NextPage() {
