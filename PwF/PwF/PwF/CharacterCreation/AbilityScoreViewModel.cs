@@ -21,9 +21,15 @@ namespace PwF.CharacterCreation
         }
 
         public void NextPage() {
-            //if (SelectedRace != null && SelectedRace.Title != "") {
+            if (Scores.Strength.Value != 0 &&
+                Scores.Dexterity.Value != 0 &&
+                Scores.Constitution.Value != 0 &&
+                Scores.Intelligence.Value != 0 &&
+                Scores.Wisdom.Value != 0 &&
+                Scores.Charisma.Value != 0) {
+                Statics.CharacterCreating.CreatingCharacter.Scores = Scores;
                 navManager.ShowSkillsPage();
-            //}
+            }
         }
 
         public void PrevPage() {
@@ -34,12 +40,8 @@ namespace PwF.CharacterCreation
              // open the informative page
         }
 
-        public void ShowPopUp() {
-
-        }
-
         public int[] RollMany(int number) {
-            int[] results = { };
+            int[] results = new int[number];
             for(int i = 0; i < number; i++) {
                 results[i] = D6.Roll();
             }
@@ -51,7 +53,7 @@ namespace PwF.CharacterCreation
             int position = 0;
             int value = numbers[0];
             for(int i = 1; i < numbers.Length; i++) {
-                if (value < numbers[i]) {
+                if (value > numbers[i]) {
                     value = numbers[i];
                     position = i;
                 }

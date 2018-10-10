@@ -47,19 +47,13 @@ namespace PwF.CharacterCreation
             InfoButton.BindingContext = viewModel;
             var tapGestureRecognizer3 = new TapGestureRecognizer();
             tapGestureRecognizer3.Tapped += (s, e) => {
-                //DisplayAlert("alert", "info page", "ok");
+                //DisplayAlert("alert", "str: " + viewModel.Scores.Strength.Value + "\ndex: " + viewModel.Scores.Dexterity.Value + 
+                //    "con: " + viewModel.Scores.Constitution.Value + "\nint: " + viewModel.Scores.Intelligence.Value + 
+                //    "\nwis: " + viewModel.Scores.Wisdom.Value + "\ncha: " + viewModel.Scores.Charisma.Value, "ok");
                 viewModel.ViewInfo();
             };
             InfoButton.GestureRecognizers.Add(tapGestureRecognizer3);
-
-            // add the binding for the dice button and a tap recognizer
-            td20.BindingContext = viewModel;
-            var td20Tap = new TapGestureRecognizer();
-            td20Tap.Tapped += (s, e) => {
-                CreateDicePopup();
-            };
-            td20.GestureRecognizers.Add(td20Tap);
-            
+          
 
             ResultsLayout.BindingContext = viewModel;
 
@@ -70,8 +64,8 @@ namespace PwF.CharacterCreation
             NumbersUsed = new List<int> { -1, -1, -1, -1, -1, -1 };
 
 
-            foreach (Label label in Numbers) {
-                label.GestureRecognizers.Add(GetTapGestureRecognizerForNumber(label));
+            for (int i = 0; i < Numbers.Count(); i++) {
+                NumberContainers[i].GestureRecognizers.Add(GetTapGestureRecognizerForNumber(Numbers[i]));
             }
 
             Entries = new List<Image> { Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma};
@@ -80,14 +74,9 @@ namespace PwF.CharacterCreation
             for (int i = 0; i < Entries.Count(); i++) {
                 Entries[i].GestureRecognizers.Add(GetTapGestureRecognizerForEntry(Entries[i], tempStats[i]));
             }
-
-            //viewModel.Numbers = new List<int> { 2, 4, 6, 8, 10, 12 };
-            //UpdateNumbers();
-
-            //InfoButton.GestureRecognizers.Add(tapGestureRecognizer3);
         }
 
-        public void CreateDicePopup() {
+        public void CreateDicePopup(int position) {
             // Initialises the layout that will contain the popup layer
             //DisplayAlert("Alert", "Creating overlay", "OK");
 
@@ -96,6 +85,47 @@ namespace PwF.CharacterCreation
             });
 
             AbsoluteLayout popUp = Statics.GlobalFunctions.getPopupBase("Dice Roll", exitCommand);
+
+            AbsoluteLayout popUpFill = Statics.GlobalFunctions.getPopUpFill();
+
+            Button StandardButton = new Button {
+                Text = "Standard",
+                BackgroundColor = Color.FromHex("#00AA00"),
+                Command = new Command(() => {
+                    CreateStandardPopup(position);
+                })
+
+            };
+            AbsoluteLayout.SetLayoutBounds(StandardButton, new Rectangle(.5, .05, .8, .25));
+            AbsoluteLayout.SetLayoutFlags(StandardButton, AbsoluteLayoutFlags.All);
+
+            Button ClassicButton = new Button {
+                Text = "Classic",
+                BackgroundColor = Color.FromHex("#99AA00"),
+                Command = new Command(() => {
+                    CreateClassicPopup(position);
+                })
+
+            };
+            AbsoluteLayout.SetLayoutBounds(ClassicButton, new Rectangle(.5, .5, .8, .25));
+            AbsoluteLayout.SetLayoutFlags(ClassicButton, AbsoluteLayoutFlags.All);
+
+            Button HeroicButton = new Button {
+                Text = "Heroic",
+                BackgroundColor = Color.FromHex("#FF2200"),
+                Command = new Command(() => {
+                    CreateHeroicPopup(position);
+                })
+
+            };
+            AbsoluteLayout.SetLayoutBounds(HeroicButton, new Rectangle(.5, .95, .8, .25));
+            AbsoluteLayout.SetLayoutFlags(HeroicButton, AbsoluteLayoutFlags.All);
+
+            popUp.Children.Add(popUpFill);
+
+            popUpFill.Children.Add(StandardButton);
+            popUpFill.Children.Add(ClassicButton);
+            popUpFill.Children.Add(HeroicButton);
 
             popUpOverlay = new AbsoluteLayout {
                 BackgroundColor = Color.FromHex("#60000000"),
@@ -111,10 +141,414 @@ namespace PwF.CharacterCreation
             PageContent.Children.Add(popUpOverlay);
         }
 
+        public void CreateStandardPopup(int position) {
+            RemovePopup();
+            ResetScores();
+
+            Command exitCommand = new Command(() => {
+                RemovePopup();
+            });
+
+            AbsoluteLayout popUp = Statics.GlobalFunctions.getPopupBase("Standard Roll", exitCommand);
+
+            // Dice 1
+            Label Dice1Text = new Label {
+                Text = "Dice",
+                FontSize=24,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions= LayoutOptions.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice1Text, new Rectangle(.5, .5, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice1Text, AbsoluteLayoutFlags.All);
+
+            AbsoluteLayout Dice1 = new AbsoluteLayout {
+                BackgroundColor = Color.FromHex("#00000000"),
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                Children =
+                {
+                    Dice1Text
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice1, new Rectangle(0, .5, .25, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice1, AbsoluteLayoutFlags.All);
+
+            // Dice 2
+            Label Dice2Text = new Label {
+                Text = "Dice",
+                FontSize = 24,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice2Text, new Rectangle(.5, .5, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice2Text, AbsoluteLayoutFlags.All);
+
+            AbsoluteLayout Dice2 = new AbsoluteLayout {
+                BackgroundColor = Color.FromHex("#00000000"),
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                Children =
+                {
+                    Dice2Text
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice2, new Rectangle(.325, .5, .25, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice2, AbsoluteLayoutFlags.All);
+
+            // Dice 3
+            Label Dice3Text = new Label {
+                Text = "Dice",
+                FontSize = 24,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice3Text, new Rectangle(.5, .5, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice3Text, AbsoluteLayoutFlags.All);
+
+            AbsoluteLayout Dice3 = new AbsoluteLayout {
+                BackgroundColor = Color.FromHex("#00000000"),
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                Children =
+                {
+                    Dice3Text
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice3, new Rectangle(.675, .5, .25, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice3, AbsoluteLayoutFlags.All);
+
+            // Dice 3
+            Label Dice4Text = new Label {
+                Text = "Dice",
+                FontSize = 24,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice4Text, new Rectangle(.5, .5, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice4Text, AbsoluteLayoutFlags.All);
+
+            AbsoluteLayout Dice4 = new AbsoluteLayout {
+                BackgroundColor = Color.FromHex("#00000000"),
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                Children =
+                {
+                    Dice4Text
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice4, new Rectangle(1, .5, .25, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice4, AbsoluteLayoutFlags.All);
+
+            popUp.Children.Add(Dice1);
+            popUp.Children.Add(Dice2);
+            popUp.Children.Add(Dice3);
+            popUp.Children.Add(Dice4);
+
+            // add the binding for the InfoButton and a tap recognizer
+            popUp.BindingContext = viewModel;
+            var RollDice = new TapGestureRecognizer();
+            RollDice.Tapped += (s, e) => {
+                if(viewModel.Numbers[position] == 0) {
+                    int[] numbers = viewModel.RollMany(4);
+                    Dice1Text.Text = numbers[0].ToString();
+                    Dice2Text.Text = numbers[1].ToString();
+                    Dice3Text.Text = numbers[2].ToString();
+                    Dice4Text.Text = numbers[3].ToString();
+
+                    int lowest = viewModel.FindLowestValue(numbers);
+                    int total = 0;
+                    for(int i = 0; i < numbers.Length; i++) {
+                        if(i != lowest) {
+                            total += numbers[i];
+                        }
+                    }
+                    viewModel.Numbers[position] = total;
+
+                    UpdateNumbers();
+                } else {
+                    RemovePopup();
+                }
+            };
+            popUp.GestureRecognizers.Add(RollDice);
+
+            popUpOverlay = new AbsoluteLayout {
+                BackgroundColor = Color.FromHex("#60000000"),
+                Children =
+                {
+                    popUp
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(popUpOverlay, new Rectangle(.5, .5, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(popUpOverlay, AbsoluteLayoutFlags.All);
+
+            // Add this layout to the Content layout
+            PageContent.Children.Add(popUpOverlay);
+
+        }
+
+        public void CreateClassicPopup(int position) {
+            RemovePopup();
+            ResetScores();
+
+            Command exitCommand = new Command(() => {
+                RemovePopup();
+            });
+
+            AbsoluteLayout popUp = Statics.GlobalFunctions.getPopupBase("Classic Roll", exitCommand);
+
+            // Dice 1
+            Label Dice1Text = new Label {
+                Text = "Dice",
+                FontSize = 24,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice1Text, new Rectangle(.5, .5, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice1Text, AbsoluteLayoutFlags.All);
+
+            AbsoluteLayout Dice1 = new AbsoluteLayout {
+                BackgroundColor = Color.FromHex("#00000000"),
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                Children =
+                {
+                    Dice1Text
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice1, new Rectangle(.1, .5, .25, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice1, AbsoluteLayoutFlags.All);
+
+            // Dice 2
+            Label Dice2Text = new Label {
+                Text = "Dice",
+                FontSize = 24,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice2Text, new Rectangle(.5, .5, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice2Text, AbsoluteLayoutFlags.All);
+
+            AbsoluteLayout Dice2 = new AbsoluteLayout {
+                BackgroundColor = Color.FromHex("#00000000"),
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                Children =
+                {
+                    Dice2Text
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice2, new Rectangle(.5, .5, .25, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice2, AbsoluteLayoutFlags.All);
+
+            // Dice 3
+            Label Dice3Text = new Label {
+                Text = "Dice",
+                FontSize = 24,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice3Text, new Rectangle(.5, .5, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice3Text, AbsoluteLayoutFlags.All);
+
+            AbsoluteLayout Dice3 = new AbsoluteLayout {
+                BackgroundColor = Color.FromHex("#00000000"),
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                Children =
+                {
+                    Dice3Text
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice3, new Rectangle(.9, .5, .25, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice3, AbsoluteLayoutFlags.All);
+
+            // Dice 3
+            Label Dice4Text = new Label {
+                Text = "Dice",
+                FontSize = 24,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice4Text, new Rectangle(.5, .5, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice4Text, AbsoluteLayoutFlags.All);
+
+            popUp.Children.Add(Dice1);
+            popUp.Children.Add(Dice2);
+            popUp.Children.Add(Dice3);
+
+            // add the binding for the InfoButton and a tap recognizer
+            popUp.BindingContext = viewModel;
+            var RollDice = new TapGestureRecognizer();
+            RollDice.Tapped += (s, e) => {
+                if (viewModel.Numbers[position] == 0) {
+                    int[] numbers = viewModel.RollMany(3);
+                    Dice1Text.Text = numbers[0].ToString();
+                    Dice2Text.Text = numbers[1].ToString();
+                    Dice3Text.Text = numbers[2].ToString();
+                    
+                    viewModel.Numbers[position] = numbers[0] + numbers[1] + numbers[2];
+
+                    UpdateNumbers();
+                } else {
+                    RemovePopup();
+                }
+            };
+            popUp.GestureRecognizers.Add(RollDice);
+
+            popUpOverlay = new AbsoluteLayout {
+                BackgroundColor = Color.FromHex("#60000000"),
+                Children =
+                {
+                    popUp
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(popUpOverlay, new Rectangle(.5, .5, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(popUpOverlay, AbsoluteLayoutFlags.All);
+
+            // Add this layout to the Content layout
+            PageContent.Children.Add(popUpOverlay);
+
+        }
+
+        public void CreateHeroicPopup(int position) {
+            RemovePopup();
+            ResetScores();
+
+            Command exitCommand = new Command(() => {
+                RemovePopup();
+            });
+
+            AbsoluteLayout popUp = Statics.GlobalFunctions.getPopupBase("Heroic Roll", exitCommand);
+
+            // Dice 1
+            Label Dice1Text = new Label {
+                Text = "Dice",
+                FontSize = 24,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice1Text, new Rectangle(.5, .5, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice1Text, AbsoluteLayoutFlags.All);
+
+            AbsoluteLayout Dice1 = new AbsoluteLayout {
+                BackgroundColor = Color.FromHex("#00000000"),
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                Children =
+                {
+                    Dice1Text
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice1, new Rectangle(.1, .5, .25, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice1, AbsoluteLayoutFlags.All);
+
+            // Dice 2
+            Label Dice2Text = new Label {
+                Text = "Dice",
+                FontSize = 24,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice2Text, new Rectangle(.5, .5, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice2Text, AbsoluteLayoutFlags.All);
+
+            AbsoluteLayout Dice2 = new AbsoluteLayout {
+                BackgroundColor = Color.FromHex("#00000000"),
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                Children =
+                {
+                    Dice2Text
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice2, new Rectangle(.5, .5, .25, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice2, AbsoluteLayoutFlags.All);
+
+            // Dice 3
+            Label Dice3Text = new Label {
+                Text = "+ 6",
+                FontSize = 24,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice3Text, new Rectangle(.5, .5, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice3Text, AbsoluteLayoutFlags.All);
+
+            AbsoluteLayout Dice3 = new AbsoluteLayout {
+                BackgroundColor = Color.FromHex("#00000000"),
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                Children =
+                {
+                    Dice3Text
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice3, new Rectangle(.9, .5, .25, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice3, AbsoluteLayoutFlags.All);
+
+            // Dice 3
+            Label Dice4Text = new Label {
+                Text = "Dice",
+                FontSize = 24,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(Dice4Text, new Rectangle(.5, .5, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(Dice4Text, AbsoluteLayoutFlags.All);
+
+            popUp.Children.Add(Dice1);
+            popUp.Children.Add(Dice2);
+            popUp.Children.Add(Dice3);
+
+            // add the binding for the InfoButton and a tap recognizer
+            popUp.BindingContext = viewModel;
+            var RollDice = new TapGestureRecognizer();
+            RollDice.Tapped += (s, e) => {
+                if (viewModel.Numbers[position] == 0) {
+                    int[] numbers = viewModel.RollMany(3);
+                    Dice1Text.Text = numbers[0].ToString();
+                    Dice2Text.Text = numbers[1].ToString();
+
+                    viewModel.Numbers[position] = numbers[0] + numbers[1] + 6;
+
+                    UpdateNumbers();
+                } else {
+                    RemovePopup();
+                }
+            };
+            popUp.GestureRecognizers.Add(RollDice);
+
+            popUpOverlay = new AbsoluteLayout {
+                BackgroundColor = Color.FromHex("#60000000"),
+                Children =
+                {
+                    popUp
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(popUpOverlay, new Rectangle(.5, .5, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(popUpOverlay, AbsoluteLayoutFlags.All);
+
+            // Add this layout to the Content layout
+            PageContent.Children.Add(popUpOverlay);
+
+        }
+
         public void RemovePopup() {
 
             PageContent.Children.Remove(popUpOverlay);
 
+        }
+
+        public void ResetScores() {
+            NumbersUsed = new List<int> { -1, -1, -1, -1, -1, -1 };
+            viewModel.Scores.Strength.Value = 0;
+            viewModel.Scores.Dexterity.Value = 0;
+            viewModel.Scores.Constitution.Value = 0;
+            viewModel.Scores.Intelligence.Value = 0;
+            viewModel.Scores.Wisdom.Value = 0;
+            viewModel.Scores.Charisma.Value = 0;
+            ResetSelectedNumber();
+            UpdateScores();
         }
 
         public void UpdateScores() {
@@ -228,20 +662,24 @@ namespace PwF.CharacterCreation
                         tempNumber = i;
                     }
                 }
-                if (SelectedNumber != -1) {
-                    if (SelectedNumber != tempNumber) {
+                if (viewModel.Numbers[tempNumber] == 0) {
+                    CreateDicePopup(tempNumber);
+                } else {
+                    if (SelectedNumber != -1) {
+                        if (SelectedNumber != tempNumber) {
+                            ResetSelectedNumber();
+                            SelectedNumber = tempNumber;
+                            Numbers[tempNumber].TextColor = Color.FromHex("#FFFFFF");
+                            NumberContainers[tempNumber].BackgroundColor = Color.FromHex("#000000");
+                        } else {
+                            ResetSelectedNumber();
+                        }
+                    } else {
                         ResetSelectedNumber();
                         SelectedNumber = tempNumber;
                         Numbers[tempNumber].TextColor = Color.FromHex("#FFFFFF");
                         NumberContainers[tempNumber].BackgroundColor = Color.FromHex("#000000");
-                    } else {
-                        ResetSelectedNumber();
                     }
-                } else {
-                    ResetSelectedNumber();
-                    SelectedNumber = tempNumber;
-                    Numbers[tempNumber].TextColor = Color.FromHex("#FFFFFF");
-                    NumberContainers[tempNumber].BackgroundColor = Color.FromHex("#000000");
                 }
             };
 

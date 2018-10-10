@@ -75,7 +75,7 @@
                             <!-- The Labels for displaying the dice roles -->
                             <AbsoluteLayout
                                 x:Name="Number1Container"
-                                AbsoluteLayout.LayoutBounds=".083,0,.166,1" 
+                                AbsoluteLayout.LayoutBounds=".0,0,.166,1" 
                                 AbsoluteLayout.LayoutFlags="All">
                                 
                                 <Label
@@ -93,7 +93,7 @@
 
                             <AbsoluteLayout
                                 x:Name="Number2Container"
-                                AbsoluteLayout.LayoutBounds=".25,0,.166,1" 
+                                AbsoluteLayout.LayoutBounds=".2,0,.166,1" 
                                 AbsoluteLayout.LayoutFlags="All">
 
                                 <Label
@@ -111,7 +111,7 @@
 
                             <AbsoluteLayout
                                 x:Name="Number3Container"
-                                AbsoluteLayout.LayoutBounds=".416,0,.166,1" 
+                                AbsoluteLayout.LayoutBounds=".4,0,.166,1" 
                                 AbsoluteLayout.LayoutFlags="All">
 
                                 <Label
@@ -129,7 +129,7 @@
 
                             <AbsoluteLayout
                                 x:Name="Number4Container"
-                                AbsoluteLayout.LayoutBounds=".583,0,.166,1" 
+                                AbsoluteLayout.LayoutBounds=".6,0,.166,1" 
                                 AbsoluteLayout.LayoutFlags="All">
 
                                 <Label
@@ -147,7 +147,7 @@
 
                             <AbsoluteLayout
                                 x:Name="Number5Container"
-                                AbsoluteLayout.LayoutBounds=".75,0,.166,1" 
+                                AbsoluteLayout.LayoutBounds=".8,0,.166,1" 
                                 AbsoluteLayout.LayoutFlags="All">
 
                                 <Label
@@ -165,7 +165,7 @@
 
                             <AbsoluteLayout
                                 x:Name="Number6Container"
-                                AbsoluteLayout.LayoutBounds=".916,0,.166,1" 
+                                AbsoluteLayout.LayoutBounds="1,0,.166,1" 
                                 AbsoluteLayout.LayoutFlags="All">
 
                                 <Label

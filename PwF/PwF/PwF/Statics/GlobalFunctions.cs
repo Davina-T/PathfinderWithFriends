@@ -64,5 +64,15 @@ namespace PwF.Statics
 
             return popUp;
         }
+
+        public static AbsoluteLayout getPopUpFill() {
+
+            AbsoluteLayout popUpFill = new AbsoluteLayout {
+            };
+            AbsoluteLayout.SetLayoutBounds(popUpFill, new Rectangle(.5, .5, 1, .6));
+            AbsoluteLayout.SetLayoutFlags(popUpFill, AbsoluteLayoutFlags.All);
+
+            return popUpFill;
+        }
     }
 }
