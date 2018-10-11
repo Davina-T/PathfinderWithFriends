@@ -143,7 +143,6 @@ namespace PwF.CharacterCreation
 
         public void CreateStandardPopup(int position) {
             RemovePopup();
-            ResetScores();
 
             Command exitCommand = new Command(() => {
                 RemovePopup();
@@ -288,7 +287,6 @@ namespace PwF.CharacterCreation
 
         public void CreateClassicPopup(int position) {
             RemovePopup();
-            ResetScores();
 
             Command exitCommand = new Command(() => {
                 RemovePopup();
@@ -412,7 +410,6 @@ namespace PwF.CharacterCreation
 
         public void CreateHeroicPopup(int position) {
             RemovePopup();
-            ResetScores();
 
             Command exitCommand = new Command(() => {
                 RemovePopup();
@@ -547,6 +544,7 @@ namespace PwF.CharacterCreation
             viewModel.Scores.Intelligence.Value = 0;
             viewModel.Scores.Wisdom.Value = 0;
             viewModel.Scores.Charisma.Value = 0;
+            HighLightStats(false);
             ResetSelectedNumber();
             UpdateScores();
         }
@@ -566,6 +564,24 @@ namespace PwF.CharacterCreation
                 Numbers[i].Text = viewModel.Numbers[i].ToString();
             }
 
+        }
+
+        public void HighLightStats(bool highlight) {
+            if (highlight) {
+                Strength.Source = "StrengthHighlight.png";
+                Dexterity.Source = "DexterityHighlight.png";
+                Constitution.Source = "ConstitutionHighlight.png";
+                Intelligence.Source = "IntelligenceHighlight.png";
+                Wisdom.Source = "WisdomHighlight.png";
+                Charisma.Source = "CharismaHighlight.png";
+            } else {
+                Strength.Source = "Strength.png";
+                Dexterity.Source = "Dexterity.png";
+                Constitution.Source = "Constitution.png";
+                Intelligence.Source = "Intelligence.png";
+                Wisdom.Source = "Wisdom.png";
+                Charisma.Source = "Charisma.png";
+            }
         }
 
         public TapGestureRecognizer GetTapGestureRecognizerForEntry(Image entry, string stat) {
@@ -630,6 +646,7 @@ namespace PwF.CharacterCreation
 
             Numbers[position].TextColor = Color.FromHex("#FF0000");
             NumberContainers[position].BackgroundColor = Color.FromHex("#FFFFFF");
+            HighLightStats(false);
             UpdateNumbers();
             UpdateScores();
 
@@ -649,6 +666,7 @@ namespace PwF.CharacterCreation
                     NumberContainers[i].BackgroundColor = Color.FromHex("#00000000");
                 }
             }
+            HighLightStats(false);
             SelectedNumber = -1;
         }
 
@@ -671,6 +689,7 @@ namespace PwF.CharacterCreation
                             SelectedNumber = tempNumber;
                             Numbers[tempNumber].TextColor = Color.FromHex("#FFFFFF");
                             NumberContainers[tempNumber].BackgroundColor = Color.FromHex("#000000");
+                            HighLightStats(true);
                         } else {
                             ResetSelectedNumber();
                         }
@@ -679,6 +698,7 @@ namespace PwF.CharacterCreation
                         SelectedNumber = tempNumber;
                         Numbers[tempNumber].TextColor = Color.FromHex("#FFFFFF");
                         NumberContainers[tempNumber].BackgroundColor = Color.FromHex("#000000");
+                        HighLightStats(true);
                     }
                 }
             };
