@@ -131,11 +131,20 @@ namespace Pwf.Navigation
 
         public void ShowCharacterDetailsPage(bool forward = true) {
             // change navigation to send to Character Details Page
+            navigation.PushAsync(new DetailsPage());
+        }
+
+        public void ShowBackstoryPage(bool forward = true)
+        {
+            // change navigation to send to Character Details Page
             // navigation.PushAsync(new AbilityScorePage());
-            if (forward) {
+            if (forward)
+            {
                 ShowCharacterConfirmPage();
-            } else {
-                ShowEquipmentPage(false);
+            }
+            else
+            {
+                ShowCharacterDetailsPage(false);
             }
         }
 

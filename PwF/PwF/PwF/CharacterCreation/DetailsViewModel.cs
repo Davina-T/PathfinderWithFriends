@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Pwf.Navigation;
 
 namespace PwF.CharacterCreation
 {
     class DetailsViewModel
     {
+        private PageNavigationManager navManager;
+
         public String SelectedName { get; set; }
         public String SelectedAlignment { get; set; }
         public String SelectedDeity { get; set; }
@@ -72,13 +75,13 @@ namespace PwF.CharacterCreation
             }
             Statics.CharacterCreating.CreatingCharacter.Name = SelectedName;
             //Statics.CharacterCreating.CreatingCharacter.Race = SelectedRace.Title;
-            // Link to next page
+            
+            navManager.ShowBackstoryPage();
         }
 
         public void PrevPage()
         {
-            //Statics.CharacterCreating.CreatingCharacter.Race = null;
-            // Link to previous page
+            navManager.ShowEquipmentPage(false);
         }
 
         public void ViewInfo()

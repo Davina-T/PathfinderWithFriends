@@ -34,7 +34,7 @@ namespace PwF.CharacterCreation
                 viewModel.SelectedWeight = Weight.Text;
                 viewModel.SelectedHair = Hair.Text;
                 viewModel.SelectedEyes = Eyes.Text;
-                DisplayAlert("Alert", viewModel.SelectedName + ", " +
+                /*DisplayAlert("Alert", viewModel.SelectedName + ", " +
                                       viewModel.SelectedAlignment + ", " +
                                       viewModel.SelectedDeity + ", " +
                                       viewModel.SelectedHomeland + ", " +
@@ -44,9 +44,9 @@ namespace PwF.CharacterCreation
                                       viewModel.SelectedHeight + ", " +
                                       viewModel.SelectedWeight + ", " +
                                       viewModel.SelectedHair + ", " +
-                                      viewModel.SelectedEyes, "OK");
+                                      viewModel.SelectedEyes, "OK");*/
                 //DisplayAlert("Alert", "Next Page", "OK");
-                //viewModel.NextPage();
+                viewModel.NextPage();
             };
             RightArrow.GestureRecognizers.Add(tapGestureRecognizer1);
 
@@ -55,7 +55,7 @@ namespace PwF.CharacterCreation
             var tapGestureRecognizer2 = new TapGestureRecognizer();
             tapGestureRecognizer2.Tapped += (s, e) => {
                 //DisplayAlert("Alert", "Previous Page", "OK");
-                //viewModel.PrevPage();
+                viewModel.PrevPage();
             };
             LeftArrow.GestureRecognizers.Add(tapGestureRecognizer2);
 
