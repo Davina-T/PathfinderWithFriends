@@ -92,13 +92,20 @@
                             AbsoluteLayout.LayoutBounds="0, 180, 0.5, 50"  
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
-                        <Entry
+                        <Picker Title=""
                             x:Name="Deity"
-                            BackgroundColor="#ffffff"
+                            BackgroundColor="White"
                             FontSize="22"
-                            AbsoluteLayout.LayoutBounds="1, 180, 0.5, 50"  
-                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
-
+                            AbsoluteLayout.LayoutBounds="1, 100, 0.5, 50"   
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
+                            <Picker.Items>
+                                <x:String>Abdar</x:String>
+                                <x:String>Desna</x:String>
+                                <x:String>Nethys</x:String>
+                                <x:String>Torag</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        
                         <Label 
                             Text="Homeland"
                             TextColor="#C7BC91"
