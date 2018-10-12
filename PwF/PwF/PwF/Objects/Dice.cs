@@ -7,13 +7,14 @@ namespace PwF.Objects
     class Dice {
 
         public int Faces { get; set; }
+        Random rnd;
 
         public Dice(int faces) {
             Faces = faces;
+            rnd = new Random();
         }
 
         public int Roll() {
-            Random rnd = new Random();
             return rnd.Next(1, Faces+1);
         }
     }

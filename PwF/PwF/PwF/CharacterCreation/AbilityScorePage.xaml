@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PwF.CharacterCreation.AbilityScorePage"
+             xmlns:local="clr-namespace:PwF.CharacterCreation"
+             NavigationPage.HasNavigationBar="false">
+
+    <ContentPage.Content>
+
+        <AbsoluteLayout
+            x:Name="PageContent"
+            AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+            <AbsoluteLayout.BindingContext>
+                <local:AbilityScoreViewModel/>
+            </AbsoluteLayout.BindingContext>
+
+            <!-- The Top Bar of the Application -->
+            <AbsoluteLayout 
+                BackgroundColor="#1B2C34"
+                AbsoluteLayout.LayoutBounds="0,0,1,.1"  
+                AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+
+                <!-- The Label for displaying the page's Name -->
+                <Label
+                    Text="Ability Scores"
+                    TextColor="#C7BC91"
+                    Font="Bold, 32"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                    AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+                </Label>
+            </AbsoluteLayout>
+
+            <!-- The Main Pages Content -->
+            <AbsoluteLayout
+                BackgroundColor="#607F6F"
+                AbsoluteLayout.LayoutBounds="0,0.5,1,.8"  
+                AbsoluteLayout.LayoutFlags="All">
+
+                <!-- The ScrollView for Displaying the Pages Content -->
+                <ScrollView
+                    BackgroundColor="#C1DAC5"
+                    AbsoluteLayout.LayoutBounds=".5,.5,.9,.9"  
+                    AbsoluteLayout.LayoutFlags="All">
+
+                    <!-- The Layout that Contains the Pages Content -->
+                    <AbsoluteLayout
+                        x:Name="ConentContainer"
+                        AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                        AbsoluteLayout.LayoutFlags="All">
+
+                        <!-- The Labels for displaying the Character's Name -->
+                        <Label
+                            Text="Pick from the numbers below."
+                            TextColor="Black"
+                            HorizontalOptions="Center" 
+                            VerticalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0,.01,1,.05"  
+                            AbsoluteLayout.LayoutFlags="All">
+                        </Label>
+
+                        <!-- Image for the dice button -->
+                        <Image x:Name="td20" Source="td20.png"
+                            AbsoluteLayout.LayoutBounds=".5,.02,.2,.25"  
+                            AbsoluteLayout.LayoutFlags="All">
+                        </Image>
+
+                        <!-- The results of the dice roll -->
+                        <AbsoluteLayout
+                            AbsoluteLayout.LayoutBounds=".5,.25,.8,.1"
+                            AbsoluteLayout.LayoutFlags="All"
+                            BackgroundColor="White">
+
+                            <!-- The Labels for displaying the dice roles -->
+                            <AbsoluteLayout
+                                x:Name="Number1Container"
+                                AbsoluteLayout.LayoutBounds=".0,0,.166,1" 
+                                AbsoluteLayout.LayoutFlags="All">
+                                
+                                <Label
+                                    x:Name="Number1"
+                                    Text="{Binding Numbers[0]}"
+                                    TextColor="Black"
+                                    FontSize="20"
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center" 
+                                    AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                                    AbsoluteLayout.LayoutFlags="All">
+                                </Label>
+                                
+                            </AbsoluteLayout>
+
+                            <AbsoluteLayout
+                                x:Name="Number2Container"
+                                AbsoluteLayout.LayoutBounds=".2,0,.166,1" 
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <Label
+                                    x:Name="Number2"
+                                    Text="{Binding Numbers[1]}"
+                                    TextColor="Black"
+                                    FontSize="20"
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center" 
+                                    AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                                    AbsoluteLayout.LayoutFlags="All">
+                                </Label>
+
+                            </AbsoluteLayout>
+
+                            <AbsoluteLayout
+                                x:Name="Number3Container"
+                                AbsoluteLayout.LayoutBounds=".4,0,.166,1" 
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <Label
+                                    x:Name="Number3"
+                                    Text="{Binding Numbers[2]}"
+                                    TextColor="Black"
+                                    FontSize="20"
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center" 
+                                    AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                                    AbsoluteLayout.LayoutFlags="All">
+                                </Label>
+
+                            </AbsoluteLayout>
+
+                            <AbsoluteLayout
+                                x:Name="Number4Container"
+                                AbsoluteLayout.LayoutBounds=".6,0,.166,1" 
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <Label
+                                    x:Name="Number4"
+                                    Text="{Binding Numbers[3]}"
+                                    TextColor="Black"
+                                    FontSize="20"
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center" 
+                                    AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                                    AbsoluteLayout.LayoutFlags="All">
+                                </Label>
+
+                            </AbsoluteLayout>
+
+                            <AbsoluteLayout
+                                x:Name="Number5Container"
+                                AbsoluteLayout.LayoutBounds=".8,0,.166,1" 
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <Label
+                                    x:Name="Number5"
+                                    Text="{Binding Numbers[4]}"
+                                    TextColor="Black"
+                                    FontSize="20"
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center" 
+                                    AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                                    AbsoluteLayout.LayoutFlags="All">
+                                </Label>
+
+                            </AbsoluteLayout>
+
+                            <AbsoluteLayout
+                                x:Name="Number6Container"
+                                AbsoluteLayout.LayoutBounds="1,0,.166,1" 
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <Label
+                                    x:Name="Number6"
+                                    Text="{Binding Numbers[5]}"
+                                    TextColor="Black"
+                                    FontSize="20"
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center" 
+                                    AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                                    AbsoluteLayout.LayoutFlags="All">
+                                </Label>
+
+                            </AbsoluteLayout>
+                        </AbsoluteLayout>
+
+                        <!-- The ability score inputs -->
+                        <AbsoluteLayout
+                            x:Name="ResultsLayout"
+                            AbsoluteLayout.LayoutBounds="0,1,1,.65"  
+                            AbsoluteLayout.LayoutFlags="All">
+
+                            <!-- Strength -->
+                            <AbsoluteLayout
+                                AbsoluteLayout.LayoutBounds="0,0,.5,.33"  
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The ImaGE -->
+                                <Image
+                                    AbsoluteLayout.LayoutBounds=".1,0,.5,1"  
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    x:Name="Strength"
+                                    Source="Strength.png">
+                                </Image>
+
+                                <!-- Character Strength Entry -->
+                                <Entry
+                                    Keyboard="Numeric"
+                                    x:Name="strengthEntry"
+                                    Text="{Binding Scores.Strength.Value}"
+                                    FontSize="22"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="Center"
+                                    BackgroundColor="White"
+                                    AbsoluteLayout.LayoutBounds=".9,.5,.3,.5"
+                                    AbsoluteLayout.LayoutFlags="All"/>
+
+                            </AbsoluteLayout>
+
+                            <!-- Intelligence -->
+                            <AbsoluteLayout
+                                AbsoluteLayout.LayoutBounds="1,0,.5,.33"  
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The ImaGE -->
+                                <Image
+                                    AbsoluteLayout.LayoutBounds=".1,0,.5,1"  
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    x:Name="Intelligence"
+                                    Source="Intelligence.png">
+                                </Image>
+
+                                <!-- Character Intelligence Entry -->
+                                <Entry
+                                    Keyboard="Numeric"
+                                    x:Name="intelligenceEntry"
+                                    Text="{Binding Scores.Intelligence.Value}"
+                                    FontSize="22"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="Center"
+                                    BackgroundColor="White"
+                                    AbsoluteLayout.LayoutBounds=".9,.5,.3,.5"
+                                    AbsoluteLayout.LayoutFlags="All"/>
+
+                            </AbsoluteLayout>
+
+                            <!-- Dexterity -->
+                            <AbsoluteLayout
+                                AbsoluteLayout.LayoutBounds="0,.5,.5,.33"  
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The ImaGE -->
+                                <Image
+                                    AbsoluteLayout.LayoutBounds=".1,0,.5,1"  
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    x:Name="Dexterity"
+                                    Source="Dexterity.png">
+                                </Image>
+
+                                <!-- Character Dexterity Entry -->
+                                <Entry
+                                    Keyboard="Numeric"
+                                    x:Name="dexterityEntry"
+                                    Text="{Binding Scores.Dexterity.Value}"
+                                    FontSize="22"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="Center"
+                                    BackgroundColor="White"
+                                    AbsoluteLayout.LayoutBounds=".9,.5,.3,.5"
+                                    AbsoluteLayout.LayoutFlags="All"/>
+
+                            </AbsoluteLayout>
+
+                            <!-- Wisdom -->
+                            <AbsoluteLayout
+                                AbsoluteLayout.LayoutBounds="1,.5,.5,.33"  
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The ImaGE -->
+                                <Image
+                                    AbsoluteLayout.LayoutBounds=".1,0,.5,1"  
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    x:Name="Wisdom"
+                                    Source="Wisdom.png">
+                                </Image>
+
+                                <!-- Character Wisdom Entry -->
+                                <Entry
+                                    Keyboard="Numeric"
+                                    x:Name="wisdomEntry"
+                                    Text="{Binding Scores.Wisdom.Value}"
+                                    FontSize="22"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="Center"
+                                    BackgroundColor="White"
+                                    AbsoluteLayout.LayoutBounds=".9,.5,.3,.5"
+                                    AbsoluteLayout.LayoutFlags="All"/>
+
+
+                            </AbsoluteLayout>
+
+                            <!-- Constitution -->
+                            <AbsoluteLayout
+                                AbsoluteLayout.LayoutBounds="0,1,.5,.33"  
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The ImaGE -->
+                                <Image
+                                    AbsoluteLayout.LayoutBounds=".1,0,.5,1"  
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    x:Name="Constitution"
+                                    Source="Constitution.png">
+                                </Image>
+
+                                <!-- Character Constitution Entry -->
+                                <Entry
+                                    Keyboard="Numeric"
+                                    x:Name="constitutionEntry"
+                                    Text="{Binding Scores.Constitution.Value}"
+                                    FontSize="22"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="Center"
+                                    BackgroundColor="White"
+                                    AbsoluteLayout.LayoutBounds=".9,.5,.3,.5"
+                                    AbsoluteLayout.LayoutFlags="All"/>
+
+                            </AbsoluteLayout>
+
+                            <!-- Charisma -->
+                            <AbsoluteLayout
+                                AbsoluteLayout.LayoutBounds="1,1,.5,.33"  
+                                AbsoluteLayout.LayoutFlags="All">
+
+                                <!-- The ImaGE -->
+                                <Image
+                                    AbsoluteLayout.LayoutBounds=".1,0,.5,1"  
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    x:Name="Charisma"
+                                    Source="Charisma.png">
+                                </Image>
+
+                                <!-- Character Charisma Entry -->
+                                <Entry
+                                    Keyboard="Numeric"
+                                    x:Name="charismaEntry"
+                                    Text="{Binding Scores.Charisma.Value}"
+                                    FontSize="22"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="Center"
+                                    BackgroundColor="White"
+                                    AbsoluteLayout.LayoutBounds=".9,.5,.3,.5"
+                                    AbsoluteLayout.LayoutFlags="All"/>
+
+                            </AbsoluteLayout>
+
+                        </AbsoluteLayout>
+                    </AbsoluteLayout>
+                </ScrollView>
+            </AbsoluteLayout>
+
+            <!-- The bottom Bar of the Application -->
+            <AbsoluteLayout 
+                BackgroundColor="#1B2C34"
+                AbsoluteLayout.LayoutBounds="0,1,1,.1"  
+                AbsoluteLayout.LayoutFlags="All">
+
+                <!-- Image for the Previous Page button -->
+                <Image x:Name="LeftArrow" Source="ArrowLeft.PNG"
+                       AbsoluteLayout.LayoutBounds=".1,.5,.2,.8"  
+                       AbsoluteLayout.LayoutFlags="All">
+                </Image>
+
+                <!-- Image for the Information button -->
+                <Image x:Name="InfoButton" Source="InfoIcon.PNG"
+                       AbsoluteLayout.LayoutBounds=".5,.5,.3,1"  
+                       AbsoluteLayout.LayoutFlags="All">
+                </Image>
+
+                <!-- Image for the Mext Page button -->
+                <Image x:Name="RightArrow" Source="ArrowRight.PNG"
+                       AbsoluteLayout.LayoutBounds=".9,.5,.2,.8"  
+                       AbsoluteLayout.LayoutFlags="All">
+
+                </Image>
+
+            </AbsoluteLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
