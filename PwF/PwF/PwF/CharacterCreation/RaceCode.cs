@@ -36,6 +36,5 @@ namespace PwF.CharacterCreation
 
             return CustomCells;
         }
-
     }
 }

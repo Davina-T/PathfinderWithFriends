@@ -14,7 +14,7 @@ namespace PwF.CharacterCreation
 	public partial class ClassPage : ContentPage
 	{
         ClassViewModel viewModel = new ClassViewModel();
-
+        Compendium temp = new Compendium();
 
         public ClassPage()
         {
@@ -48,8 +48,19 @@ namespace PwF.CharacterCreation
             InfoButton.BindingContext = viewModel;
             var tapGestureRecognizer3 = new TapGestureRecognizer();
             tapGestureRecognizer3.Tapped += (s, e) => {
-                //DisplayAlert("Alert", "Information Page", "OK");
-                viewModel.ViewInfo();
+                //DisplayAlert("Alert", "Information View", "OK");
+                //viewModel.ViewInfo();
+                AbsoluteLayout overlay = temp.CreateOverlay(viewModel.GetCompendiumEntry());
+                pageContainer.Children.Add(overlay);
+
+                // add the binding for the compendium overlay and a tap recognizer
+                overlay.BindingContext = viewModel;
+                var tapGestureRecognizer4 = new TapGestureRecognizer();
+                tapGestureRecognizer4.Tapped += (s2, e2) => {
+                    //DisplayAlert("Alert", "Remove Overlay", "OK");
+                    pageContainer.Children.Remove(overlay);
+                };
+                overlay.GestureRecognizers.Add(tapGestureRecognizer4);
             };
             InfoButton.GestureRecognizers.Add(tapGestureRecognizer3);
 
