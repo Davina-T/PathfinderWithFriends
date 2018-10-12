@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PwF.CharacterCreation.DetailsPage"
+             xmlns:local="clr-namespace:PwF.CharacterCreation">
+    <ContentPage.Content>
+
+        <AbsoluteLayout
+            AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+
+            <!-- The Top Bar of the Application -->
+            <AbsoluteLayout 
+                BackgroundColor="#1B2C34"
+                AbsoluteLayout.LayoutBounds="0,0,1,.1"  
+                AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+                <!-- The Label for displaying the Character's Name -->
+                <Label
+                    Text="Character Details"
+                    TextColor="#C7BC91"
+                    Font="Bold, 32"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                    AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+                </Label>
+            </AbsoluteLayout>
+
+            <!-- The Main Pages Content -->
+            <AbsoluteLayout
+                BackgroundColor="#607F6F"
+                AbsoluteLayout.LayoutBounds="0,0.5,1,.8"  
+                AbsoluteLayout.LayoutFlags="All">
+
+                <!-- The ScrollView for Displaying the Pages Content -->
+                <ScrollView
+                    BackgroundColor="#607F6F"
+                    AbsoluteLayout.LayoutBounds="0.5,0.5,.9,0.9"  
+                    AbsoluteLayout.LayoutFlags="All">
+
+                    <!-- The Layout that Contains the Pages Content -->
+                    <AbsoluteLayout
+                        AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                        AbsoluteLayout.LayoutFlags="XProportional, YProportional, WidthProportional">
+
+                        <Label
+                            Text="Name"
+                            TextColor="#C7BC91"
+                            Font="26"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 20, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Entry
+                            x:Name="Name"
+                            BackgroundColor="#ffffff"
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 20, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Label 
+                            Text="Alignment"
+                            TextColor="#C7BC91"
+                            Font="26"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 100, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Picker Title=""
+                            x:Name="Alignment"
+                            BackgroundColor="White"
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 100, 0.5, 50"   
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
+                            <Picker.Items>
+                                <x:String>Lawful Good</x:String>
+                                <x:String>Lawful Neutral</x:String>
+                                <x:String>Lawful Evil</x:String>
+                                <x:String>Neutral Good</x:String>
+                                <x:String>Neutral</x:String>
+                                <x:String>Neutral Evil</x:String>
+                                <x:String>Chaotic Good</x:String>
+                                <x:String>Chaotic Neutral</x:String>
+                                <x:String>Chaotic Evil</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                        <Label 
+                            Text="Deity"
+                            TextColor="#C7BC91"
+                            Font="26"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 180, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Picker Title=""
+                            x:Name="Deity"
+                            BackgroundColor="White"
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 100, 0.5, 50"   
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
+                            <Picker.Items>
+                                <x:String>Abdar</x:String>
+                                <x:String>Desna</x:String>
+                                <x:String>Nethys</x:String>
+                                <x:String>Torag</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        
+                        <Label 
+                            Text="Homeland"
+                            TextColor="#C7BC91"
+                            Font="26"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 260, 0.5, 50" 
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Entry
+                            x:Name="Homeland"
+                            BackgroundColor="#ffffff"
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 260, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Label 
+                            Text="Size"
+                            TextColor="#C7BC91"
+                            Font="26"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 340, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Entry
+                            x:Name="cSize"
+                            BackgroundColor="#ffffff"
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 340, 0.5, 50"   
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Label 
+                            Text="Gender"
+                            TextColor="#C7BC91"
+                            Font="24"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 420, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+
+                        <Picker Title=""
+                            x:Name="Gender"
+                            BackgroundColor="White"
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 420, 0.5, 50"   
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
+                            <Picker.Items>
+                                <x:String>Female</x:String>
+                                <x:String>Male</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                        <Label 
+                            Text="Age"
+                            TextColor="#C7BC91"
+                            Font="24"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 500, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Entry
+                            x:Name="Age"
+                            Keyboard="Numeric"
+                            BackgroundColor="#ffffff"
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 500, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Label 
+                            Text="Height"
+                            TextColor="#C7BC91"
+                            Font="24"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 580, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Entry
+                            x:Name="cHeight"
+                            Keyboard="Numeric"
+                            BackgroundColor="#ffffff"
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 580, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Label 
+                            Text="Weight"
+                            TextColor="#C7BC91"
+                            Font="24"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 660, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Entry
+                            x:Name="Weight"
+                            Keyboard="Numeric"
+                            BackgroundColor="#ffffff"
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 660, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Label 
+                            Text="Hair"
+                            TextColor="#C7BC91"
+                            Font="24"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 740, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Entry
+                            x:Name="Hair"
+                            BackgroundColor="#ffffff"
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 740, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Label 
+                            Text="Eyes"
+                            TextColor="#C7BC91"
+                            Font="24"
+                            HorizontalOptions="Center" 
+                            AbsoluteLayout.LayoutBounds="0, 820, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Entry
+                            x:Name="Eyes"
+                            BackgroundColor="#ffffff"
+                            FontSize="22"
+                            AbsoluteLayout.LayoutBounds="1, 820, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                    </AbsoluteLayout>
+
+                </ScrollView>
+
+            </AbsoluteLayout>
+            
+            <!-- The bottom Bar of the Application -->
+            <AbsoluteLayout 
+                BackgroundColor="#1B2C34"
+                AbsoluteLayout.LayoutBounds="0,1,1,.1"  
+                AbsoluteLayout.LayoutFlags="All">
+
+                <!-- Image for the Previous Page button -->
+                <Image x:Name="LeftArrow" Source="ArrowLeft.PNG"
+                       AbsoluteLayout.LayoutBounds=".1,.5,.2,.8"  
+                       AbsoluteLayout.LayoutFlags="All">
+                </Image>
+
+                <!-- Image for the Information button -->
+                <Image x:Name="InfoButton" Source="InfoIcon.PNG"
+                       AbsoluteLayout.LayoutBounds=".5,.5,.3,1"  
+                       AbsoluteLayout.LayoutFlags="All">
+                </Image>
+
+                <!-- Image for the Next Page button -->
+                <Image x:Name="RightArrow" Source="ArrowRight.PNG"
+                       AbsoluteLayout.LayoutBounds=".9,.5,.2,.8"  
+                       AbsoluteLayout.LayoutFlags="All">
+
+                </Image>
+
+            </AbsoluteLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

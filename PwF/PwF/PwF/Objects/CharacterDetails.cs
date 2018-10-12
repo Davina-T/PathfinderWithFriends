@@ -7,7 +7,7 @@ namespace PwF.Objects
     public class CharacterDetails
     {
         public Enums.Alignment Alignment { get; set; }
-        public string Diety { get; set; }
+        public Enums.Deity Diety { get; set; }
         public string Homeland { get; set; }
         public float Size { get; set; }
         public Enums.Gender Gender { get; set; }
