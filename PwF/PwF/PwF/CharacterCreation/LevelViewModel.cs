@@ -26,7 +26,7 @@ namespace PwF.CharacterCreation
         public void PrevPage()
         {
             Statics.CharacterCreating.CreatingCharacter.Level = 0;
-            navManager.ShowCharacterList();
+            navManager.ShowCharacterList(false);
         }
 
         public void ViewInfo()

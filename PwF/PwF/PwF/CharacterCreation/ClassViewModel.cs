@@ -33,13 +33,13 @@ namespace PwF.CharacterCreation
             if (SelectedClass != null && SelectedClass.Title != "")
             {
                 Statics.CharacterCreating.CreatingCharacter.Class = SelectedClass.Title;
-                navManager.ShowTesterPage();
+                navManager.ShowAbilityScoresPage();
             }
         }
 
         public void PrevPage()
         {
-            navManager.ShowRacePage();
+            navManager.ShowRacePage(false);
         }
 
         public void ViewInfo()

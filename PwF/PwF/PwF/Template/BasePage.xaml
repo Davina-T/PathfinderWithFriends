@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PwF.Template.BasePage"
-             xmlns:navi="clr-namespace:Pwf.Navigation"
+             xmlns:local="clr-namespace:Pwf.Navigation"
              NavigationPage.HasNavigationBar="false">
     
     <ContentPage.Content>
@@ -11,7 +11,7 @@
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
 
             <AbsoluteLayout.BindingContext>
-                <navi:ViewModel/>
+                <local:ViewModel/>
             </AbsoluteLayout.BindingContext>
 
             <!-- The Top Bar of the Application -->
@@ -34,7 +34,7 @@
             <!-- The Main Pages Content -->
             <AbsoluteLayout
                 BackgroundColor="#607F6F"
-                AbsoluteLayout.LayoutBounds="0,1,1,.9"  
+                AbsoluteLayout.LayoutBounds="0,0.5,1,.8"  
                 AbsoluteLayout.LayoutFlags="All">
 
                 <!-- The ScrollView for Displaying the Pages Content -->
@@ -51,6 +51,33 @@
                     </AbsoluteLayout>
 
                 </ScrollView>
+
+            </AbsoluteLayout>
+
+            <!-- The bottom Bar of the Application -->
+            <AbsoluteLayout 
+                BackgroundColor="#1B2C34"
+                AbsoluteLayout.LayoutBounds="0,1,1,.1"  
+                AbsoluteLayout.LayoutFlags="All">
+
+                <!-- Image for the Previous Page button -->
+                <Image x:Name="LeftArrow" Source="ArrowLeft.PNG"
+                       AbsoluteLayout.LayoutBounds=".1,.5,.2,.8"  
+                       AbsoluteLayout.LayoutFlags="All">
+                </Image>
+
+                <!-- Image for the Information button -->
+                <Image x:Name="InfoButton" Source="InfoIcon.PNG"
+                       AbsoluteLayout.LayoutBounds=".5,.5,.3,1"  
+                       AbsoluteLayout.LayoutFlags="All">
+                </Image>
+
+                <!-- Image for the Mext Page button -->
+                <Image x:Name="RightArrow" Source="ArrowRight.PNG"
+                       AbsoluteLayout.LayoutBounds=".9,.5,.2,.8"  
+                       AbsoluteLayout.LayoutFlags="All">
+
+                </Image>
 
             </AbsoluteLayout>
 

@@ -28,31 +28,121 @@ namespace Pwf.Navigation
             set { navigation = value; }
         }
 
-        public void ShowCharacterList() {
+        public void ShowCharacterList(bool forward = true) {
             // change navigation to send to main page (character list page)
             navigation.PushAsync(new CharacterList());
         }
 
-        public void ShowCharacterSheet() {
+        public void ShowCharacterSheet(bool forward = true) {
             navigation.PushAsync(new CharacterSheet());
         }
 
-        public void ShowCombatPage() {
+        public void ShowCombatPage(bool forward = true) {
             navigation.PushAsync(new CombatPage());
         }
 
-        public void ShowLevelPage() {
-            // change navigation to send to Level Page
+        public void ShowLevelPage(bool forward = true) {
             navigation.PushAsync(new LevelPage());
         }
 
-        public void ShowRacePage() {
+        public void ShowRacePage(bool forward = true) {
             navigation.PushAsync(new RacePage());
         }
 
-        public void ShowClassPage() {
-            // change navigation to send to Class Page
+        public void ShowClassPage(bool forward = true) {
             navigation.PushAsync(new ClassPage());
+        }
+
+        public void ShowFamiliarPage(bool forward = true) {
+            // change navigation to send to Familiars Page
+            // navigation.PushAsync(new ClassPage());
+            if (forward) {
+                ShowAbilityScoresPage();
+            } else {
+                ShowClassPage(false);
+            }
+            
+        }
+
+        public void ShowAbilityScoresPage(bool forward = true) {
+            // change navigation to send to Ability Scores Page
+            navigation.PushAsync(new AbilityScorePage());
+        }
+
+        public void ShowSkillsPage(bool forward = true) {
+            // change navigation to send to Skills Page
+            // navigation.PushAsync(new AbilityScorePage());
+            if (forward) {
+                ShowFeatsPage();
+            } else {
+                ShowClassPage(false);
+            }
+        }
+
+        public void ShowFeatsPage(bool forward = true) {
+            // change navigation to send to Feats Page
+            // navigation.PushAsync(new AbilityScorePage());
+            if (forward) {
+                ShowLanguagesPage();
+            } else {
+                ShowSkillsPage(false);
+            }
+        }
+
+        public void ShowLanguagesPage(bool forward = true) {
+            // change navigation to send to Languages Page
+            // navigation.PushAsync(new AbilityScorePage());
+            if (forward) {
+                ShowSpellssPage();
+            } else {
+                ShowFeatsPage(false);
+            }
+        }
+
+        public void ShowSpellssPage(bool forward = true) {
+            // change navigation to send to Spells Page
+            // navigation.PushAsync(new AbilityScorePage());
+            if (forward) {
+                ShowMoneyPage();
+            } else {
+                ShowLanguagesPage(false);
+            }
+        }
+
+        public void ShowMoneyPage(bool forward = true) {
+            // change navigation to send to Money Page
+            // navigation.PushAsync(new AbilityScorePage());
+            if (forward) {
+                ShowEquipmentPage();
+            } else {
+                ShowSpellssPage(false);
+            }
+        }
+
+        public void ShowEquipmentPage(bool forward = true) {
+            // change navigation to send to Equipment Page
+            // navigation.PushAsync(new AbilityScorePage());
+            if (forward) {
+                ShowCharacterDetailsPage();
+            } else {
+                ShowMoneyPage(false);
+            }
+        }
+
+        public void ShowCharacterDetailsPage(bool forward = true) {
+            // change navigation to send to Character Details Page
+            // navigation.PushAsync(new AbilityScorePage());
+            if (forward) {
+                ShowCharacterConfirmPage();
+            } else {
+                ShowEquipmentPage(false);
+            }
+        }
+
+        public void ShowCharacterConfirmPage(bool forward = true) {
+            // change navigation to send to Character Confirm Page
+            // navigation.PushAsync(new AbilityScorePage());
+            ShowTesterPage();
         }
 
         public void ShowTesterPage() {

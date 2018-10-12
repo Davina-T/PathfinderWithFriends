@@ -16,7 +16,7 @@
                 BackgroundColor="#1B2C34"
                 AbsoluteLayout.LayoutBounds="0,0,1,.1"  
                 AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
-                <!-- The Label for displaying the Character's Name -->
+                <!-- The Label for displaying the Character's Level -->
                 <Label
                     Text="Level"
                     TextColor="#C7BC91"
