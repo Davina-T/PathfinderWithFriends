@@ -71,12 +71,7 @@ namespace Pwf.Navigation
 
         public void ShowSkillsPage(bool forward = true) {
             // change navigation to send to Skills Page
-            // navigation.PushAsync(new AbilityScorePage());
-            if (forward) {
-                ShowFeatsPage();
-            } else {
-                ShowClassPage(false);
-            }
+            navigation.PushAsync(new SkillsPage());
         }
 
         public void ShowFeatsPage(bool forward = true) {
