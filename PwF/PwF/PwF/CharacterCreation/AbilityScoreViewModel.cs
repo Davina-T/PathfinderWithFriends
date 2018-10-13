@@ -12,12 +12,15 @@ namespace PwF.CharacterCreation
         public AbilityScores Scores { get; set; }
         private readonly Dice D6;
         public List<int> Numbers { get; set; }
+        public List<int> NumbersUsed { get; set; }
 
         public AbilityScoreViewModel() {
             navManager = PageNavigationManager.Instance;
             D6 = new Dice(6);
-            Scores = new AbilityScores();
-            Numbers = new List<int> { 0, 0, 0, 0, 0, 0 };
+            Scores = Statics.CharacterCreating.CreatingCharacter.Scores;
+            Numbers = Statics.CharacterCreating.ScoreRolls;
+            NumbersUsed = Statics.CharacterCreating.ScoreRollsUsed;
+
         }
 
         public void NextPage() {
@@ -28,6 +31,8 @@ namespace PwF.CharacterCreation
                 Scores.Wisdom.Value != 0 &&
                 Scores.Charisma.Value != 0) {
                 Statics.CharacterCreating.CreatingCharacter.Scores = Scores;
+                Statics.CharacterCreating.ScoreRolls = Numbers;
+                Statics.CharacterCreating.ScoreRollsUsed = NumbersUsed;
                 navManager.ShowSkillsPage();
             }
         }
