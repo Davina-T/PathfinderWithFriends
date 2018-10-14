@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PwF.CharacterCreation.FeatsPage"
-             xmlns:local="clr-namespace:PwF.CharacterCreation">
+             xmlns:local="clr-namespace:PwF.CharacterCreation"
+             NavigationPage.HasNavigationBar="false">
 
     <ContentPage.Content>
 
@@ -20,13 +21,14 @@
                 AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
                 <!-- The Label for displaying the Character's Name -->
                 <Label
+                    x:Name="PageNameLabel"
                     Text="Feats"
                     TextColor="#C7BC91"
-                    Font="Bold, 32"
+                    Font="Bold"
                     HorizontalOptions="Center" 
                     VerticalOptions="Center" 
-                    AbsoluteLayout.LayoutBounds="0,0,1,1"  
-                    AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+                    AbsoluteLayout.LayoutBounds=".5,0,1,1"  
+                    AbsoluteLayout.LayoutFlags="XProportional, HeightProportional, WidthProportional">
                 </Label>
             </AbsoluteLayout>
 

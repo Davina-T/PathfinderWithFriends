@@ -74,5 +74,12 @@ namespace PwF.Statics
 
             return popUpFill;
         }
+
+        public static double getFontSize(int FontSize, double width) {
+            double OriginalSize = 411.5;
+            double scale = FontSize / OriginalSize;
+            double Font = width * scale;
+            return Font;
+        }
     }
 }

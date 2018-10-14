@@ -14,9 +14,13 @@ namespace PwF.CharacterCreation
 	{
         FeatsViewModel viewModel = new FeatsViewModel();
 
+        public double ScreenWidth;
+        public double ScreenHeight;
+
         public FeatsPage() {
             InitializeComponent();
 
+            //PageNameLabel.FontSize = Statics.GlobalFunctions.getFontSize(32);
 
             // add the binding for the right arrow and a tap recognizer
             RightArrow.BindingContext = viewModel;
@@ -40,10 +44,33 @@ namespace PwF.CharacterCreation
             InfoButton.BindingContext = viewModel;
             var tapGestureRecognizer3 = new TapGestureRecognizer();
             tapGestureRecognizer3.Tapped += (s, e) => {
-                //DisplayAlert("Alert", "Info Page", "OK");
+                //DisplayAlert("Alert", "info page", "OK");
                 viewModel.ViewInfo();
             };
             InfoButton.GestureRecognizers.Add(tapGestureRecognizer3);
+
         }
+
+        // performs overide when page loads
+        protected override void OnSizeAllocated(double width, double height) {
+            // gets the screen size and calls the fontsize changing function
+            base.OnSizeAllocated(width, height);
+            ScreenHeight = height;
+            ScreenWidth = width;
+            SetFontSizes(width, height);
+        }
+
+        // sets all the font sizes based on screen size
+        private void SetFontSizes(double width, double height) {
+            // setting certain values to use
+            double Font12 = Statics.GlobalFunctions.getFontSize(12, width);
+            double Font18 = Statics.GlobalFunctions.getFontSize(18, width);
+            double Font24 = Statics.GlobalFunctions.getFontSize(24, width);
+            double Font32 = Statics.GlobalFunctions.getFontSize(32, width);
+
+            // setting the labels font sizes
+            PageNameLabel.FontSize = Font32;
+        }
+
     }
 }
