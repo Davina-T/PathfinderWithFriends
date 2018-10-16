@@ -13,23 +13,10 @@ namespace PwF.CharacterCreation
         private PageNavigationManager navManager;
         public List<Feat> Feats;
 
-        public FeatsViewModel(/*List<SelectableData<FeatListData>> data*/) {
+        public FeatsViewModel() {
             navManager = PageNavigationManager.Instance;
             Feats = new List<Feat>();
-            //FeatList = data;
         }
-
-        //public List<SelectableData<FeatListData>> FeatList { get; set; }
-
-        /*public List<SelectableData<FeatListData>> GetNewData()
-        {
-            var list = new List<SelectableData<FeatListData>>();
-
-            foreach (var data in FeatList)
-                list.Add(new SelectableData<FeatListData>() { Data = data.Data.Clone(), Selected = data.Selected });
-
-            return list;
-        }*/
 
         public void NextPage() {
             if (Feats.Count != 0) {
