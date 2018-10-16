@@ -49,6 +49,37 @@
                         AbsoluteLayout.LayoutBounds="0,0,1,1"  
                         AbsoluteLayout.LayoutFlags="All">
 
+                        <!-- Feats Search Entry -->
+                        <Entry
+                            x:Name="FeatSearchEntry"
+                            Placeholder="Feat Search"
+                            FontSize="22"
+                            HorizontalTextAlignment="Center"
+                            BackgroundColor="White"
+                            AbsoluteLayout.LayoutBounds=".5,.05,.8,.1"
+                            AbsoluteLayout.LayoutFlags="All"/>
+
+                        <!-- Multi Select Listview -->
+                        <ListView x:Name="FeatsMultiSelect"  ItemsSource="{Binding FeatList}" Margin="20">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid Margin="0,0,0,10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout VerticalOptions="CenterAndExpand">
+                                                <Label Text="{Binding Data.Name}"  />
+                                            </StackLayout>
+                                            <Switch IsToggled="{Binding Selected}" Grid.Column="1" />
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+
                     </AbsoluteLayout>
 
                 </ScrollView>

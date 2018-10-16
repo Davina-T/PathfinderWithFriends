@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PwF.Statics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,8 @@ namespace PwF.CharacterCreation
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class FeatsPage : ContentPage
 	{
-        FeatsViewModel viewModel = new FeatsViewModel();
+        //static List<SelectableData<FeatListData>> data;
+        FeatsViewModel viewModel = new FeatsViewModel(/*data*/);
 
         public double ScreenWidth;
         public double ScreenHeight;
@@ -21,6 +23,7 @@ namespace PwF.CharacterCreation
             InitializeComponent();
 
             //PageNameLabel.FontSize = Statics.GlobalFunctions.getFontSize(32);
+            //BindingContext = new FeatsViewModel(data); OBSOLETE?
 
             // add the binding for the right arrow and a tap recognizer
             RightArrow.BindingContext = viewModel;
