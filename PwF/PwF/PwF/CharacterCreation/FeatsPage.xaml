@@ -8,6 +8,7 @@
     <ContentPage.Content>
 
         <AbsoluteLayout
+            x:Name="PageContent"
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
 
             <AbsoluteLayout.BindingContext>

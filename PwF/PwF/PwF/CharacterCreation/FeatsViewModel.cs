@@ -63,7 +63,7 @@ namespace PwF.CharacterCreation
         private List<CustomCell> getFeats() {
 
             string[] feats = new string[] {
-                "Weapons Finesse", "Dark Vision", "Glide", "Other One"};
+                "Weapons Finesse", "Dark Vision", "Glide", "Acrobatic", "Athletic", "Armour Proficiency (light)"};
 
             List<CustomCell> CustomCells = new List<CustomCell>();
 

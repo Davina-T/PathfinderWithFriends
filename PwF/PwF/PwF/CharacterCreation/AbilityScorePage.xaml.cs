@@ -130,16 +130,6 @@ namespace PwF.CharacterCreation
             popUpFill.Children.Add(ClassicButton);
             popUpFill.Children.Add(HeroicButton);
 
-            popUpOverlay = new AbsoluteLayout {
-                BackgroundColor = Color.FromHex("#60000000"),
-                Children =
-                {
-                    popUp
-                }
-            };
-            AbsoluteLayout.SetLayoutBounds(popUpOverlay, new Rectangle(.5, .5, 1, 1));
-            AbsoluteLayout.SetLayoutFlags(popUpOverlay, AbsoluteLayoutFlags.All);
-
             // Add this layout to the Content layout
             PageContent.Children.Add(popUpOverlay);
         }
