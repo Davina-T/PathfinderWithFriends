@@ -39,14 +39,14 @@
                 AbsoluteLayout.LayoutFlags="All">
 
                 <!-- The ScrollView for Displaying the Pages Content -->
-                <ScrollView
+                <AbsoluteLayout
                     BackgroundColor="#C1DAC5"
                     AbsoluteLayout.LayoutBounds=".5,.5,.9,.9"  
                     AbsoluteLayout.LayoutFlags="All">
 
                     <!-- The Layout that Contains the Pages Content -->
                     <AbsoluteLayout
-                        AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                        AbsoluteLayout.LayoutBounds=".5,.5,1,1"  
                         AbsoluteLayout.LayoutFlags="All">
 
                         <!-- Feats Search Entry -->
@@ -59,27 +59,37 @@
                             AbsoluteLayout.LayoutBounds=".5,.02,.8,.1"
                             AbsoluteLayout.LayoutFlags="All"/>
 
+
                         <ScrollView
                             AbsoluteLayout.LayoutBounds=".5,.22,.95,.35"
                             AbsoluteLayout.LayoutFlags="All"
                             BackgroundColor="White">
 
-                            <ListView x:Name="PossibleFeats">
+                            <ListView x:Name="PossibleFeats" ItemSelected="OnItemPossibleSelected"
+                                      HeightRequest="0">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <TextCell Text="{Binding Title}" TextColor="Black"></TextCell>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
-                            
+
                         </ScrollView>
 
-                        <Image Source="ArrowDown.png" 
-                               AbsoluteLayout.LayoutBounds=".3,.575,.15,.15"
+                        <Label x:Name="FeatsLeftIdentifier"
+                               HorizontalTextAlignment="Center"
+                               AbsoluteLayout.LayoutBounds=".1,.60,.3,.15"
+                               AbsoluteLayout.LayoutFlags="All">
+                            
+                        </Label>
+                        <Image x:Name="DownArrow"
+                               Source="ArrowDown.png" 
+                               AbsoluteLayout.LayoutBounds=".9,.575,.15,.15"
                                AbsoluteLayout.LayoutFlags="All"
                                HeightRequest="0"/>
-                        <Image Source="ArrowUp.png" 
-                               AbsoluteLayout.LayoutBounds=".7,.575,.15,.15"
+                        <Image x:Name="UpArrow"
+                               Source="ArrowUp.png" 
+                               AbsoluteLayout.LayoutBounds=".5,.575,.15,.15"
                                AbsoluteLayout.LayoutFlags="All"
                                HeightRequest="0"/>
 
@@ -88,7 +98,7 @@
                             AbsoluteLayout.LayoutFlags="All"
                             BackgroundColor="White">
 
-                            <ListView x:Name="SelectedFeats">
+                            <ListView x:Name="SelectedFeats" ItemSelected="OnItemSelectSelected">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <TextCell Text="{Binding Title}" TextColor="Black"></TextCell>
@@ -101,7 +111,7 @@
 
                     </AbsoluteLayout>
 
-                </ScrollView>
+                </AbsoluteLayout>
 
             </AbsoluteLayout>
 

@@ -1,4 +1,5 @@
-﻿using PwF.Statics;
+﻿using PwF.Cells.PwF.Cells;
+using PwF.Statics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,6 +52,82 @@ namespace PwF.CharacterCreation
             };
             InfoButton.GestureRecognizers.Add(tapGestureRecognizer3);
 
+            PossibleFeats.BindingContext = viewModel;
+            PossibleFeats.ItemsSource = viewModel.PossibleFeats;
+            SelectedFeats.BindingContext = viewModel;
+            SelectedFeats.ItemsSource = viewModel.SelectedFeats;
+            FeatsLeftIdentifier.BindingContext = viewModel;
+            FeatsLeftIdentifier.Text = "Feats Left: " + viewModel.FeatsLeft;
+
+            // add the binding for the DownArrow and a tap recognizer
+            DownArrow.BindingContext = viewModel;
+            var AddToList = new TapGestureRecognizer();
+            AddToList.Tapped += (s, e) => {
+                MoveSelectedItemDown();
+            };
+            DownArrow.GestureRecognizers.Add(AddToList);
+
+            // add the binding for the UpArrow and a tap recognizer
+            UpArrow.BindingContext = viewModel;
+            var TakeFromList = new TapGestureRecognizer();
+
+            TakeFromList.Tapped += (s, e) => {
+                MoveSelectedItemUp();
+            };
+            UpArrow.GestureRecognizers.Add(TakeFromList);
+
+        }
+
+        void MoveSelectedItemDown() {
+            CustomCell temp = (CustomCell)PossibleFeats.SelectedItem;
+            if (temp != null) {
+
+                viewModel.MoveToSelected(temp);
+
+                PossibleFeats.SelectedItem = null;
+                SelectedFeats.SelectedItem = null;
+                PossibleFeats.ItemsSource = null;
+                SelectedFeats.ItemsSource = null;
+                PossibleFeats.ItemsSource = viewModel.PossibleFeats;
+                SelectedFeats.ItemsSource = viewModel.SelectedFeats;
+                FeatsLeftIdentifier.Text = "Feats Left: " + viewModel.FeatsLeft;
+            }
+        }
+
+        void MoveSelectedItemUp() {
+            CustomCell temp = (CustomCell)SelectedFeats.SelectedItem;
+            if (temp != null) {
+
+                viewModel.MoveToPossible(temp);
+
+                PossibleFeats.SelectedItem = null;
+                SelectedFeats.SelectedItem = null;
+                PossibleFeats.ItemsSource = null;
+                SelectedFeats.ItemsSource = null;
+                PossibleFeats.ItemsSource = viewModel.PossibleFeats;
+                SelectedFeats.ItemsSource = viewModel.SelectedFeats;
+                FeatsLeftIdentifier.Text = "Feats Left: " + viewModel.FeatsLeft;
+            }
+        }
+
+        void OnItemPossibleSelected(object sender, System.EventArgs e) {
+            if (PossibleFeats.SelectedItem != null) {
+                SelectedFeats.SelectedItem = null;
+                CustomCell temp = (CustomCell)PossibleFeats.SelectedItem;
+                //DisplayAlert("OnItemSelected", temp.Title, "OK");
+                viewModel.PossibleFeatSelected = temp;
+                // save the Class option
+            }
+        }
+
+        void OnItemSelectSelected(object sender, System.EventArgs e) {
+            if (SelectedFeats.SelectedItem != null) {
+                PossibleFeats.SelectedItem = null;
+                CustomCell temp = (CustomCell)SelectedFeats.SelectedItem;
+                //DisplayAlert("OnItemSelected", temp.Title, "OK");
+                viewModel.SelectedFeatSelected = temp;
+                // save the Class option
+            }
         }
 
         // performs overide when page loads
@@ -72,6 +149,7 @@ namespace PwF.CharacterCreation
 
             // setting the labels font sizes
             PageNameLabel.FontSize = Font32;
+            FeatsLeftIdentifier.FontSize = Font24;
         }
 
     }
