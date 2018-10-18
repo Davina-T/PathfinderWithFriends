@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,8 @@ namespace PwF.Objects
 {
     public class Character
     {
+        //[JsonProperty("player")]
+
         public string Player { get; set; }
         public string Name { get; set; }
         public string Race { get; set; }

@@ -378,7 +378,6 @@
                 <Image x:Name="RightArrow" Source="ArrowRight.PNG"
                        AbsoluteLayout.LayoutBounds=".9,.5,.2,.8"  
                        AbsoluteLayout.LayoutFlags="All">
-
                 </Image>
 
             </AbsoluteLayout>

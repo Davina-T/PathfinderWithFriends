@@ -152,6 +152,41 @@ namespace PwF.Statics
             return Compendium;
         }
 
+        public static AbsoluteLayout getFeatsView() {
+            Label popUpTitleText = new Label {
+                Text = "Feats",
+                FontSize = 24,
+                XAlign = TextAlignment.Center,
+                YAlign = TextAlignment.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(popUpTitleText, new Rectangle(.5, .5, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(popUpTitleText, AbsoluteLayoutFlags.All);
+
+            AbsoluteLayout popUpTitle = new AbsoluteLayout {
+                BackgroundColor = Color.FromHex("#FFAA00"),
+
+                Children =
+                {
+                    popUpTitleText
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(popUpTitle, new Rectangle(0, 0, 1, .2));
+            AbsoluteLayout.SetLayoutFlags(popUpTitle, AbsoluteLayoutFlags.All);
+
+            AbsoluteLayout popUp = new AbsoluteLayout {
+                BackgroundColor = Color.FromHex("#FFFFFF"),
+
+                Children =
+                {
+                    popUpTitle
+                }
+            };
+            AbsoluteLayout.SetLayoutBounds(popUp, new Rectangle(.05, .5, .6, .4));
+            AbsoluteLayout.SetLayoutFlags(popUp, AbsoluteLayoutFlags.All);
+
+            return popUp;
+        }
+
         public static double getFontSize(int FontSize, double width) {
             double OriginalSize = 411.5;
             double scale = FontSize / OriginalSize;

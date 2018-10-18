@@ -29,7 +29,7 @@ namespace PwF.CharacterCreation
             RightArrow.BindingContext = viewModel;
             var tapGestureRecognizer1 = new TapGestureRecognizer();
             tapGestureRecognizer1.Tapped += (s, e) => {
-                //DisplayAlert("Alert", "Next Page", "OK");
+                //DisplayAlert("Alert", "Previous Page", "OK");
                 viewModel.NextPage();
             };
             RightArrow.GestureRecognizers.Add(tapGestureRecognizer1);
@@ -76,6 +76,7 @@ namespace PwF.CharacterCreation
                 Entries[i].GestureRecognizers.Add(GetTapGestureRecognizerForEntry(Entries[i], tempStats[i]));
             }
 
+            UpdateScores();
             ResetSelectedNumber();
         }
 
@@ -129,6 +130,8 @@ namespace PwF.CharacterCreation
             popUpFill.Children.Add(StandardButton);
             popUpFill.Children.Add(ClassicButton);
             popUpFill.Children.Add(HeroicButton);
+
+            popUpOverlay = popUp;
 
             // Add this layout to the Content layout
             PageContent.Children.Add(popUpOverlay);
@@ -530,7 +533,7 @@ namespace PwF.CharacterCreation
         }
 
         public void ResetScores() {
-            NumbersUsed = new List<int> { -1, -1, -1, -1, -1, -1 };
+            viewModel.NumbersUsed = new List<int> { -1, -1, -1, -1, -1, -1 };
             viewModel.Scores.Strength.Value = 0;
             viewModel.Scores.Dexterity.Value = 0;
             viewModel.Scores.Constitution.Value = 0;
@@ -635,7 +638,6 @@ namespace PwF.CharacterCreation
                 viewModel.Scores.Charisma.Value = number;
                 NumbersUsed[position] = 5;
             }
-
 
             Numbers[position].TextColor = Color.FromHex("#FF0000");
             NumberContainers[position].BackgroundColor = Color.FromHex("#FFFFFF");
