@@ -2,29 +2,30 @@
 using System.Collections.Generic;
 using System.Text;
 using Pwf.Navigation;
-using PwF.Cells.PwF.Cells;
+//using PwF.Classes;
+using PwF.Objects;
 
 namespace PwF.CharacterCreation
 {
     class SkillsViewModel
     {
         private PageNavigationManager navManager;
-        public List<CustomCell> CustomCells { get; }
+        public Skills SkillValues { get; set; }
+        private int remainingPoints { get; set; }
 
         public SkillsViewModel()
         {
             navManager = PageNavigationManager.Instance;
-            //CustomCells = getSkills();
+            SkillValues = new Skills();
         }
-
-        //private List<CustomCell> getSkills()
-        //{
-        //    return SkillsCode.GetSkillObjects();
-        //}
 
         public void NextPage()
         {
-            navManager.ShowFeatsPage();
+            if (remainingPoints == 0)
+            {
+                Statics.CharacterCreating.CreatingCharacter.Skills = SkillValues;
+                navManager.ShowFeatsPage();
+            }
         }
 
         public void PrevPage()
@@ -35,6 +36,21 @@ namespace PwF.CharacterCreation
         public void ViewInfo()
         {
             // open the informative page
+        }
+
+        public void IncreaseAcrobatics()
+        {
+            if (remainingPoints != 0)
+            {
+                SkillValues.Acrobatics.Value += 1;
+                remainingPoints -= 1;
+            }
+        }
+
+        public void DecreaseAcrobatics()
+        {
+            SkillValues.Acrobatics.Value -= 1;
+            remainingPoints += 1;
         }
     }
 }

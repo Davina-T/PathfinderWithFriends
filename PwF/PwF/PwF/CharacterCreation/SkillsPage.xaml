@@ -29,36 +29,21 @@
                 BackgroundColor="#607F6F"
                 AbsoluteLayout.LayoutBounds="0,0.5,1,.8"  
                 AbsoluteLayout.LayoutFlags="All">
-                
+
                 <!-- The layout displaying your class and remaining skill points -->
                 <AbsoluteLayout
+                    x:Name="Container"
                     BackgroundColor="#C1DAC5"
-                    AbsoluteLayout.LayoutBounds="0,0.5,1,.8"  
+                    AbsoluteLayout.LayoutBounds=".5,.5,.9,.9"  
                     AbsoluteLayout.LayoutFlags="All">
-
-                    <Label
-                        Text="A label"
-                        Font="24"
-                        HorizontalOptions="Center"
-                        AbsoluteLayout.LayoutBounds="0,0,1,0.1"  
-                        AbsoluteLayout.LayoutFlags="All">
-                    </Label>
 
                     <!-- The ScrollView for Displaying the Pages Content -->
                     <ScrollView
                         x:Name="SkillList"
                         BackgroundColor="#C7BC91"
-                        AbsoluteLayout.LayoutBounds=".5,.5,.9,.8"  
+                        AbsoluteLayout.LayoutBounds=".5,.65,1,.8"  
                         AbsoluteLayout.LayoutFlags="All">
                     </ScrollView>
-                    
-                    <Label
-                        Text="Another label"
-                        Font="24"
-                        HorizontalOptions="Center" 
-                        AbsoluteLayout.LayoutBounds="0,0.9,1,0.1"  
-                        AbsoluteLayout.LayoutFlags="All">
-                    </Label>
                 </AbsoluteLayout>
             </AbsoluteLayout>
 

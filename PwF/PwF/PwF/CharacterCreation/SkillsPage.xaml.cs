@@ -21,6 +21,8 @@ namespace PwF.CharacterCreation
 		{
 			InitializeComponent ();
             CreateSkillListItem();
+            CreateHeader();
+            CreateRemainingPointsDisplay();
             NavigationPage.SetHasNavigationBar(this, false);
 
             // add binding and apply cells to list view
@@ -67,13 +69,29 @@ namespace PwF.CharacterCreation
             */
         }
         
+        public void CreateHeader()
+        {
+            Label label = new Label
+            {
+                Text = "Your race: " + Statics.CharacterCreating.CreatingCharacter.Race + "\nAvailable skills:",
+                HorizontalOptions = LayoutOptions.Center,
+                HorizontalTextAlignment = TextAlignment.Center,
+                FontSize = 24,
+                //TextColor = Color.FromHex("#70060B"),
+            };
+            AbsoluteLayout.SetLayoutBounds(label, new Rectangle(0, 0, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(label, AbsoluteLayoutFlags.All);
+
+            Container.Children.Add(label);
+        }
+
         public void CreateSkillListItem()
         {
             AbsoluteLayout allListItems = new AbsoluteLayout
             {
                 HorizontalOptions = LayoutOptions.Center,
             };
-            AbsoluteLayout.SetLayoutBounds(allListItems, new Rectangle(0.5, 0, 1, 0.9));
+            AbsoluteLayout.SetLayoutBounds(allListItems, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(allListItems, AbsoluteLayoutFlags.All);
 
             for (int i = 0; i < SkillsCode.GetSkills().Count; i++) {
@@ -83,14 +101,44 @@ namespace PwF.CharacterCreation
                     FontSize = 24,
                     TextColor = Color.FromHex("#70060B"),
                 };
-                AbsoluteLayout.SetLayoutBounds(skill, new Rectangle(0, 0, 1, 1));
+                AbsoluteLayout.SetLayoutBounds(skill, new Rectangle(0, 0, 0.5, 1));
                 AbsoluteLayout.SetLayoutFlags(skill, AbsoluteLayoutFlags.All);
+
+                Label minus = new Label
+                {
+                    Text = "-",
+                    FontSize = 24,
+                    TextColor = Color.FromHex("#70060B"),
+                };
+                AbsoluteLayout.SetLayoutBounds(minus, new Rectangle(0.7, 0, 0.16, 1));
+                AbsoluteLayout.SetLayoutFlags(minus, AbsoluteLayoutFlags.All);
+
+                Label count = new Label
+                {
+                    Text = "4",
+                    FontSize = 24,
+                    TextColor = Color.FromHex("#70060B"),
+                };
+                AbsoluteLayout.SetLayoutBounds(count, new Rectangle(0.85, 0, 0.16, 1));
+                AbsoluteLayout.SetLayoutFlags(count, AbsoluteLayoutFlags.All);
+
+                Label plus = new Label
+                {
+                    Text = "+",
+                    FontSize = 24,
+                    TextColor = Color.FromHex("#70060B"),
+                };
+                AbsoluteLayout.SetLayoutBounds(plus, new Rectangle(1, 0, 0.16, 1));
+                AbsoluteLayout.SetLayoutFlags(plus, AbsoluteLayoutFlags.All);
 
                 AbsoluteLayout listItem = new AbsoluteLayout
                 {
                     Children =
                     {
-                        skill
+                        skill,
+                        minus,
+                        count,
+                        plus,
                     }
                 };
                 AbsoluteLayout.SetLayoutBounds(listItem, new Rectangle(0, (40 * i) + 10, 1, 40));
@@ -100,6 +148,23 @@ namespace PwF.CharacterCreation
             }
 
             SkillList.Content = allListItems;
-        }        
-	}
+        }
+
+        public void CreateRemainingPointsDisplay()
+        {
+            Label label = new Label
+            {
+                // Text value will also contain the skill point variable
+                Text = "Unspent skill points: ",
+                HorizontalOptions = LayoutOptions.Center,
+                HorizontalTextAlignment = TextAlignment.Center,
+                FontSize = 24,
+                //TextColor = Color.FromHex("#70060B"),
+            };
+            AbsoluteLayout.SetLayoutBounds(label, new Rectangle(0, 0.8, 1, 0.2));
+            AbsoluteLayout.SetLayoutFlags(label, AbsoluteLayoutFlags.All);
+
+            Container.Children.Add(label);
+        }
+    }
 }
