@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PwF.CharacterCreation.LevelPage"
+             x:Class="PwF.CharacterCreation.LanguagePage"
              xmlns:local="clr-namespace:PwF.CharacterCreation"
              NavigationPage.HasNavigationBar="false">
     
@@ -16,9 +16,9 @@
                 BackgroundColor="#1B2C34"
                 AbsoluteLayout.LayoutBounds="0,0,1,.1"  
                 AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
-                <!-- The Label for displaying the Character's Level -->
+                <!-- The Label for displaying the Character's Language -->
                 <Label
-                    Text="Level"
+                    Text="Languages"
                     TextColor="#C7BC91"
                     Font="Bold, 32"
                     HorizontalOptions="Center" 
@@ -48,24 +48,57 @@
 
                         <!-- Character Level Label -->
                         <Label
-                            Text="Enter Character Level:"
+                            Text="Your race: "
                             TextColor="#030303"
                             Font="22"
                             HorizontalOptions="Center"
-                            AbsoluteLayout.LayoutBounds=".5, 80, .75, 50"
-                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
-                        
-                        <!-- Character Level Entry -->
-                        <Entry
-                            Keyboard="Numeric"
-                            x:Name="levelEntry"
-                            Text="{Binding Level}"
-                            FontSize="22"
-                            HorizontalTextAlignment="Center"
-                            BackgroundColor="White"
-                            AbsoluteLayout.LayoutBounds=".5, 140, .5, 50"
+                            AbsoluteLayout.LayoutBounds=".2, 60, .4, 50"
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
+                        <!-- Bind selected race -->
+                        <Label
+                            Text="Dwarf"
+                            TextColor="#80171C"
+                            Font="24"
+                            HorizontalOptions="Center"
+                            AbsoluteLayout.LayoutBounds=".8, 60, .4, 50"
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Label
+                            Text="Begins play speaking:"
+                            TextColor="#030303"
+                            Font="20"
+                            HorizontalOptions="Center"
+                            AbsoluteLayout.LayoutBounds=".5, 100, 1, 50"
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+                        
+                        <!-- Bind Languages -->
+                        <Label
+                            Text="Common and Dwarven"
+                            TextColor="#80171C"
+                            Font="24"
+                            HorizontalOptions="Center"
+                            AbsoluteLayout.LayoutBounds=".5, 140, 1, 50"
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <Label
+                            Text="With a high Intelligence score, you can choose from the following:"
+                            TextColor="#030303"
+                            Font="20"
+                            HorizontalOptions="Center"
+                            AbsoluteLayout.LayoutBounds=".5, 180, .9, 70"
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
+                        <ListView x:Name="SelectionGroup" ItemSelected="OnItemSelected" SelectedItem="{Binding SelectedLanguages}"
+                                  AbsoluteLayout.LayoutBounds=".5, 240, 1, 220"
+                                  AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextCell Text="{Binding Title}" TextColor="Black"></TextCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        
                     </AbsoluteLayout>
 
                 </ScrollView>

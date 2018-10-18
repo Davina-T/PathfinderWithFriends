@@ -96,7 +96,7 @@
                             x:Name="Deity"
                             BackgroundColor="White"
                             FontSize="22"
-                            AbsoluteLayout.LayoutBounds="1, 100, 0.5, 50"   
+                            AbsoluteLayout.LayoutBounds="1, 180, 0.5, 50"   
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
                             <Picker.Items>
                                 <x:String>Abdar</x:String>

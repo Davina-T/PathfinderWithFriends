@@ -117,6 +117,14 @@ namespace PwF.Classes
             set { eyeColour = value; }
         }
 
+        private Language language;
+
+        public Language Language {
+            get { return language; }
+            set { language = value; }
+        }
+
+        
 
 
     }
