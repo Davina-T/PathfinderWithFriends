@@ -29,7 +29,7 @@ namespace PwF.CharacterCreation
             RightArrow.BindingContext = viewModel;
             var tapGestureRecognizer1 = new TapGestureRecognizer();
             tapGestureRecognizer1.Tapped += (s, e) => {
-                //DisplayAlert("Alert", "Next Page", "OK");
+                //DisplayAlert("Alert", "Previous Page", "OK");
                 viewModel.NextPage();
             };
             RightArrow.GestureRecognizers.Add(tapGestureRecognizer1);
@@ -61,7 +61,8 @@ namespace PwF.CharacterCreation
             NumberContainers = new List<AbsoluteLayout> { Number1Container, Number2Container, Number3Container,
                 Number4Container, Number5Container, Number6Container };
 
-            NumbersUsed = new List<int> { -1, -1, -1, -1, -1, -1 };
+            //NumbersUsed = new List<int> { -1, -1, -1, -1, -1, -1 };
+            NumbersUsed = viewModel.NumbersUsed;
 
 
             for (int i = 0; i < Numbers.Count(); i++) {
@@ -74,6 +75,9 @@ namespace PwF.CharacterCreation
             for (int i = 0; i < Entries.Count(); i++) {
                 Entries[i].GestureRecognizers.Add(GetTapGestureRecognizerForEntry(Entries[i], tempStats[i]));
             }
+
+            UpdateScores();
+            ResetSelectedNumber();
         }
 
         public void CreateDicePopup(int position) {
@@ -127,15 +131,7 @@ namespace PwF.CharacterCreation
             popUpFill.Children.Add(ClassicButton);
             popUpFill.Children.Add(HeroicButton);
 
-            popUpOverlay = new AbsoluteLayout {
-                BackgroundColor = Color.FromHex("#60000000"),
-                Children =
-                {
-                    popUp
-                }
-            };
-            AbsoluteLayout.SetLayoutBounds(popUpOverlay, new Rectangle(.5, .5, 1, 1));
-            AbsoluteLayout.SetLayoutFlags(popUpOverlay, AbsoluteLayoutFlags.All);
+            popUpOverlay = popUp;
 
             // Add this layout to the Content layout
             PageContent.Children.Add(popUpOverlay);
@@ -537,7 +533,7 @@ namespace PwF.CharacterCreation
         }
 
         public void ResetScores() {
-            NumbersUsed = new List<int> { -1, -1, -1, -1, -1, -1 };
+            viewModel.NumbersUsed = new List<int> { -1, -1, -1, -1, -1, -1 };
             viewModel.Scores.Strength.Value = 0;
             viewModel.Scores.Dexterity.Value = 0;
             viewModel.Scores.Constitution.Value = 0;
@@ -563,7 +559,7 @@ namespace PwF.CharacterCreation
             for (int i = 0; i < Numbers.Count(); i++) {
                 Numbers[i].Text = viewModel.Numbers[i].ToString();
             }
-
+            viewModel.NumbersUsed = NumbersUsed;
         }
 
         public void HighLightStats(bool highlight) {
@@ -643,7 +639,6 @@ namespace PwF.CharacterCreation
                 NumbersUsed[position] = 5;
             }
 
-
             Numbers[position].TextColor = Color.FromHex("#FF0000");
             NumberContainers[position].BackgroundColor = Color.FromHex("#FFFFFF");
             HighLightStats(false);
@@ -664,6 +659,9 @@ namespace PwF.CharacterCreation
                 if (NumbersUsed[i] == -1) {
                     Numbers[i].TextColor = Color.FromHex("#000000");
                     NumberContainers[i].BackgroundColor = Color.FromHex("#00000000");
+                } else {
+                    Numbers[i].TextColor = Color.FromHex("#FF0000");
+                    NumberContainers[i].BackgroundColor = Color.FromHex("#FFFFFF");
                 }
             }
             HighLightStats(false);
