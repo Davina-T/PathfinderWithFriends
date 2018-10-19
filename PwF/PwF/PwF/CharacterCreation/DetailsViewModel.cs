@@ -21,6 +21,11 @@ namespace PwF.CharacterCreation
         public String SelectedHair { get; set; }
         public String SelectedEyes { get; set; }
 
+        public DetailsViewModel() {
+            navManager = PageNavigationManager.Instance;
+
+        }
+
         public void NextPage()
         {
             // If any details isn't filled in, return rather than going to the next page

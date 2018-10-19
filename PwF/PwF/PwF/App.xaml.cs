@@ -14,9 +14,10 @@ namespace PwF
 
             //CharacterList.CharacterList mainPage = new CharacterList.CharacterList();
 
-            CharacterCreation.LanguagePage mainPage = new CharacterCreation.LanguagePage();
+            CharacterCreation.LevelPage mainPage = new CharacterCreation.LevelPage();
+            //CharacterCreation.LanguagePage mainPage = new CharacterCreation.LanguagePage();
             //CharacterCreation.LevelPage mainPage = new CharacterCreation.LevelPage();
-            CharacterCreation.AbilityScorePage mainPage = new CharacterCreation.AbilityScorePage();
+            //CharacterCreation.AbilityScorePage mainPage = new CharacterCreation.AbilityScorePage();
             //CharacterCreation.FeatsPage mainPage = new CharacterCreation.FeatsPage();
             //CharacterCreation.AbilityScorePage mainPage = new CharacterCreation.AbilityScorePage();
 
