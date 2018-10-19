@@ -92,19 +92,12 @@
                             AbsoluteLayout.LayoutBounds="0, 180, 0.5, 50"  
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
-                        <Picker Title=""
+                        <Entry
                             x:Name="Deity"
-                            BackgroundColor="White"
+                            BackgroundColor="#ffffff"
                             FontSize="22"
-                            AbsoluteLayout.LayoutBounds="1, 180, 0.5, 50"   
-                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
-                            <Picker.Items>
-                                <x:String>Abdar</x:String>
-                                <x:String>Desna</x:String>
-                                <x:String>Nethys</x:String>
-                                <x:String>Torag</x:String>
-                            </Picker.Items>
-                        </Picker>
+                            AbsoluteLayout.LayoutBounds="1, 180, 0.5, 50"  
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
                         
                         <Label 
                             Text="Homeland"
@@ -144,18 +137,12 @@
                             AbsoluteLayout.LayoutBounds="0, 420, 0.5, 50"  
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
-
-                        <Picker Title=""
+                        <Entry
                             x:Name="Gender"
-                            BackgroundColor="White"
+                            BackgroundColor="#ffffff"
                             FontSize="22"
                             AbsoluteLayout.LayoutBounds="1, 420, 0.5, 50"   
-                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
-                            <Picker.Items>
-                                <x:String>Female</x:String>
-                                <x:String>Male</x:String>
-                            </Picker.Items>
-                        </Picker>
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <Label 
                             Text="Age"

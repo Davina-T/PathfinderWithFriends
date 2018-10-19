@@ -8,10 +8,11 @@ using PwF.CharacterSheet;
 using Pwf.Navigation;
 
 using Xamarin.Forms;
+using Pwf.Template;
 
 namespace PwF.CharacterList
 {
-	public class CharacterListViewModel
+	public class CharacterListViewModel : ViewModelBase
 	{
         private PageNavigationManager navManager;
 

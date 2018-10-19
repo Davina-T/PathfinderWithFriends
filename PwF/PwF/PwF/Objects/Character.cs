@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,8 @@ namespace PwF.Objects
 {
     public class Character
     {
+        //[JsonProperty("player")]
+
         public string Player { get; set; }
         public string Name { get; set; }
         public string Race { get; set; }
@@ -24,23 +27,23 @@ namespace PwF.Objects
 
 
         public Character() {
-
+            Scores = new AbilityScores();
         }
 
         // The handlers of the Skills
         // Adding a Skill to the character
         public bool AddSkill(string name, Enums.AbilityScoreName modifierType, string description, int value = 0) {
-            // check to see if Skill already exists
-            foreach (Skill skill in Skills) {
-                if (skill.Name == name) {
-                    // if Skill exists return false
-                    return false;
+                // check to see if Skill already exists
+                foreach (Skill skill in Skills) {
+                    if (skill.Name == name) {
+                        // if Skill exists return false
+                        return false;
+                    }
                 }
+                // if it Skill doesn't exists add Skill and return true
+                Skills.Add(new Skill(name, modifierType, description, value));
+                return true;
             }
-            // if it Skill doesn't exists add Skill and return true
-            Skills.Add(new Skill(name, modifierType, description, value));
-            return true;
-        }
 
         // getting the Skill information for the character
         public Skill GetSkill(string name) {

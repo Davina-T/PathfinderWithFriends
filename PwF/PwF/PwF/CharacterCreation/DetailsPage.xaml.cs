@@ -25,10 +25,10 @@ namespace PwF.CharacterCreation
             tapGestureRecognizer1.Tapped += (s, e) => {
                 viewModel.SelectedName = Name.Text;
                 viewModel.SelectedAlignment = Alignment.SelectedItem.ToString();
-                viewModel.SelectedDeity = Deity.SelectedItem.ToString();
+                viewModel.SelectedDeity = Deity.Text;
                 viewModel.SelectedHomeland = Homeland.Text;
                 viewModel.SelectedSize = cSize.Text;
-                viewModel.SelectedGender = Gender.SelectedItem.ToString();
+                viewModel.SelectedGender = Gender.Text;
                 viewModel.SelectedAge = Age.Text;
                 viewModel.SelectedHeight = cHeight.Text;
                 viewModel.SelectedWeight = Weight.Text;

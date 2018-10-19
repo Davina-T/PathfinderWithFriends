@@ -1,23 +1,37 @@
-﻿using Pwf.Navigation;
+﻿using Newtonsoft.Json;
+using Pwf.Navigation;
+using Pwf.Template;
 using PwF.Objects;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace PwF.CharacterCreation
 {
-    public class AbilityScoreViewModel
+    public class AbilityScoreViewModel : ViewModelBase
     {
         private PageNavigationManager navManager;
-        public AbilityScores Scores { get; set; }
-        private readonly Dice D6;
+        private readonly Dice D6;        
         public List<int> Numbers { get; set; }
+        public AbilityScores Scores;
+
+        private List<int> numbersUsed;
+        public List<int> NumbersUsed {
+            get { return numbersUsed; }
+            set {
+                numbersUsed = value;
+                OnPropertyChanged();
+            }
+        }
 
         public AbilityScoreViewModel() {
             navManager = PageNavigationManager.Instance;
             D6 = new Dice(6);
-            Scores = new AbilityScores();
-            Numbers = new List<int> { 0, 0, 0, 0, 0, 0 };
+            Scores = Statics.CharacterCreating.CreatingCharacter.Scores;
+            Numbers = Statics.CharacterCreating.ScoreRolls;
+            NumbersUsed = Statics.CharacterCreating.ScoreRollsUsed;
         }
 
         public void NextPage() {
@@ -28,6 +42,8 @@ namespace PwF.CharacterCreation
                 Scores.Wisdom.Value != 0 &&
                 Scores.Charisma.Value != 0) {
                 Statics.CharacterCreating.CreatingCharacter.Scores = Scores;
+                Statics.CharacterCreating.ScoreRolls = Numbers;
+                Statics.CharacterCreating.ScoreRollsUsed = NumbersUsed;
                 navManager.ShowSkillsPage();
             }
         }
