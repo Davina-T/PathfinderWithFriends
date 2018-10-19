@@ -19,7 +19,7 @@ namespace PwF.CharacterCreation
 
         public RacePage() {
             InitializeComponent();
-
+            
             // add binding and apply cells to list view
             SelectionGroup.BindingContext = viewModel;
             SelectionGroup.ItemsSource = viewModel.CustomCells;
