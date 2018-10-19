@@ -40,6 +40,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="CharacterCreation\LanguagePage.xaml.cs">
+      <DependentUpon>LanguagePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="CharacterCreation\TesterPage.xaml.cs">
       <DependentUpon>TesterPage.xaml</DependentUpon>
     </Compile>

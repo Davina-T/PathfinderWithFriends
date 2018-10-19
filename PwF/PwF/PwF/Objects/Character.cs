@@ -18,7 +18,8 @@ namespace PwF.Objects
         public AbilityScores Scores { get; set; }
         public List<Skill> Skills;
         public List<Feat> Feats;
-        public List<string> Languages;
+        //public List<string> Languages { get; set; }
+        public string Languages { get; set; }
         public List<Spell> Spells;
         public Money Gold { get; set; }
         public Equipment Equipments { get; set; }
@@ -172,34 +173,40 @@ namespace PwF.Objects
         }
 
 
-        // The handlers of Languages
-        // Add a Language to the character
-        public bool AddLanguage(string name) {
-            // check to see if Language already exists
-            foreach (string language in Languages) {
-                if (language == name) {
-                    // if Language exists return false
-                    return false;
-                }
-            }
-            // if Language doesn't exists add Language and return true
-            Languages.Add(name);
-            return true;
-        }
+        //// The handlers of Languages
+        //// Add a Language to the character
+        //public bool AddLanguage(string name)
+        //{
+        //    // check to see if Language already exists
+        //    foreach (string language in Languages)
+        //    {
+        //        if (language == name)
+        //        {
+        //            // if Language exists return false
+        //            return false;
+        //        }
+        //    }
+        //    // if Language doesn't exists add Language and return true
+        //    Languages.Add(name);
+        //    return true;
+        //}
 
-        // removing the Language from the character
-        public bool RemoveLanguage(string name) {
-            // check to see if Language exists
-            foreach (string language in Languages) {
-                if (language == name) {
-                    // if Language exists remove Language and return true
-                    Languages.Remove(language);
-                    return true;
-                }
-            }
-            // if it Language doesn't exists return false
-            return false;
-        }
+        //// removing the Language from the character
+        //public bool RemoveLanguage(string name)
+        //{
+        //    // check to see if Language exists
+        //    foreach (string language in Languages)
+        //    {
+        //        if (language == name)
+        //        {
+        //            // if Language exists remove Language and return true
+        //            Languages.Remove(language);
+        //            return true;
+        //        }
+        //    }
+        //    // if it Language doesn't exists return false
+        //    return false;
+        //}
     }
 }
 
