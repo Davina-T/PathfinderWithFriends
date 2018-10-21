@@ -10,8 +10,9 @@ namespace PwF.Objects
         public Enums.AbilityScoreName Name { get; }
         public int Value { get; set; }
 
-        public AbilityScore(Enums.AbilityScoreName name) {
+        public AbilityScore(Enums.AbilityScoreName name, int value = 0) {
             Name = name;
+            Value = value;
         }
     }
 }

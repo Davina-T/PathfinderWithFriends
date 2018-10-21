@@ -32,7 +32,7 @@ namespace PwF.CharacterCreation
         {
             if (SelectedClass != null && SelectedClass.Title != "")
             {
-                Statics.CharacterCreating.CreatingCharacter.Class = SelectedClass.Title;
+                //Statics.CharacterCreating.CreatingCharacter.CharClass = SelectedClass.Title;
                 navManager.ShowAbilityScoresPage();
             }
         }

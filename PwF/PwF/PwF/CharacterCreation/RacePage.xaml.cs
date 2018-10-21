@@ -1,4 +1,5 @@
 ﻿using PwF.Cells.PwF.Cells;
+using PwF.Template;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +47,7 @@ namespace PwF.CharacterCreation
             InfoButton.BindingContext = viewModel;
             var tapGestureRecognizer3 = new TapGestureRecognizer();
             tapGestureRecognizer3.Tapped += (s, e) => {
-                //DisplayAlert("Alert", "Information View", "OK");
+                DisplayAlert("Alert", "Information View", "OK");
                 //viewModel.ViewInfo();
                 AbsoluteLayout overlay = temp.CreateOverlay(viewModel.GetCompendiumEntry());
                 pageContainer.Children.Add(overlay);

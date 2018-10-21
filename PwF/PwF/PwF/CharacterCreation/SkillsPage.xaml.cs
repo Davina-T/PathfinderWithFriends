@@ -73,7 +73,7 @@ namespace PwF.CharacterCreation
         {
             Label label = new Label
             {
-                Text = "Your race: " + Statics.CharacterCreating.CreatingCharacter.Race + "\nAvailable skills:",
+                Text = "Your race: " + Statics.CharacterCreating.CreatingCharacter.CharRace + "\nAvailable skills:",
                 HorizontalOptions = LayoutOptions.Center,
                 HorizontalTextAlignment = TextAlignment.Center,
                 FontSize = 24,

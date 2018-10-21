@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PwF.Template;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,7 +42,10 @@ namespace PwF.CharacterCreation
             InfoButton.BindingContext = viewModel;
             var tapGestureRecognizer3 = new TapGestureRecognizer();
             tapGestureRecognizer3.Tapped += (s, e) => {
-                //DisplayAlert("Alert", "Information View", "OK");
+
+
+                //DisplayAlert("Alert", Statics.JsonStuff.GetFile("Characters.json"), "OK");
+
                 //viewModel.ViewInfo();
                 String levelCompendium = "Select the starting level for your character.\n\nUnless your DM specificies otherwise you should start on level 1.";
                 AbsoluteLayout overlay = temp.CreateOverlay(levelCompendium);

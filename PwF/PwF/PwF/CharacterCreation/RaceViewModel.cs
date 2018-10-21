@@ -29,13 +29,13 @@ namespace PwF.CharacterCreation
 
         public void NextPage() {
             if (SelectedRace != null && SelectedRace.Title != "") {
-                Statics.CharacterCreating.CreatingCharacter.Race = SelectedRace.Title;
+                //Statics.CharacterCreating.CreatingCharacter.CharRace = SelectedRace.Title;
                 navManager.ShowClassPage();
             }
         }
 
         public void PrevPage() {
-            Statics.CharacterCreating.CreatingCharacter.Race = null;
+            Statics.CharacterCreating.CreatingCharacter.CharRace = null;
             navManager.ShowLevelPage(false);
         }
 

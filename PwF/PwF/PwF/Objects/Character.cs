@@ -11,15 +11,16 @@ namespace PwF.Objects
 
         public string Player { get; set; }
         public string Name { get; set; }
-        public string Race { get; set; }
-        public string Class { get; set; }
+        public Race CharRace { get; set; }
+        public Class CharClass { get; set; }
         public int Level { get; set; }
         public CharacterDetails Details { get; set; }
         public AbilityScores Scores { get; set; }
         public List<Skill> Skills;
         public List<Feat> Feats;
-        //public List<string> Languages { get; set; }
-        public string Languages { get; set; }
+        public List<string> Languages { get; set; }
+        public List<string> Statuses { get; set; }
+        //public string Languages { get; set; }
         public List<Spell> Spells;
         public Money Gold { get; set; }
         public Equipment Equipments { get; set; }

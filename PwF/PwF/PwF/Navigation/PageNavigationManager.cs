@@ -33,12 +33,12 @@ namespace Pwf.Navigation
             navigation.PushAsync(new CharacterList());
         }
 
-        public void ShowCharacterSheet(bool forward = true) {
-            navigation.PushAsync(new CharacterSheet());
+        public void ShowCharacterSheet(int character,  bool forward = true) {
+            navigation.PushAsync(new CharacterSheet(character));
         }
 
-        public void ShowCombatPage(bool forward = true) {
-            navigation.PushAsync(new CombatPage());
+        public void ShowCombatPage(int character, bool forward = true) {
+            navigation.PushAsync(new CombatPage(character));
         }
 
         public void ShowLevelPage(bool forward = true) {

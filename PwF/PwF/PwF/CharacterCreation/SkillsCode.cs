@@ -14,7 +14,7 @@ namespace PwF.CharacterCreation
                 "Acrobatics (DEX)", "Appraise (INT)", "Bluff (CHA)",
                 "Climb (STR)"};
 
-            if (Statics.CharacterCreating.CreatingCharacter.Race == "Dwarves")
+            if (Statics.CharacterCreating.CreatingCharacter.CharRace.Name == "Dwarves")
             {
                 value.Remove("Acrobatics (DEX)");
             }

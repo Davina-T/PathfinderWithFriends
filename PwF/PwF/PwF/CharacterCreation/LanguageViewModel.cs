@@ -27,12 +27,12 @@ namespace PwF.CharacterCreation
 
         public void NextPage()
         {
-            if (SelectedLanguages != null && SelectedLanguages.Title != "")
-            {
-                return;
-            }
+            //if (SelectedLanguages != null && SelectedLanguages.Title != "")
+            //{
+            //    return;
+            //}
 
-            Statics.CharacterCreating.CreatingCharacter.Languages = SelectedLanguages.Title;
+            //Statics.CharacterCreating.CreatingCharacter.Languages = SelectedLanguages.Title;
             navManager.ShowRacePage();
         }
 

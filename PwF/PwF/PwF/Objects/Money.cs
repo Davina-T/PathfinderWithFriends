@@ -18,6 +18,13 @@ namespace PwF.Objects
             PP = 0;
         }
 
+        public double GetTotal() {
+            double total = 0;
+            total = ((double)CP/1000) + ((double)SP /100) + ((double)GP) + ((double)PP * 100);
+
+            return total;
+        }
+
         // Adds currency to amount in CP
         public void Add(int amount) {
             // adds the amount

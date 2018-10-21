@@ -10,8 +10,9 @@ namespace PwF.Objects
         public int CurrentHealth { get; set; }
         public int TempHealth { get; set; }
 
-        public Health() {
-
+        public Health(int totalHealth) {
+            TotalHealth = totalHealth;
+            CurrentHealth = totalHealth;
         }
 
         // method to add health to healthbar
