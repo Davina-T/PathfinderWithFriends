@@ -26,12 +26,9 @@ namespace PwF.CharacterCreation
         public void NextPage()
         {
             //Check if the money values have been set:
-            if (Coin.PP != 0 ||
-                Coin.GP != 0 ||
-                Coin.SP != 0 ||
-                Coin.CP != 0) {
+            if (Coin.GP != 0) {
 
-                Statics.CharacterCreating.CreatingCharacter.Coin = Coin;
+                Statics.CharacterCreating.CreatingCharacter.Coin.GP = Coin.GP;
                 //Statics.CharacterCreating.ScoreRolls = Numbers;
                 //Statics.CharacterCreating.ScoreRollsUsed = NumbersUsed;
                 navManager.ShowEquipmentPage();
@@ -74,6 +71,31 @@ namespace PwF.CharacterCreation
         {
             //Return the copper amount:
             return Gold * 10000;
+        }
+
+        //Determine how many times the dice needs to be rolled:
+        public void CalculateMoney()
+        {
+            //Get value from class selected here:
+            int WealthRolls = 4; //STUB
+            //Money variables:
+            int Gold = 0;
+            int Copper = 0;
+            //Roll the dice:
+            int[] Rolls = RollMany(WealthRolls);
+
+            //Get the numbers and add them together:
+            for(int i=0; i<WealthRolls; i++)
+            {
+                //Get the number:
+                int tempNum = Rolls[i];
+                Gold += tempNum;
+            }
+
+            //Convert Gold to Copper:
+            Copper = ConvertToCopper(Gold);
+            Coin.Add(Copper);
+
         }
 
     }
