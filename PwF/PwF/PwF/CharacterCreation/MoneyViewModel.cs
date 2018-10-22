@@ -7,7 +7,7 @@ using PwF.Objects;
 namespace PwF.CharacterCreation
 {
 
-    class MoneyViewModel 
+    public class MoneyViewModel 
     {
         private PageNavigationManager navManager;
         private readonly Dice D6;
@@ -34,7 +34,7 @@ namespace PwF.CharacterCreation
                 Statics.CharacterCreating.CreatingCharacter.Coin = Coin;
                 //Statics.CharacterCreating.ScoreRolls = Numbers;
                 //Statics.CharacterCreating.ScoreRollsUsed = NumbersUsed;
-                navManager.ShowSkillsPage();
+                navManager.ShowEquipmentPage();
             }
         }
 
@@ -42,7 +42,7 @@ namespace PwF.CharacterCreation
         public void PrevPage()
         {
             //Go back but don't show the familiar:
-            navManager.ShowFamiliarPage(false);
+            navManager.ShowSpellssPage(false);
         }
 
         //View the information page:
@@ -68,5 +68,13 @@ namespace PwF.CharacterCreation
             return results;
 
         }
+
+        //Convert amount to copper:
+        public int ConvertToCopper(int Gold)
+        {
+            //Return the copper amount:
+            return Gold * 10000;
+        }
+
     }
 }
