@@ -21,7 +21,7 @@ namespace PwF.Objects
         //public List<string> Languages { get; set; }
         public string Languages { get; set; }
         public List<Spell> Spells;
-        public Money Gold { get; set; }
+        public Money Coin { get; set; }
         public Equipment Equipments { get; set; }
         public Health HealthBar { get; set; }
 
