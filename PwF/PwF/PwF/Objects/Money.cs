@@ -39,7 +39,7 @@ namespace PwF.Objects
             int total = CP + (SP * 100) + (GP * 10000) + (PP * 1000000);
             if (total > amount) {
                 // subtracts the amount
-                CP -= amount;
+                CP += amount;
                 // corectifies the money
                 CorectifySubtractedMoney();
                 return true;
@@ -72,17 +72,17 @@ namespace PwF.Objects
             int temp;
 
             // calutes the amount of 100's CP is below 0 and adds that number to CP while subtracting the number/100 from SP
-            temp = (int)Math.Ceiling(((double)CP) / 100.00);
+            temp = (int)Math.Ceiling(((double)CP) / -100.00);
             CP += temp * 100;
             SP -= temp;
 
             // calutes the amount of 100's SP is below 0 and adds that number to SP while subtracting the number/100 from GP
-            temp = (int)Math.Ceiling(((double)SP) / 100.00);
+            temp = (int)Math.Ceiling(((double)SP) / -100.00);
             SP += temp * 100;
             GP -= temp;
 
             // calutes the amount of 100's GP is below 0 and adds that number to GP while subtracting the number/100 from PP
-            temp = (int)Math.Ceiling(((double)GP) / 100.00);
+            temp = (int)Math.Ceiling(((double)GP) / -100.00);
             GP += temp * 100;
             PP -= temp;
         }

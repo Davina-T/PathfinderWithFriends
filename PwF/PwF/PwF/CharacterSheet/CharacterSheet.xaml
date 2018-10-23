@@ -84,6 +84,7 @@
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
 
                             <AbsoluteLayout
+                                x:Name="MoneyField"
                                 BackgroundColor="#FFFF99"
                                 AbsoluteLayout.LayoutBounds=".5,.5,.95,.95"
                                 AbsoluteLayout.LayoutFlags="All">

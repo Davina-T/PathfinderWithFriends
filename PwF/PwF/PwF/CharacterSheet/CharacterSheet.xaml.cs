@@ -118,6 +118,14 @@ namespace PwF.CharacterSheet
                 ChangeHealth();
             };
             HealthBar.GestureRecognizers.Add(ChangeHealthTap);
+
+            MoneyField.BindingContext = viewModel;
+            var ChangeMoneyTap = new TapGestureRecognizer();
+            ChangeMoneyTap.Tapped += (s, e) => {
+                //DisplayAlert("Alert", "Previous Page", "OK");
+                ChangeMoney();
+            };
+            MoneyField.GestureRecognizers.Add(ChangeMoneyTap);
         }
 
         public void AddLanguage() {
@@ -359,6 +367,79 @@ namespace PwF.CharacterSheet
             popUpFill.Children.Add(HealthPlus);
             popUpFill.Children.Add(HealthMinus);
             popUpFill.Children.Add(CurrentHealth);
+
+            popUpOverlay = popUp;
+
+            // Add this layout to the Content layout
+            PageContent.Children.Add(popUpOverlay);
+        }
+
+        public void ChangeMoney() {
+            // Initialises the layout that will contain the popup layer
+            //DisplayAlert("Alert", "Creating overlay", "OK");
+
+            Command exitCommand = new Command(() => {
+                RemovePopup();
+            });
+
+            Entry MoneySelect = new Entry() {
+                FontSize = 24,
+                Text = "0",
+                Keyboard = Keyboard.Numeric,
+                BackgroundColor = Color.FromHex("#BBBBBB"),
+                HorizontalTextAlignment = TextAlignment.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(MoneySelect, new Rectangle(.5, .55, .6, .3));
+            AbsoluteLayout.SetLayoutFlags(MoneySelect, AbsoluteLayoutFlags.All);
+
+            Label MoneyGP = new Label() {
+                FontSize = 24,
+                Text = "GP",
+                BackgroundColor = Color.FromHex("#BBBBBB"),
+                HorizontalTextAlignment = TextAlignment.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(MoneyGP, new Rectangle(.5, 1, .1, .3));
+            AbsoluteLayout.SetLayoutFlags(MoneyGP, AbsoluteLayoutFlags.All);
+
+
+            Command acceptCommand = new Command(() => {
+                double Money = double.Parse(MoneySelect.Text);
+                DisplayAlert("Alert", "Money: " + (int)(Money * 10000), "OK");
+                if (Money > 0) {
+                    viewModel.character.Gold.Add((int)(Money*10000));
+                    CPLabel.Text = "CP: " + viewModel.character.Gold.CP;
+                    SPLabel.Text = "SP: " + viewModel.character.Gold.SP;
+                    GPLabel.Text = "GP: " + viewModel.character.Gold.GP;
+                    PPLabel.Text = "PP: " + viewModel.character.Gold.PP;
+                    RemovePopup();
+                } else if(Money < 0) {
+                    viewModel.character.Gold.Subtract((int)(Money *10000));
+                    CPLabel.Text = "CP: " + viewModel.character.Gold.CP;
+                    SPLabel.Text = "SP: " + viewModel.character.Gold.SP;
+                    GPLabel.Text = "GP: " + viewModel.character.Gold.GP;
+                    PPLabel.Text = "PP: " + viewModel.character.Gold.PP;
+                    RemovePopup();
+                }
+                //DisplayAlert("Alert", "Entry: " + LanguageSelect.SelectedItem.ToString(), "OK");
+
+            });
+
+            Label CurrentMoney = new Label() {
+                Text = viewModel.character.Gold.GetTotal() + " GP",
+                FontSize = 24,
+                HorizontalTextAlignment = TextAlignment.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(CurrentMoney, new Rectangle(.5, .15, .8, .3));
+            AbsoluteLayout.SetLayoutFlags(CurrentMoney, AbsoluteLayoutFlags.All);
+
+            AbsoluteLayout popUp = Statics.GlobalFunctions.getPopupBase("Change Money", exitCommand, acceptCommand);
+
+            AbsoluteLayout popUpFill = Statics.GlobalFunctions.getPopUpFill();
+
+            popUp.Children.Add(popUpFill);
+
+            popUpFill.Children.Add(MoneySelect);
+            popUpFill.Children.Add(CurrentMoney);
 
             popUpOverlay = popUp;
 

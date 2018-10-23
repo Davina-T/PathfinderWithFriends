@@ -71,13 +71,13 @@ namespace PwF.CharacterList
             //Characters[0].Languages = new List<string>() { "Common", "Draconic" };
             //Characters[0].Spells = new List<Objects.Spell>() { new Objects.Spell("Magic Missle", "fire a shining projectile", 8) };
 
-            //Objects.Money gold = new Objects.Money();
-            //gold.CP = 58;
-            //gold.SP = 4;
-            //gold.GP = 89;
-            //gold.PP = 9;
+            Objects.Money gold = new Objects.Money();
+            gold.CP = 58;
+            gold.SP = 4;
+            gold.GP = 89;
+            gold.PP = 9;
 
-            //Characters[0].Gold = gold;
+            Characters[0].Gold = gold;
 
             //Characters[0].HealthBar = new Objects.Health(17);
 
@@ -86,7 +86,7 @@ namespace PwF.CharacterList
 
             //Characters[0].CharRace.Languages = new List<string>() { "Common", "Dwarven", "Elfish", "Draconic" };
 
-            //Statics.JsonStuff.SerializeCharacters(Characters);
+            Statics.JsonStuff.SerializeCharacters(Characters);
         }
 
         public void OpenCharacterSheet(int character){
