@@ -9,17 +9,35 @@ namespace PwF.CharacterCreation
 
     public class MoneyViewModel 
     {
+
+        //Create Global variables:
         private PageNavigationManager navManager;
         private readonly Dice D6;
         public List<int> Numbers { get; set; }
         public Money Coin { get; set; }
+        public string Class { get; set; }
 
         public MoneyViewModel()
         {
             navManager = PageNavigationManager.Instance;
             D6 = new Dice(6);
-            Coin = Statics.CharacterCreating.CreatingCharacter.Coin;
 
+            if(Statics.CharacterCreating.CreatingCharacter.Coin == null)
+            {
+                Coin = new Money();
+            }else
+            {
+                Coin = Statics.CharacterCreating.CreatingCharacter.Coin;
+            }
+
+            if (Statics.CharacterCreating.CreatingCharacter.Coin == null)
+            {
+                Class = "Wizard";
+            }else
+            {
+                Class = Statics.CharacterCreating.CreatingCharacter.Class;
+            }
+            
         }
 
         //Change to the next page:
@@ -28,7 +46,7 @@ namespace PwF.CharacterCreation
             //Check if the money values have been set:
             if (Coin.GP != 0) {
 
-                Statics.CharacterCreating.CreatingCharacter.Coin.GP = Coin.GP;
+                Statics.CharacterCreating.CreatingCharacter.Coin = Coin;
                 //Statics.CharacterCreating.ScoreRolls = Numbers;
                 //Statics.CharacterCreating.ScoreRollsUsed = NumbersUsed;
                 navManager.ShowEquipmentPage();
@@ -92,9 +110,9 @@ namespace PwF.CharacterCreation
                 Gold += tempNum;
             }
 
-            //Convert Gold to Copper:
-            Copper = ConvertToCopper(Gold);
-            Coin.Add(Copper);
+            //Show the user how mmuch gold they have:
+            Gold = Gold * 10;
+            Coin.GP = Gold;
 
         }
 

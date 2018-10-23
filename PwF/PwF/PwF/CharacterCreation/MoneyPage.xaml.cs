@@ -46,13 +46,18 @@ namespace PwF.CharacterCreation
             };
             InfoButton.GestureRecognizers.Add(tapGestureRecognizer3);
 
+            CharClass.BindingContext = viewModel;
+            coinEntry.BindingContext = viewModel;
+
             //Add the binding for the dice roll tap gesture:
             td20.BindingContext = viewModel;
             var tapGestureRecognizer4 = new TapGestureRecognizer();
             tapGestureRecognizer4.Tapped += (s, e) =>
             {
                 viewModel.CalculateMoney();
+                coinEntry.Text = viewModel.Coin.GP.ToString();
             };
+            td20.GestureRecognizers.Add(tapGestureRecognizer4);
         }
 
 

@@ -5,11 +5,14 @@
              xmlns:local="clr-namespace:Pwf.Navigation"
              NavigationPage.HasNavigationBar="false">
 
+    <!-- The content of the money page -->
     <ContentPage.Content>
 
+        <!-- Main layout for content page -->
         <AbsoluteLayout
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
 
+            <!-- Bind the view model -->
             <AbsoluteLayout.BindingContext>
                 <local:ViewModel/>
             </AbsoluteLayout.BindingContext>
@@ -54,13 +57,14 @@
                             AbsoluteLayout.LayoutBounds="0,.02,1,.08"  
                             AbsoluteLayout.LayoutFlags="All">
 
-                            <!--Text="{Binding Statics.Character.CharacterCreating.CharacterCreating.Character.Class, StringFormat='Your Class: 0:N'}"-->
+                            <!-- Display the character's class -->
                             <Label
+                                x:Name="CharClass"
                                 AbsoluteLayout.LayoutBounds="0,0,1,1"  
                                 AbsoluteLayout.LayoutFlags="All"
                                 HorizontalTextAlignment="Center"
                                 VerticalTextAlignment="Center"
-                                Text="Your Class: Wizard"
+                                Text="{Binding Class, StringFormat='Your Class: {0:N}'}"
                                 FontSize="22">
                             </Label>
                         </AbsoluteLayout>
@@ -70,13 +74,13 @@
                             AbsoluteLayout.LayoutBounds="0,.12,1,.15"  
                             AbsoluteLayout.LayoutFlags="All">
 
-                            <!--Text="{Binding Statics.Character.CharacterCreating.CharacterCreating.Character.Class, StringFormat='Your Class: 0:N'}"-->
+                            <!-- Instructions -->
                             <Label
                                 AbsoluteLayout.LayoutBounds=".5,0,.5,.5"  
                                 HorizontalTextAlignment="Center"
                                 VerticalTextAlignment="Center"
                                 AbsoluteLayout.LayoutFlags="All"
-                                Text="{Binding Class, StringFormat='Your Class: 0:N'}"
+                                Text="Has a starting wealth of:"
                                 FontSize="17">
                             </Label>
 
@@ -143,7 +147,7 @@
                             <Entry
                                     Keyboard="Numeric"
                                     x:Name="coinEntry"
-                                    Text="{Binding Money.GP}" 
+                                    Text="{Binding Coin.GP}" 
                                     FontSize="22"
                                     HorizontalTextAlignment="Center"
                                     VerticalOptions="Center"

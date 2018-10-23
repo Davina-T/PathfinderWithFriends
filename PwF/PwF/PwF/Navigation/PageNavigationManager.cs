@@ -102,12 +102,7 @@ namespace Pwf.Navigation
 
         public void ShowMoneyPage(bool forward = true) {
             // change navigation to send to Money Page
-            // navigation.PushAsync(new AbilityScorePage());
-            if (forward) {
-                ShowEquipmentPage();
-            } else {
-                ShowSpellssPage(false);
-            }
+            navigation.PushAsync(new MoneyPage());
         }
 
         public void ShowEquipmentPage(bool forward = true) {
