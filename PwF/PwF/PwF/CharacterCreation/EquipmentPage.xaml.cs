@@ -10,12 +10,12 @@ using Xamarin.Forms.Xaml;
 namespace PwF.CharacterCreation
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class WeaponsAndArmour : ContentPage
+    public partial class EquipmentPage : ContentPage
     {
 
-        WeaponsAndArmourViewModel viewModel = new WeaponsAndArmourViewModel();
+        EquipmentPageViewModel viewModel = new EquipmentPageViewModel();
 
-        public WeaponsAndArmour()
+        public EquipmentPage()
         {
             InitializeComponent();
 

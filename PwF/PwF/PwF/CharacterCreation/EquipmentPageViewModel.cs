@@ -5,11 +5,11 @@ using System.Text;
 
 namespace PwF.CharacterCreation
 {
-    public class WeaponsAndArmourViewModel
+    public class EquipmentPageViewModel
     {
         private PageNavigationManager navManager;
 
-        public WeaponsAndArmourViewModel()
+        public EquipmentPageViewModel()
         {
             navManager = PageNavigationManager.Instance;
 

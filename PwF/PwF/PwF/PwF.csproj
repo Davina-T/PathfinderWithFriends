@@ -31,7 +31,7 @@
     <EmbeddedResource Update="CharacterCreation\SkillsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="CharacterCreation\WeaponsAndArmour.xaml">
+    <EmbeddedResource Update="CharacterCreation\EquipmentPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="CharacterSheet\CharacterSheet.xaml">
@@ -54,6 +54,9 @@
     </Compile>
     <Compile Update="CharacterCreation\LevelPage.xaml.cs">
       <DependentUpon>LevelPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="CharacterCreation\EquipmentPage.xaml.cs">
+      <DependentUpon>EquipmentPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>
