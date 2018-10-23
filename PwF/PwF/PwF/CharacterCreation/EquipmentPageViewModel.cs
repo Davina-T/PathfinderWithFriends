@@ -1,4 +1,5 @@
 ﻿using Pwf.Navigation;
+using PwF.Cells.PwF.Cells;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,6 +9,8 @@ namespace PwF.CharacterCreation
     public class EquipmentPageViewModel
     {
         private PageNavigationManager navManager;
+        public CustomCell PossibleItemsSelected { get; set; }
+        public CustomCell SelectedItemSelected { get; set; }
 
         public EquipmentPageViewModel()
         {

@@ -12,18 +12,13 @@
         <AbsoluteLayout
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
 
-            <!-- Bind the view model -->
-            <AbsoluteLayout.BindingContext>
-                <local:ViewModel/>
-            </AbsoluteLayout.BindingContext>
-
             <!-- The Top Bar of the Application -->
             <AbsoluteLayout 
                 BackgroundColor="#1B2C34"
                 AbsoluteLayout.LayoutBounds="0,0,1,.1"  
                 AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
                 
-                <!-- The Label for displaying the Character's Name -->
+                <!-- The Label for displaying the title of the page -->
                 <Label
                     Text="Wealth"
                     TextColor="#C7BC91"
@@ -186,7 +181,6 @@
                        AbsoluteLayout.LayoutFlags="All">
 
                 </Image>
-
             </AbsoluteLayout>
 
         </AbsoluteLayout>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PwF.Cells.PwF.Cells;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,6 @@ namespace PwF.CharacterCreation
         public EquipmentPage()
         {
             InitializeComponent();
-
 
             // add the binding for the right arrow and a tap recognizer
             RightArrow.BindingContext = viewModel;
@@ -46,6 +46,30 @@ namespace PwF.CharacterCreation
                 viewModel.ViewInfo();
             };
             InfoButton.GestureRecognizers.Add(tapGestureRecognizer3);
+        }
+
+        void OnItemPossibleSelected(object sender, System.EventArgs e)
+        {
+            if (PossibleItems.SelectedItem != null)
+            {
+                SelectedItems.SelectedItem = null;
+                CustomCell temp = (CustomCell)PossibleItems.SelectedItem;
+                //DisplayAlert("OnItemSelected", temp.Title, "OK");
+                viewModel.PossibleItemsSelected = temp;
+                // save the Class option
+            }
+        }
+
+        void OnItemSelectSelected(object sender, System.EventArgs e)
+        {
+            if (SelectedItems.SelectedItem != null)
+            {
+                PossibleItems.SelectedItem = null;
+                CustomCell temp = (CustomCell)SelectedItems.SelectedItem;
+                //DisplayAlert("OnItemSelected", temp.Title, "OK");
+                viewModel.SelectedItemSelected = temp;
+                // save the Class option
+            }
         }
     }
 }
