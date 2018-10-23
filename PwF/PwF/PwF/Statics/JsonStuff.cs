@@ -51,7 +51,8 @@ namespace PwF.Statics
 
             // Create file if it doesn't exists
             if (!File.Exists(filepath)) {
-                File.Create(filepath);
+                var MyFile = File.Create(filepath);
+                MyFile.Close();
             }
 
             File.WriteAllLines(filepath, content);

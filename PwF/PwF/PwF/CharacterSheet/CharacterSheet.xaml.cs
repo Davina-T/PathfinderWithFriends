@@ -42,10 +42,10 @@ namespace PwF.CharacterSheet
             LevelLabel.Text = "Level: " + viewModel.character.Level.ToString();
 
             HealthLabel.BindingContext = viewModel;
-            HealthLabel.Text = viewModel.character.HealthBar.TotalHealth.ToString() + "/" + viewModel.character.HealthBar.CurrentHealth.ToString();
+            HealthLabel.Text = viewModel.character.HealthBar.CurrentHealth.ToString() + "/" + viewModel.character.HealthBar.TotalHealth.ToString();
 
             HealthBarLayout.BindingContext = viewModel;
-            AbsoluteLayout.SetLayoutBounds(HealthBarLayout, new Rectangle(0, 0, viewModel.character.HealthBar.TotalHealth/ viewModel.character.HealthBar.CurrentHealth, 1));
+            AbsoluteLayout.SetLayoutBounds(HealthBarLayout, new Rectangle(0, 0, ((double)viewModel.character.HealthBar.CurrentHealth / (double)viewModel.character.HealthBar.TotalHealth), 1));
 
             CombatButton.BindingContext = viewModel;
             CombatButton.Command = new Command(() => {
@@ -110,7 +110,14 @@ namespace PwF.CharacterSheet
             StatusRemoveButton.Command = new Command(() => {
                 RemoveStatus();
             });
-            
+
+            HealthBar.BindingContext = viewModel;
+            var ChangeHealthTap = new TapGestureRecognizer();
+            ChangeHealthTap.Tapped += (s, e) => {
+                //DisplayAlert("Alert", "Previous Page", "OK");
+                ChangeHealth();
+            };
+            HealthBar.GestureRecognizers.Add(ChangeHealthTap);
         }
 
         public void AddLanguage() {
@@ -265,6 +272,93 @@ namespace PwF.CharacterSheet
             popUp.Children.Add(popUpFill);
 
             popUpFill.Children.Add(StatusSelect);
+
+            popUpOverlay = popUp;
+
+            // Add this layout to the Content layout
+            PageContent.Children.Add(popUpOverlay);
+        }
+
+        public void ChangeHealth() {
+            // Initialises the layout that will contain the popup layer
+            //DisplayAlert("Alert", "Creating overlay", "OK");
+
+            Command exitCommand = new Command(() => {
+                RemovePopup();
+            });
+
+            Entry HealthSelect = new Entry() {
+                FontSize = 24,
+                Text="0",
+                Keyboard = Keyboard.Numeric,
+                BackgroundColor = Color.FromHex("#BBBBBB"),
+                HorizontalTextAlignment = TextAlignment.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(HealthSelect, new Rectangle(.5, .5, .2, .3));
+            AbsoluteLayout.SetLayoutFlags(HealthSelect, AbsoluteLayoutFlags.All);
+
+            Image HealthPlus = new Image() {
+                Source = "PlusButton.PNG"
+            };
+            AbsoluteLayout.SetLayoutBounds(HealthPlus, new Rectangle(.9, .5, .3, .3));
+            AbsoluteLayout.SetLayoutFlags(HealthPlus, AbsoluteLayoutFlags.All);
+
+            var HealthUp = new TapGestureRecognizer();
+            HealthUp.Tapped += (s, e) => {
+                int HealthValue = Int32.Parse(HealthSelect.Text);
+
+                HealthSelect.Text = (HealthValue + 1).ToString();
+            };
+            HealthPlus.GestureRecognizers.Add(HealthUp);
+
+            Image HealthMinus = new Image() {
+                Source = "MinusButton.PNG"
+            };
+            AbsoluteLayout.SetLayoutBounds(HealthMinus, new Rectangle(.1, .5, .3, .3));
+            AbsoluteLayout.SetLayoutFlags(HealthMinus, AbsoluteLayoutFlags.All);
+
+            var HealthDown = new TapGestureRecognizer();
+            HealthDown.Tapped += (s, e) => {
+                int HealthValue = Int32.Parse(HealthSelect.Text);
+
+                HealthSelect.Text = (HealthValue - 1).ToString();
+            };
+            HealthMinus.GestureRecognizers.Add(HealthDown);
+
+            Command acceptCommand = new Command(() => {
+                int Health = Int32.Parse(HealthSelect.Text);
+                if (Health < 0) {
+                    viewModel.character.HealthBar.RemoveHealth(Health);
+                    HealthLabel.Text = viewModel.character.HealthBar.CurrentHealth.ToString() + "/" + viewModel.character.HealthBar.TotalHealth.ToString();
+                    AbsoluteLayout.SetLayoutBounds(HealthBarLayout, new Rectangle(0, 0, ((double)viewModel.character.HealthBar.CurrentHealth / (double)viewModel.character.HealthBar.TotalHealth), 1));
+                } else if(Health > 0) {
+                    viewModel.character.HealthBar.AddHealth(Health);
+                    HealthLabel.Text = viewModel.character.HealthBar.CurrentHealth.ToString() + "/" + viewModel.character.HealthBar.TotalHealth.ToString();
+                    AbsoluteLayout.SetLayoutBounds(HealthBarLayout, new Rectangle(0, 0, ((double)viewModel.character.HealthBar.CurrentHealth / (double)viewModel.character.HealthBar.TotalHealth), 1));
+                }
+                RemovePopup();
+                //DisplayAlert("Alert", "Entry: " + LanguageSelect.SelectedItem.ToString(), "OK");
+
+            });
+
+            Label CurrentHealth = new Label() {
+                Text = viewModel.character.HealthBar.TotalHealth.ToString() + "/" + viewModel.character.HealthBar.CurrentHealth.ToString(),
+                FontSize=24,
+                HorizontalTextAlignment=TextAlignment.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(CurrentHealth, new Rectangle(.5, .2, .5, .3));
+            AbsoluteLayout.SetLayoutFlags(CurrentHealth, AbsoluteLayoutFlags.All);
+
+            AbsoluteLayout popUp = Statics.GlobalFunctions.getPopupBase("Change Health", exitCommand, acceptCommand);
+
+            AbsoluteLayout popUpFill = Statics.GlobalFunctions.getPopUpFill();
+
+            popUp.Children.Add(popUpFill);
+
+            popUpFill.Children.Add(HealthSelect);
+            popUpFill.Children.Add(HealthPlus);
+            popUpFill.Children.Add(HealthMinus);
+            popUpFill.Children.Add(CurrentHealth);
 
             popUpOverlay = popUp;
 

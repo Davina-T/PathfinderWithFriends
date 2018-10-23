@@ -22,10 +22,13 @@ namespace PwF.CharacterList
             navManager = PageNavigationManager.Instance;
             Characters = Statics.JsonStuff.DeserializeCharacters();
 
+            //Characters = new List<Objects.Character>();
+            //Characters.Add(new Objects.Character());
+
             //Objects.CharacterDetails details = new Objects.CharacterDetails();
 
             //Characters[0].Player = "Cameron";
-            //Characters[0].Name = "Master Person";
+            //Characters[0].Name = "Gale Windhunter";
 
             //Objects.Race race = new Objects.Race();
             //race.Name = "Dwarf";
@@ -62,7 +65,7 @@ namespace PwF.CharacterList
             //scores.Charisma.Value = 10;
 
             //Characters[0].Scores = scores;
-            //Characters[0].Skills = new List<Objects.Skill>() { new Objects.Skill("Acrobatics", Enums.AbilityScoreName.Dexterity, 
+            //Characters[0].Skills = new List<Objects.Skill>() { new Objects.Skill("Acrobatics", Enums.AbilityScoreName.Dexterity,
             //    "perform acrobatics", 4) };
             //Characters[0].Feats = new List<Objects.Feat>() { new Objects.Feat("Glide", "create a slow decent from a fall") };
             //Characters[0].Languages = new List<string>() { "Common", "Draconic" };
@@ -77,6 +80,11 @@ namespace PwF.CharacterList
             //Characters[0].Gold = gold;
 
             //Characters[0].HealthBar = new Objects.Health(17);
+
+            //Characters[0].Statuses = new List<string>();
+            //Characters[0].Languages = new List<string>() { "Common", "Dwarven" };
+
+            //Characters[0].CharRace.Languages = new List<string>() { "Common", "Dwarven", "Elfish", "Draconic" };
 
             //Statics.JsonStuff.SerializeCharacters(Characters);
         }

@@ -142,6 +142,7 @@
 
                         <!-- The Field Relating to the Health Data -->
                         <AbsoluteLayout
+                            x:Name="HealthBar"
                             BackgroundColor="#000000"
                             AbsoluteLayout.LayoutBounds=".5,190,.9,40"
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">

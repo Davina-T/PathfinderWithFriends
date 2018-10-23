@@ -84,13 +84,13 @@ namespace Pwf.Navigation
             // change navigation to send to Languages Page
             // navigation.PushAsync(new AbilityScorePage());
             if (forward) {
-                ShowSpellssPage();
+                ShowSpellsPage();
             } else {
                 ShowFeatsPage(false);
             }
         }
 
-        public void ShowSpellssPage(bool forward = true) {
+        public void ShowSpellsPage(bool forward = true) {
             // change navigation to send to Spells Page
             // navigation.PushAsync(new AbilityScorePage());
             if (forward) {
@@ -106,7 +106,7 @@ namespace Pwf.Navigation
             if (forward) {
                 ShowEquipmentPage();
             } else {
-                ShowSpellssPage(false);
+                ShowSpellsPage(false);
             }
         }
 
