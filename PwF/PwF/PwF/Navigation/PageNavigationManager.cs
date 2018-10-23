@@ -106,13 +106,8 @@ namespace Pwf.Navigation
         }
 
         public void ShowEquipmentPage(bool forward = true) {
-            // change navigation to send to Equipment Page
-            // navigation.PushAsync(new AbilityScorePage());
-            if (forward) {
-                ShowCharacterDetailsPage();
-            } else {
-                ShowMoneyPage(false);
-            }
+            // change navigation to send to Money Page
+            navigation.PushAsync(new EquipmentPage());
         }
 
         public void ShowCharacterDetailsPage(bool forward = true) {

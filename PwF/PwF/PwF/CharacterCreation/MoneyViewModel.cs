@@ -17,24 +17,31 @@ namespace PwF.CharacterCreation
         public Money Coin { get; set; }
         public string Class { get; set; }
 
+        //Create the money viewmodel:
         public MoneyViewModel()
         {
+            //Setup navigation:
             navManager = PageNavigationManager.Instance;
+            //Create Dice:
             D6 = new Dice(6);
 
+            //Check if the charater has money already:
             if(Statics.CharacterCreating.CreatingCharacter.Coin == null)
             {
+                //Create a money Object:
                 Coin = new Money();
-            }else
-            {
+            }else{
+                //Set the characters money to the current object:
                 Coin = Statics.CharacterCreating.CreatingCharacter.Coin;
             }
 
-            if (Statics.CharacterCreating.CreatingCharacter.Coin == null)
+            //Check if there is a class selected for the character:
+            if (Statics.CharacterCreating.CreatingCharacter.Class == null)
             {
+                //Assign a stubbed class:
                 Class = "Wizard";
-            }else
-            {
+            }else{
+                //Assign the character's class to this object:
                 Class = Statics.CharacterCreating.CreatingCharacter.Class;
             }
             
@@ -45,10 +52,8 @@ namespace PwF.CharacterCreation
         {
             //Check if the money values have been set:
             if (Coin.GP != 0) {
-
+                //Go to the next page:
                 Statics.CharacterCreating.CreatingCharacter.Coin = Coin;
-                //Statics.CharacterCreating.ScoreRolls = Numbers;
-                //Statics.CharacterCreating.ScoreRollsUsed = NumbersUsed;
                 navManager.ShowEquipmentPage();
             }
         }

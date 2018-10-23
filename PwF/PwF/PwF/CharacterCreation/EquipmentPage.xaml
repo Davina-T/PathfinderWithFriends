@@ -36,10 +36,10 @@
                 AbsoluteLayout.LayoutBounds="0,0.5,1,.8"  
                 AbsoluteLayout.LayoutFlags="All">
 
-                <!-- The ScrollView for Displaying the Pages Content -->
+                <!-- The section for Displaying the Pages Content -->
                 <AbsoluteLayout
                     BackgroundColor="#C1DAC5"
-                    AbsoluteLayout.LayoutBounds=".5,.45,.9,.8"  
+                    AbsoluteLayout.LayoutBounds=".5,.2,.9,.85"  
                     AbsoluteLayout.LayoutFlags="All">
 
                     <!-- The Layout that Contains the Pages Content -->
@@ -47,7 +47,7 @@
                         AbsoluteLayout.LayoutBounds="0,0,1,1"  
                         AbsoluteLayout.LayoutFlags="All">
 
-                        <!-- Feats Search Entry -->
+                        <!-- Items Search Entry -->
                         <Entry
                             x:Name="ItemSearchEntry"
                             Placeholder="Search"
@@ -57,11 +57,13 @@
                             AbsoluteLayout.LayoutBounds=".5,.02,.8,.1"
                             AbsoluteLayout.LayoutFlags="All"/>
 
+                        <!-- Items that can be purchased -->
                         <ScrollView
                             AbsoluteLayout.LayoutBounds=".5,.21,.95,.35"
                             AbsoluteLayout.LayoutFlags="All"
                             BackgroundColor="White">
 
+                            <!-- The list of items -->
                             <ListView x:Name="PossibleItems" ItemSelected="OnItemPossibleSelected"
                                       HeightRequest="0">
                                 <ListView.ItemTemplate>
@@ -70,25 +72,29 @@
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
-
                         </ScrollView>
 
+                        <!-- Arrow to move items to purchased -->
                         <Image x:Name="DownArrow"
                                Source="ArrowDown.png" 
                                AbsoluteLayout.LayoutBounds=".3,.58,.15,.15"
                                AbsoluteLayout.LayoutFlags="All"
                                HeightRequest="0"/>
+                        
+                        <!-- Arrow to move items out of purchased -->
                         <Image x:Name="UpArrow"
                                Source="ArrowUp.png" 
                                AbsoluteLayout.LayoutBounds=".7,.58,.15,.15"
                                AbsoluteLayout.LayoutFlags="All"
                                HeightRequest="0"/>
 
+                        <!-- List of items purchased -->
                         <ScrollView
                             AbsoluteLayout.LayoutBounds=".5,.98,.95,.35"
                             AbsoluteLayout.LayoutFlags="All"
                             BackgroundColor="White">
 
+                            <!-- The actual list -->
                             <ListView x:Name="SelectedItems" ItemSelected="OnItemSelectSelected">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
@@ -96,24 +102,23 @@
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
-
                         </ScrollView>
-
-
-
                     </AbsoluteLayout>
                 </AbsoluteLayout>
             </AbsoluteLayout>
 
+            <!-- Section to hold the tabs -->
             <AbsoluteLayout
-                AbsoluteLayout.LayoutBounds="0,.9,1,.08"
+                AbsoluteLayout.LayoutBounds="0,.891,1,.08"
                 AbsoluteLayout.LayoutFlags="All">
 
+                <!-- The first tab -->
                 <AbsoluteLayout
                     AbsoluteLayout.LayoutBounds="0,0,.333,1"
                     AbsoluteLayout.LayoutFlags="All"
                     BackgroundColor="#1B2C34">
 
+                    <!-- The name of the tab -->
                     <Label
                         AbsoluteLayout.LayoutBounds=".5,.5,1,1"
                         AbsoluteLayout.LayoutFlags="All"
@@ -121,39 +126,41 @@
                         VerticalTextAlignment="Center"
                         TextColor="#607F6F"
                         Text="Weapons">
-
                     </Label>
-
                 </AbsoluteLayout>
 
+                <!-- The second tab -->
                 <AbsoluteLayout
                     AbsoluteLayout.LayoutBounds=".5,0,.333,1"
                     AbsoluteLayout.LayoutFlags="All"
                     BackgroundColor="#1B2C34">
 
+                    <!-- The name of the tab -->
                     <Label
+                        AbsoluteLayout.LayoutBounds=".5,.5,1,1"
+                        AbsoluteLayout.LayoutFlags="All"
                         HorizontalTextAlignment="Center"
                         VerticalTextAlignment="Center"
                         TextColor="#607F6F"
                         Text="Equipment">
-
                     </Label>
-
                 </AbsoluteLayout>
 
+                <!-- The third tab -->
                 <AbsoluteLayout
                     AbsoluteLayout.LayoutBounds="1,0,.333,1"
                     AbsoluteLayout.LayoutFlags="All"
                     BackgroundColor="#1B2C34">
 
+                    <!-- The name of the tab -->
                     <Label
+                        AbsoluteLayout.LayoutBounds=".5,.5,1,1"
+                        AbsoluteLayout.LayoutFlags="All"
                         HorizontalTextAlignment="Center"
                         VerticalTextAlignment="Center"
                         TextColor="#607F6F"
                         Text="Armour">
-
                     </Label>
-
                 </AbsoluteLayout>
             </AbsoluteLayout>
 
