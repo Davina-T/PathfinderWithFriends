@@ -11,6 +11,7 @@ namespace PwF.Objects
         public List<string> Languages { get; set; }
         public List<Feat> Feats { get; set; }
         public List<SpecialAbility> SpecialAbilities { get; set; }
+        public Enums.Size Size { get; set; }
 
         public Race() {
 

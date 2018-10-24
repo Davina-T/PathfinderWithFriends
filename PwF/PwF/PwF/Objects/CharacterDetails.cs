@@ -9,7 +9,6 @@ namespace PwF.Objects
         public Enums.Alignment Alignment { get; set; }
         public string Diety { get; set; }
         public string Homeland { get; set; }
-        public Enums.Size Size { get; set; }
         public string Gender { get; set; }
         public int Age { get; set; }
         public float Height { get; set; }
@@ -24,11 +23,3 @@ namespace PwF.Objects
         }
     }
 }
-
-/*"Player":"", "Name":"", "Race":"", "Class":"", "Level":"", 
-			"Details":{ "Alignment":{}, "Diety":"", "Homeland":"", "Size":"", "Gender":"", 
-			"Age":"", "Height":"", "Weight":"", "Hair":"", "Eyes":"", "Backstory":""},
-			"AbilityScores":[], "Skills":[], "Feats":[], "Languages":[], "Spells":[], 
-			"Gold":{"CP":"", "SP":"", "GP":"", "PP":""},
-			"Equipment":{"Weapons":[], "Armour":[], "Gear":[]},
-			"TotoalHP":"", "CurrentHP":""*/
