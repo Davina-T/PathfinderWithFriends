@@ -54,8 +54,45 @@
                             FontSize="22"
                             HorizontalTextAlignment="Center"
                             BackgroundColor="White"
-                            AbsoluteLayout.LayoutBounds=".5,.02,.8,.1"
+                            AbsoluteLayout.LayoutBounds=".05,.02,.4,.1"
                             AbsoluteLayout.LayoutFlags="All"/>
+
+                        <AbsoluteLayout
+                            AbsoluteLayout.LayoutBounds=".95,.02,.53,.1"  
+                            AbsoluteLayout.LayoutFlags="All">
+
+                            <Label
+                                x:Name="PP"
+                                AbsoluteLayout.LayoutBounds=".25,0.1,.5,.5"
+                                VerticalTextAlignment="Center"
+                                AbsoluteLayout.LayoutFlags="All"
+                                Text="{Binding Coin.PP, StringFormat='PP: {0}'}">
+                            </Label>
+
+                            <Label
+                                x:Name="GP"
+                                AbsoluteLayout.LayoutBounds=".25,1,.5,.5"
+                                VerticalTextAlignment="Center"
+                                AbsoluteLayout.LayoutFlags="All"
+                                Text="{Binding Coin.GP, StringFormat='GP: {0}'}">
+                            </Label>
+
+                            <Label
+                                x:Name="SP"
+                                AbsoluteLayout.LayoutBounds=".85,0,.5,.5"
+                                VerticalTextAlignment="Center"
+                                AbsoluteLayout.LayoutFlags="All"
+                                Text="{Binding Coin.SP, StringFormat='SP: {0}'}">
+                            </Label>
+
+                            <Label
+                                x:Name="CP"
+                                AbsoluteLayout.LayoutBounds=".85,1,.5,.5"
+                                VerticalTextAlignment="Center"
+                                AbsoluteLayout.LayoutFlags="All"
+                                Text="{Binding Coin.CP, StringFormat='CP: {0}'}">
+                            </Label>
+                        </AbsoluteLayout>
 
                         <!-- Items that can be purchased -->
                         <ScrollView
@@ -114,46 +151,52 @@
 
                 <!-- The first tab -->
                 <AbsoluteLayout
+                    x:Name="WeaponButton"
                     AbsoluteLayout.LayoutBounds="0,0,.333,1"
                     AbsoluteLayout.LayoutFlags="All"
-                    BackgroundColor="#1B2C34">
+                    BackgroundColor="#607F6F">
 
                     <!-- The name of the tab -->
                     <Label
+                        x:Name="WeaponButtonText"
                         AbsoluteLayout.LayoutBounds=".5,.5,1,1"
                         AbsoluteLayout.LayoutFlags="All"
                         HorizontalTextAlignment="Center"
                         VerticalTextAlignment="Center"
-                        TextColor="#607F6F"
+                        TextColor="#1B2C34"
                         Text="Weapons">
                     </Label>
                 </AbsoluteLayout>
 
                 <!-- The second tab -->
                 <AbsoluteLayout
+                    x:Name="GearButton"
                     AbsoluteLayout.LayoutBounds=".5,0,.333,1"
                     AbsoluteLayout.LayoutFlags="All"
                     BackgroundColor="#1B2C34">
 
                     <!-- The name of the tab -->
                     <Label
+                        x:Name="GearButtonText"
                         AbsoluteLayout.LayoutBounds=".5,.5,1,1"
                         AbsoluteLayout.LayoutFlags="All"
                         HorizontalTextAlignment="Center"
                         VerticalTextAlignment="Center"
                         TextColor="#607F6F"
-                        Text="Equipment">
+                        Text="Gear">
                     </Label>
                 </AbsoluteLayout>
 
                 <!-- The third tab -->
                 <AbsoluteLayout
+                    x:Name="ArmourButton"
                     AbsoluteLayout.LayoutBounds="1,0,.333,1"
                     AbsoluteLayout.LayoutFlags="All"
                     BackgroundColor="#1B2C34">
 
                     <!-- The name of the tab -->
                     <Label
+                        x:Name="ArmourButtonText"
                         AbsoluteLayout.LayoutBounds=".5,.5,1,1"
                         AbsoluteLayout.LayoutFlags="All"
                         HorizontalTextAlignment="Center"

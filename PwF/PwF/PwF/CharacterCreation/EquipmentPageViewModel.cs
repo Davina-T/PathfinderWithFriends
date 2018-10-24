@@ -51,6 +51,10 @@ namespace PwF.CharacterCreation
             {
                 //Create a money Object:
                 Coin = new Money();
+                Coin.PP = 1;
+                Coin.GP = 53;
+                Coin.SP = 24;
+                Coin.CP = 99;
             }
             else{
 
@@ -233,8 +237,10 @@ namespace PwF.CharacterCreation
             return CustomCells;
         }
 
+        //Go to the next page:
         public void NextPage()
         {
+            //Make sure that none of the item lists are null:
             if(SelectedArmour == null && SelectedGear == null && SelectedWeapons == null)
             {
                 //Get Weapon Names:
@@ -292,15 +298,38 @@ namespace PwF.CharacterCreation
 
         }
 
+        //Go to the previous page:
         public void PrevPage()
         {
             //Statics.CharacterCreating.CreatingCharacter.Race = null;
             navManager.ShowMoneyPage(false);
         }
 
+        //View the compendium:
         public void ViewInfo()
         {
             // open the informative page
+        }
+
+        //Show the weapons page:
+        public void chageToWeaponsPage()
+        {
+            //Set the selected tab:
+            SelectedTab = "Weapons";
+        }
+
+        //Show the gear page:
+        public void chageToGearPage()
+        {
+            //Set the selected tab:
+            SelectedTab = "Gear";
+        }
+
+        //Show the armour page:
+        public void chageToArmourPage()
+        {
+            //Set the selected tab:
+            SelectedTab = "Armour";
         }
     }
 }
