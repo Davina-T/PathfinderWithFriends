@@ -74,11 +74,11 @@ namespace PwF.CharacterSheet
             WISLabel.BindingContext = viewModel;
             CHALabel.BindingContext = viewModel;
             STRLabel.Text = viewModel.character.Scores.Strength.Value.ToString();
-            DEXLabel.Text = viewModel.character.Scores.Strength.Value.ToString();
-            CONLabel.Text = viewModel.character.Scores.Strength.Value.ToString();
-            INTLabel.Text = viewModel.character.Scores.Strength.Value.ToString();
-            WISLabel.Text = viewModel.character.Scores.Strength.Value.ToString();
-            CHALabel.Text = viewModel.character.Scores.Strength.Value.ToString();
+            DEXLabel.Text = viewModel.character.Scores.Dexterity.Value.ToString();
+            CONLabel.Text = viewModel.character.Scores.Constitution.Value.ToString();
+            INTLabel.Text = viewModel.character.Scores.Intelligence.Value.ToString();
+            WISLabel.Text = viewModel.character.Scores.Wisdom.Value.ToString();
+            CHALabel.Text = viewModel.character.Scores.Charisma.Value.ToString();
 
             ChangeCharacterButton.BindingContext = viewModel;
             ChangeCharacterButton.Command = new Command(() => {

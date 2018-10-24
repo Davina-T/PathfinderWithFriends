@@ -18,6 +18,7 @@ namespace PwF.Objects
         public AbilityScores Scores { get; set; }
         public List<Skill> Skills;
         public List<Feat> Feats;
+        public List<SpecialAbility> SpecialAbilities;
         public List<string> Languages { get; set; }
         public List<string> Statuses { get; set; }
         //public string Languages { get; set; }
@@ -90,7 +91,7 @@ namespace PwF.Objects
 
         // The handlers of the Feats
         // Adding a Feat to the character
-        public bool AddFeat(string name, string effect) {
+        public bool AddFeat(string name, string effect, string prerequisite) {
             // check to see if Feat already exists
             foreach (Feat feat in Feats) {
                 if (feat.Name == name) {
@@ -99,7 +100,7 @@ namespace PwF.Objects
                 }
             }
             // if it Feat doesn't exists add Feat and return true
-            Feats.Add(new Feat(name, effect));
+            Feats.Add(new Feat(name, effect, prerequisite));
             return true;
         }
 
@@ -113,7 +114,7 @@ namespace PwF.Objects
                 }
             }
             // if it Feat doesn't exists return undefined Feat
-            return new Feat("undefinded", "undefined");
+            return new Feat("undefinded", "undefined", "undefined");
         }
 
         // removing the Feat from the character
@@ -133,7 +134,7 @@ namespace PwF.Objects
 
         // The handlers of the Spells
         // Adding a Feat to the character
-        public bool AddSpell(string name, string effect, int damage) {
+        public bool AddSpell(int level, string name, string castingTime, string range, string target, string duration, string reflexThow, string effect, int damage) {
             // check to see if Spell already exists
             foreach (Spell spell in Spells) {
                 if (spell.Name == name) {
@@ -142,7 +143,7 @@ namespace PwF.Objects
                 }
             }
             // if it Spell doesn't exists add Spell and return true
-            Spells.Add(new Spell(name, effect, damage));
+            Spells.Add(new Spell(level, name, castingTime, range, target, duration, reflexThow, effect, damage));
             return true;
         }
 
@@ -156,7 +157,7 @@ namespace PwF.Objects
                 }
             }
             // if it SPell doesn't exists return undefined Spell
-            return new Spell("undefinded", "undefined", 0);
+            return new Spell(0, "undefinded", "undefined", "undefinded", "undefinded", "undefinded", "undefinded", "undefinded", 0);
         }
 
         // removing the Spell from the character

@@ -25,68 +25,64 @@ namespace PwF.CharacterList
             //Characters = new List<Objects.Character>();
             //Characters.Add(new Objects.Character());
 
-            //Objects.CharacterDetails details = new Objects.CharacterDetails();
+            //Characters[1].Player = "Cameron";
+            //Characters[1].Name = "Night Schwarze";
 
-            //Characters[0].Player = "Cameron";
-            //Characters[0].Name = "Gale Windhunter";
+            //Characters[1].CharRace = new Objects.Race {
+            //    Name = "Human"
+            //};
 
-            //Objects.Race race = new Objects.Race();
-            //race.Name = "Dwarf";
+            //Characters[1].CharClass = new Objects.Class {
+            //    Name = "Rouge"
+            //};
 
-            //Characters[0].CharRace = race;
+            //Characters[1].Level = 2;
 
-            //Objects.Class charClass = new Objects.Class();
-            //charClass.Name = "Wizard";
-
-            //Characters[0].CharClass = charClass;
-
-            //Characters[0].Level = 2;
-
-            //details.Alignment = Enums.Alignment.ChaoticEvil;
-            //details.Diety = "Ibis";
-            //details.Homeland = "Ibistown";
-            //details.Size = Enums.Size.Medium;
-            //details.Gender = "Male";
-            //details.Age = 20;
-            //details.Height = 4.6f;
-            //details.Weight = 30.6f;
-            //details.Hair = "brown, long";
-            //details.Eyes = "Hazel";
-            //details.Backstory = "this is the backstory";
-
-            //Characters[0].Details = details;
+            //Characters[1].Details = new Objects.CharacterDetails {
+            //    Alignment = Enums.Alignment.ChaoticGood,
+            //    Diety = "Moon Lord",
+            //    Homeland = "Compendia",
+            //    Size = Enums.Size.Medium,
+            //    Gender = "Male",
+            //    Age = 18,
+            //    Height = 5.7f,
+            //    Weight = 30.6f,
+            //    Hair = "purple, short",
+            //    Eyes = "red",
+            //    Backstory = "this is the backstory"
+            //};
 
             //Objects.AbilityScores scores = new Objects.AbilityScores();
             //scores.Strength.Value = 15;
-            //scores.Dexterity.Value = 14;
+            //scores.Dexterity.Value = 18;
             //scores.Constitution.Value = 13;
             //scores.Intelligence.Value = 12;
             //scores.Wisdom.Value = 11;
             //scores.Charisma.Value = 10;
 
-            //Characters[0].Scores = scores;
-            //Characters[0].Skills = new List<Objects.Skill>() { new Objects.Skill("Acrobatics", Enums.AbilityScoreName.Dexterity,
+            //Characters[1].Scores = scores;
+
+            //Characters[1].Skills = new List<Objects.Skill>() { new Objects.Skill("Acrobatics", Enums.AbilityScoreName.Dexterity,
             //    "perform acrobatics", 4) };
-            //Characters[0].Feats = new List<Objects.Feat>() { new Objects.Feat("Glide", "create a slow decent from a fall") };
-            //Characters[0].Languages = new List<string>() { "Common", "Draconic" };
-            //Characters[0].Spells = new List<Objects.Spell>() { new Objects.Spell("Magic Missle", "fire a shining projectile", 8) };
+            //Characters[1].Feats = new List<Objects.Feat>() { new Objects.Feat("Glide", "create a slow decent from a fall") };
+            //Characters[1].Languages = new List<string>() { "Common", "Draconic" };
+            //Characters[1].Spells = new List<Objects.Spell>() { new Objects.Spell("Magic Missle", "fire a shining projectile", 8) };
 
-            Objects.Money gold = new Objects.Money();
-            gold.CP = 58;
-            gold.SP = 4;
-            gold.GP = 89;
-            gold.PP = 9;
+            //Characters[1].Gold = new Objects.Money {
+            //    CP = 58,
+            //    SP = 4,
+            //    GP = 89,
+            //    PP = 9
+            //};
 
-            Characters[0].Gold = gold;
+            //Characters[1].HealthBar = new Objects.Health(17);
 
-            //Characters[0].HealthBar = new Objects.Health(17);
+            //Characters[1].Statuses = new List<string>();
+            //Characters[1].Languages = new List<string>() { "Common", "Dwarven" };
 
-            //Characters[0].Statuses = new List<string>();
-            //Characters[0].Languages = new List<string>() { "Common", "Dwarven" };
+            //Characters[1].CharRace.Languages = new List<string>() { "Common", "Dwarven", "Elfish", "Draconic" };
 
-            //Characters[0].CharRace.Languages = new List<string>() { "Common", "Dwarven", "Elfish", "Draconic" };
-
-            Statics.JsonStuff.SerializeCharacters(Characters);
+            //Statics.JsonStuff.SerializeCharacters(Characters);
         }
 
         public void OpenCharacterSheet(int character){

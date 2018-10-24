@@ -4,16 +4,14 @@ using System.Text;
 
 namespace PwF.Objects
 {
-    public class Feat
+    public class SpecialAbility
     {
         public string Name { get; set; }
         public string Effect { get; set; }
-        public string Prerequistite { get; set; }
 
-        public Feat(string name, string effect, string prerequistite) {
+        public SpecialAbility(string name, string effect) {
             Name = name;
             Effect = effect;
-            Prerequistite = prerequistite;
         }
     }
 }

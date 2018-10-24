@@ -74,14 +74,14 @@ namespace PwF.CharacterCreation
             return CustomCells;
         }
 
-        private string[] RequestFeatsDescription(string[] feats) {
-            string[] descriptions = new string[feats.Length];
+        private List<Feat> RequestFeat(string[] feats) {
+            List<Feat> descriptions = new List<Feat>();
 
             // perform request to get data
             //string[] data = new string[] { "this is stubbed" };
 
             for(int i = 0; i < feats.Length; i++) {
-                descriptions[i] = "This is stub data";
+                descriptions.Add(new Feat(feats[i], "This is stub data", "also stub data"));
             }
 
             return descriptions;
@@ -95,10 +95,10 @@ namespace PwF.CharacterCreation
                 for(int i = 0; i < featNames.Length; i++) {
                     featNames[i] = SelectedFeats[i].Title;
                 }
-                string[] featDescriptions = RequestFeatsDescription(featNames);
+                List<Feat> featDescriptions = RequestFeat(featNames);
 
                 for (int i = 0; i < featNames.Length; i++) {
-                    Feats.Add(new Feat(featNames[i], featDescriptions[i]));
+                    Feats.Add(featDescriptions[i]);
                 }
 
                 // send to next page

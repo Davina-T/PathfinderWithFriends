@@ -6,7 +6,7 @@
 
         <AbsoluteLayout
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional"
-            x:Name = "pageContainer">
+            x:Name = "PageContent">
 
             <!-- The Top Bar of the Application -->
             <AbsoluteLayout 

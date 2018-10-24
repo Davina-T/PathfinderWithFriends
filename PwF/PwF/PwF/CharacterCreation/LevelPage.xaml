@@ -9,14 +9,14 @@
 
         <AbsoluteLayout
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional"
-            x:Name = "pageContainer">
+            x:Name = "PageContent">
 
-            <!-- The Top Bar of the Application -->
+             <!--The Top Bar of the Application--> 
             <AbsoluteLayout
                 BackgroundColor="#1B2C34"
                 AbsoluteLayout.LayoutBounds="0,0,1,.1"  
                 AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
-                <!-- The Label for displaying the Character's Level -->
+                 <!--The Label for displaying the Character's Level--> 
                 <Label
                     Text="Level"
                     TextColor="#C7BC91"
@@ -28,25 +28,25 @@
                 </Label>
             </AbsoluteLayout>
 
-            <!-- The Main Pages Content -->
+             <!--The Main Pages Content--> 
             <AbsoluteLayout
                 BackgroundColor="#607F6F"
                 AbsoluteLayout.LayoutBounds="0,1,1,.9"  
                 AbsoluteLayout.LayoutFlags="All">
 
-                <!-- The ScrollView for Displaying the Pages Content -->
+                 <!--The ScrollView for Displaying the Pages Content--> 
                 <ScrollView
                     BackgroundColor="#C1DAC5"
                     AbsoluteLayout.LayoutBounds=".5,25,.9,.8"  
                     AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, HeightProportional">
 
-                    <!-- The Layout that Contains the Pages Content -->
+                     <!--The Layout that Contains the Pages Content--> 
                     <AbsoluteLayout
                         x:Name="ContainingLayout"
                         AbsoluteLayout.LayoutBounds="0,0,1,1"  
                         AbsoluteLayout.LayoutFlags="All">
 
-                        <!-- Character Level Label -->
+                         <!--Character Level Label--> 
                         <Label
                             Text="Enter Character Level:"
                             TextColor="#030303"
@@ -78,47 +78,25 @@
                 AbsoluteLayout.LayoutBounds="0, 1, 1, .1"  
                 AbsoluteLayout.LayoutFlags="YProportional, HeightProportional, WidthProportional">
                 
-                <!-- Image for the Previous Page button -->
+                 <!--Image for the Previous Page button--> 
                 <Image x:Name="LeftArrow" Source="ArrowLeft.PNG"
                        AbsoluteLayout.LayoutBounds=".1,.5,.2,.8"  
                        AbsoluteLayout.LayoutFlags="All">
                 </Image>
 
-                <!-- Image for the Information button -->
+                 <!--Image for the Information button--> 
                 <Image x:Name="InfoButton" Source="InfoIcon.PNG"
                        AbsoluteLayout.LayoutBounds=".5,.5,.3,1"  
                        AbsoluteLayout.LayoutFlags="All">
                 </Image>
 
-                <!-- Image for the Next Page button -->
+                 <!--Image for the Next Page button-->
                 <Image x:Name="RightArrow" Source="ArrowRight.PNG"
                        AbsoluteLayout.LayoutBounds=".9,.5,.2,.8"  
                        AbsoluteLayout.LayoutFlags="All">
 
                 </Image>
-                
-                <!-- The Arrows for Navigation and Compendium Symbol -->
-                <!-- Back Button -->
-                <!--<Button
-                    Image="leftArrow.png"
-                    Command="{Binding OpenTesterPage}"
-                    AbsoluteLayout.LayoutBounds=".2, 1, .1, 60"
-                    AbsoluteLayout.LayoutFlags="XProportional, YProportional, WidthProportional"/>
-                -->
-                <!-- Forward Button -->
-                <!--<Button
-                    Image="rightArrow.png"
-                    Command="{Binding OpenTesterPage}"
-                    AbsoluteLayout.LayoutBounds=".8, 1, .1, 60"
-                    AbsoluteLayout.LayoutFlags="XProportional, YProportional, WidthProportional"/>
-                 -->
-                <!-- Compendium Button -->
-                <!--<Button
-                    Image="compendium.png"
-                    Command="{Binding OpenTesterPage}"
-                    AbsoluteLayout.LayoutBounds=".5, 1, .1, 60"
-                    AbsoluteLayout.LayoutFlags="XProportional, YProportional, WidthProportional"/>
-                -->
+
             </AbsoluteLayout>
 
         </AbsoluteLayout>

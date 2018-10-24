@@ -277,13 +277,13 @@ namespace PwF.CharacterList
             var tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += (s, e) => {
                 //DisplayAlert("Alert", "Howdy", "OK");
-                //viewModel.StartNewCharacter();
-                DisplayAlert("Alert", "Count: " + viewModel.Characters.Count +
-                    "\nName: " + viewModel.Characters[0].Name +
-                    "\nRace: " + viewModel.Characters[0].CharRace.Name +
-                    "\nLevel: " + viewModel.Characters[0].Level +
-                    "\nClass: " + viewModel.Characters[0].CharClass.Name +
-                    "\nGold: " + viewModel.Characters[0].Gold.ToString(), "OK");
+                viewModel.StartNewCharacter();
+                //DisplayAlert("Alert", "Count: " + viewModel.Characters.Count +
+                //    "\nName: " + viewModel.Characters[0].Name +
+                //    "\nRace: " + viewModel.Characters[0].CharRace.Name +
+                //    "\nLevel: " + viewModel.Characters[0].Level +
+                //    "\nClass: " + viewModel.Characters[0].CharClass.Name +
+                //    "\nGold: " + viewModel.Characters[0].Gold.ToString(), "OK");
             };
             fauxButton.GestureRecognizers.Add(tapGestureRecognizer);
 
