@@ -50,7 +50,8 @@
 
                         <Button
                             x:Name="ConfirmCharacter"
-                            AbsoluteLayout.LayoutBounds=".5,.5,.4,.1"  
+                            BackgroundColor="Green"
+                            AbsoluteLayout.LayoutBounds=".5,.5,.6,.2"  
                             AbsoluteLayout.LayoutFlags="All">
                             
                         </Button>
