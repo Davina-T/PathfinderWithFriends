@@ -10,6 +10,7 @@
 
         <!-- Main layout for content page -->
         <AbsoluteLayout
+            x:Name="PageContent"
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
 
             <!-- Bind the view model -->

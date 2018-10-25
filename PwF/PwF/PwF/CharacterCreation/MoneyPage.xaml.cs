@@ -14,8 +14,9 @@ namespace PwF.CharacterCreation
 	{
 
         public MoneyViewModel viewModel = new MoneyViewModel();
+        AbsoluteLayout popUpOverlay;
 
-		public MoneyPage ()
+        public MoneyPage ()
 		{
 			InitializeComponent ();
 
@@ -41,8 +42,12 @@ namespace PwF.CharacterCreation
             InfoButton.BindingContext = viewModel;
             var tapGestureRecognizer3 = new TapGestureRecognizer();
             tapGestureRecognizer3.Tapped += (s, e) => {
-                //DisplayAlert("Alert", "Info Page", "OK");
-                viewModel.ViewInfo();
+                //DisplayAlert("Alert", Statics.JsonStuff.GetFile("Characters.json"), "OK");
+                // get data from the server
+                string content = "Level" + "\n\n" + "The Level of your character determines the abilities your character will possess" +
+                " and how strong they are";
+
+                Compendium(content);
             };
             InfoButton.GestureRecognizers.Add(tapGestureRecognizer3);
 
@@ -60,6 +65,23 @@ namespace PwF.CharacterCreation
             td20.GestureRecognizers.Add(tapGestureRecognizer4);
         }
 
+        void Compendium(string content) {
+            Command exitCommand = new Command(() => {
+                RemovePopup();
+            });
 
-	}
+            popUpOverlay = Statics.GlobalFunctions.getCompendium("Compendium", content, exitCommand);
+
+            // Add this layout to the Content layout
+            PageContent.Children.Add(popUpOverlay);
+        }
+
+        public void RemovePopup() {
+
+            PageContent.Children.Remove(popUpOverlay);
+
+        }
+
+
+    }
 }
