@@ -36,6 +36,9 @@ namespace PwF.CharacterCreation
 
         private int GetAmountOfLanguages() {
             int temp = Statics.GlobalFunctions.ReturnModifier(Statics.CharacterCreating.CreatingCharacter.Scores.Intelligence.Value);
+            if(temp < 0) {
+                temp = 0;
+            }
             temp += GetLinguisticsSkill();
 
             return temp;
