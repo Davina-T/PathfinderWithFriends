@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PwF.CharacterCreation.MoneyPage"
+             xmlns:local="clr-namespace:Pwf.Navigation"
+             NavigationPage.HasNavigationBar="false">
+
+    <!-- The content of the money page -->
+    <ContentPage.Content>
+
+        <!-- Main layout for content page -->
+        <AbsoluteLayout
+            AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+
+            <!-- Bind the view model -->
+            <AbsoluteLayout.BindingContext>
+                <local:ViewModel/>
+            </AbsoluteLayout.BindingContext>
+
+            <!-- The Top Bar of the Application -->
+            <AbsoluteLayout 
+                BackgroundColor="#1B2C34"
+                AbsoluteLayout.LayoutBounds="0,0,1,.1"  
+                AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+                
+                <!-- The Label for displaying the Character's Name -->
+                <Label
+                    Text="Wealth"
+                    TextColor="#C7BC91"
+                    Font="Bold, 32"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                    AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
+                </Label>
+            </AbsoluteLayout>
+
+            <!-- The Main Pages Content -->
+            <AbsoluteLayout
+                BackgroundColor="#607F6F"
+                AbsoluteLayout.LayoutBounds="0,0.5,1,.8"  
+                AbsoluteLayout.LayoutFlags="All">
+
+                <!-- The ScrollView for Displaying the Pages Content -->
+                <ScrollView
+                    BackgroundColor="#C1DAC5"
+                    AbsoluteLayout.LayoutBounds=".5,.5,.9,.9"  
+                    AbsoluteLayout.LayoutFlags="All">
+
+                    <!-- The Layout that Contains the Pages Content -->
+                    <AbsoluteLayout
+                        AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                        AbsoluteLayout.LayoutFlags="All">
+
+                        <!-- Layout that contains the class -->
+                        <AbsoluteLayout
+                            AbsoluteLayout.LayoutBounds="0,.02,1,.08"  
+                            AbsoluteLayout.LayoutFlags="All">
+
+                            <!-- Display the character's class -->
+                            <Label
+                                x:Name="CharClass"
+                                AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                                AbsoluteLayout.LayoutFlags="All"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                Text="{Binding Class, StringFormat='Your Class: {0:N}'}"
+                                FontSize="22">
+                            </Label>
+                        </AbsoluteLayout>
+
+                        <!-- Layout that contains the starting wealth Dice Roll -->
+                        <AbsoluteLayout
+                            AbsoluteLayout.LayoutBounds="0,.12,1,.15"  
+                            AbsoluteLayout.LayoutFlags="All">
+
+                            <!-- Instructions -->
+                            <Label
+                                AbsoluteLayout.LayoutBounds=".5,0,.5,.5"  
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                AbsoluteLayout.LayoutFlags="All"
+                                Text="Has a starting wealth of:"
+                                FontSize="17">
+                            </Label>
+
+                            <Label
+                                AbsoluteLayout.LayoutBounds=".5,.7,.5,.5"  
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                AbsoluteLayout.LayoutFlags="All"
+                                Text="3d6 X 10 gp"
+                                FontSize="22">
+                            </Label>
+                        </AbsoluteLayout>
+
+                        <!-- Layout that contains the  Dice -->
+                        <AbsoluteLayout
+                            AbsoluteLayout.LayoutBounds="0,.29,1,.1"  
+                            AbsoluteLayout.LayoutFlags="All">
+
+                            <!--Text="{Binding Statics.Character.CharacterCreating.CharacterCreating.Character.Class, StringFormat='Your Class: 0:N'}"-->
+                            <Label
+                                AbsoluteLayout.LayoutBounds=".5,.5,1,1"  
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                AbsoluteLayout.LayoutFlags="All"
+                                Text="Click to roll the dice:"
+                                FontSize="18">
+                            </Label>
+                        </AbsoluteLayout>
+
+                        <!-- Layout for the dice image -->
+                        <AbsoluteLayout
+                            AbsoluteLayout.LayoutBounds="0,.46,1,.2"  
+                            AbsoluteLayout.LayoutFlags="All">
+  
+                             <!-- Image for the dice button -->
+                            <Image x:Name="td20" Source="td20.png"
+                                AbsoluteLayout.LayoutBounds=".5,.5,1,1"  
+                                AbsoluteLayout.LayoutFlags="All">
+                            </Image>
+                        </AbsoluteLayout>
+
+                        <!-- Layout for Money Entry Label -->
+                        <AbsoluteLayout
+                            AbsoluteLayout.LayoutBounds="0,.68,1,.1"  
+                            AbsoluteLayout.LayoutFlags="All">
+
+                            <!-- Label for money entry -->
+                            <Label
+                                AbsoluteLayout.LayoutBounds=".5,.5,1,1"  
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                AbsoluteLayout.LayoutFlags="All"
+                                Text="Available Money:"
+                                FontSize="18">
+                            </Label>
+                        </AbsoluteLayout>
+
+                        <!-- Layout for Money Entry -->
+                        <AbsoluteLayout
+                            AbsoluteLayout.LayoutBounds="0,.8,1,.1"  
+                            AbsoluteLayout.LayoutFlags="All">
+
+                            <!-- Mmoney entry -->
+                            <Entry
+                                    Keyboard="Numeric"
+                                    x:Name="coinEntry"
+                                    Text="{Binding Coin.GP}" 
+                                    FontSize="22"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="Center"
+                                    BackgroundColor="White"
+                                    AbsoluteLayout.LayoutBounds=".5,.5,.5,1"
+                                    AbsoluteLayout.LayoutFlags="All"/>
+                        </AbsoluteLayout>
+
+                    </AbsoluteLayout>
+
+                </ScrollView>
+
+            </AbsoluteLayout>
+
+            <!-- The bottom Bar of the Application -->
+            <AbsoluteLayout 
+                BackgroundColor="#1B2C34"
+                AbsoluteLayout.LayoutBounds="0,1,1,.1"  
+                AbsoluteLayout.LayoutFlags="All">
+
+                <!-- Image for the Previous Page button -->
+                <Image x:Name="LeftArrow" Source="ArrowLeft.PNG"
+                       AbsoluteLayout.LayoutBounds=".1,.5,.2,.8"  
+                       AbsoluteLayout.LayoutFlags="All">
+                </Image>
+
+                <!-- Image for the Information button -->
+                <Image x:Name="InfoButton" Source="InfoIcon.PNG"
+                       AbsoluteLayout.LayoutBounds=".5,.5,.3,1"  
+                       AbsoluteLayout.LayoutFlags="All">
+                </Image>
+
+                <!-- Image for the Mext Page button -->
+                <Image x:Name="RightArrow" Source="ArrowRight.PNG"
+                       AbsoluteLayout.LayoutBounds=".9,.5,.2,.8"  
+                       AbsoluteLayout.LayoutFlags="All">
+
+                </Image>
+
+            </AbsoluteLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
