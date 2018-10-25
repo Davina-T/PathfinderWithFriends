@@ -48,7 +48,7 @@ namespace PwF.Objects
         }
 
         // Exchanges the currency to the highest value
-        private void CorectifyAddedMoney() {
+        public void CorectifyAddedMoney() {
             int temp;
 
             // calutes the amount of 100's of CP and removes the number from CP and adds the number/100 to SP

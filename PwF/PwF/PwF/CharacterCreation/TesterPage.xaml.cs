@@ -12,9 +12,21 @@ namespace PwF.CharacterCreation
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class TesterPage : ContentPage
 	{
-		public TesterPage()
+        TesterPageViewModel viewModel;
+
+        public TesterPage()
 		{
-			InitializeComponent ();
-		}
+            InitializeComponent();
+
+            viewModel = new TesterPageViewModel();
+
+            ConfirmCharacter.BindingContext = viewModel;
+            ConfirmCharacter.Text = "Confirm Character";
+
+            ConfirmCharacter.Command = new Command(() => {
+                viewModel.ReturnToList();
+            });
+            
+        }
 	}
 }

@@ -17,10 +17,10 @@ namespace PwF.CharacterCreation
             Characters = Statics.JsonStuff.DeserializeCharacters();
             Character = Statics.CharacterCreating.CreatingCharacter;
 
-            AutoFil();
+            AutoFill();
         }
 
-        public void AutoFil() {
+        public void AutoFill() {
             Character.HealthBar = new Objects.Health(17);
             Character.Statuses = new List<string>();
 

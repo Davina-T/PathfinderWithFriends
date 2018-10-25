@@ -46,6 +46,7 @@ namespace PwF.CharacterCreation
             //Check if the money values have been set:
             if (Coin.GP != 0) {
 
+                Coin.CorectifyAddedMoney();
                 Statics.CharacterCreating.CreatingCharacter.Coin = Coin;
                 //Statics.CharacterCreating.ScoreRolls = Numbers;
                 //Statics.CharacterCreating.ScoreRollsUsed = NumbersUsed;
