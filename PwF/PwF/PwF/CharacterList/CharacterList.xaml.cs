@@ -133,7 +133,7 @@ namespace PwF.CharacterList
                     viewModel.Characters[i].CharRace.Name != null &&
                     viewModel.Characters[i].Level > 0 &&
                     viewModel.Characters[i].CharClass.Name != null &&
-                    viewModel.Characters[i].Gold != null) {
+                    viewModel.Characters[i].Coin != null) {
 
                     // Create a label that displays the name of the character
                     Label cName = new Label {
@@ -198,7 +198,7 @@ namespace PwF.CharacterList
 
                     // Create a label that displays the money of the character, place it inside a layout for positioning
                     Label cMoney = new Label {
-                        Text = viewModel.Characters[i].Gold.GetTotal() + "gp",
+                        Text = viewModel.Characters[i].Coin.GetTotal() + "gp",
                         FontSize = 24,
                     };
                     AbsoluteLayout.SetLayoutBounds(cMoney, new Rectangle(0, 0.5, 1, 1));
@@ -221,12 +221,8 @@ namespace PwF.CharacterList
                     AbsoluteLayout.SetLayoutBounds(fauxButton, new Rectangle(0, 0, 1, 1));
                     AbsoluteLayout.SetLayoutFlags(fauxButton, AbsoluteLayoutFlags.All);
 
-                    var tapGestureRecognizer = new TapGestureRecognizer();
-                    tapGestureRecognizer.Tapped += (s, e) => {
-                        //DisplayAlert("Alert", "Howdy", "OK");
-                        viewModel.OpenCharacterSheet(i-1);
-                    };
-                    fauxButton.GestureRecognizers.Add(tapGestureRecognizer);
+                    
+                    fauxButton.GestureRecognizers.Add(getOpenChar(i));
 
                     // Place the button and all the labels inside a layout
                     AbsoluteLayout buttonLayout = new AbsoluteLayout {
@@ -249,6 +245,16 @@ namespace PwF.CharacterList
                 }
             }
             Content = layout;
+        }
+
+        public TapGestureRecognizer getOpenChar(int position) {
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += (s, e) => {
+                //DisplayAlert("Alert", "Howdy", "OK");
+                viewModel.OpenCharacterSheet(position);
+            };
+
+            return tapGestureRecognizer;
         }
 
         // Create the button that starts the character creation process
@@ -278,12 +284,13 @@ namespace PwF.CharacterList
             tapGestureRecognizer.Tapped += (s, e) => {
                 //DisplayAlert("Alert", "Howdy", "OK");
                 viewModel.StartNewCharacter();
+                //DisplayAlert("Alert", "Characters: " + viewModel.Characters.Count, "Okay");
                 //DisplayAlert("Alert", "Count: " + viewModel.Characters.Count +
                 //    "\nName: " + viewModel.Characters[0].Name +
                 //    "\nRace: " + viewModel.Characters[0].CharRace.Name +
                 //    "\nLevel: " + viewModel.Characters[0].Level +
                 //    "\nClass: " + viewModel.Characters[0].CharClass.Name +
-                //    "\nGold: " + viewModel.Characters[0].Gold.ToString(), "OK");
+                //    "\nGold: " + viewModel.Characters[0].Coin.ToString(), "OK");
             };
             fauxButton.GestureRecognizers.Add(tapGestureRecognizer);
 

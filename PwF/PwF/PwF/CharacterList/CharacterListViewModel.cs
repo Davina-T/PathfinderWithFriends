@@ -68,11 +68,18 @@ namespace PwF.CharacterList
             //Characters[1].Languages = new List<string>() { "Common", "Draconic" };
             //Characters[1].Spells = new List<Objects.Spell>() { new Objects.Spell("Magic Missle", "fire a shining projectile", 8) };
 
-            //Characters[1].Gold = new Objects.Money {
+            //Characters[0].Coin = new Objects.Money {
             //    CP = 58,
             //    SP = 4,
             //    GP = 89,
             //    PP = 9
+            //};
+
+            //Characters[1].Coin = new Objects.Money {
+            //    CP = 32,
+            //    SP = 14,
+            //    GP = 51,
+            //    PP = 11
             //};
 
             //Characters[1].HealthBar = new Objects.Health(17);

@@ -30,13 +30,13 @@ namespace PwF.CharacterSheet
             ClassLabel.Text = viewModel.character.CharClass.Name;
 
             CPLabel.BindingContext = viewModel;
-            CPLabel.Text = "CP: " + viewModel.character.Gold.CP;
+            CPLabel.Text = "CP: " + viewModel.character.Coin.CP;
             SPLabel.BindingContext = viewModel;
-            SPLabel.Text = "SP: " + viewModel.character.Gold.SP;
+            SPLabel.Text = "SP: " + viewModel.character.Coin.SP;
             GPLabel.BindingContext = viewModel;
-            GPLabel.Text = "GP: " + viewModel.character.Gold.GP;
+            GPLabel.Text = "GP: " + viewModel.character.Coin.GP;
             PPLabel.BindingContext = viewModel;
-            PPLabel.Text = "PP: " + viewModel.character.Gold.PP;
+            PPLabel.Text = "PP: " + viewModel.character.Coin.PP;
 
             LevelLabel.BindingContext = viewModel;
             LevelLabel.Text = "Level: " + viewModel.character.Level.ToString();
@@ -406,18 +406,18 @@ namespace PwF.CharacterSheet
                 double Money = double.Parse(MoneySelect.Text);
                 DisplayAlert("Alert", "Money: " + (int)(Money * 10000), "OK");
                 if (Money > 0) {
-                    viewModel.character.Gold.Add((int)(Money*10000));
-                    CPLabel.Text = "CP: " + viewModel.character.Gold.CP;
-                    SPLabel.Text = "SP: " + viewModel.character.Gold.SP;
-                    GPLabel.Text = "GP: " + viewModel.character.Gold.GP;
-                    PPLabel.Text = "PP: " + viewModel.character.Gold.PP;
+                    viewModel.character.Coin.Add((int)(Money*10000));
+                    CPLabel.Text = "CP: " + viewModel.character.Coin.CP;
+                    SPLabel.Text = "SP: " + viewModel.character.Coin.SP;
+                    GPLabel.Text = "GP: " + viewModel.character.Coin.GP;
+                    PPLabel.Text = "PP: " + viewModel.character.Coin.PP;
                     RemovePopup();
                 } else if(Money < 0) {
-                    viewModel.character.Gold.Subtract((int)(Money *10000));
-                    CPLabel.Text = "CP: " + viewModel.character.Gold.CP;
-                    SPLabel.Text = "SP: " + viewModel.character.Gold.SP;
-                    GPLabel.Text = "GP: " + viewModel.character.Gold.GP;
-                    PPLabel.Text = "PP: " + viewModel.character.Gold.PP;
+                    viewModel.character.Coin.Subtract((int)(Money *10000));
+                    CPLabel.Text = "CP: " + viewModel.character.Coin.CP;
+                    SPLabel.Text = "SP: " + viewModel.character.Coin.SP;
+                    GPLabel.Text = "GP: " + viewModel.character.Coin.GP;
+                    PPLabel.Text = "PP: " + viewModel.character.Coin.PP;
                     RemovePopup();
                 }
                 //DisplayAlert("Alert", "Entry: " + LanguageSelect.SelectedItem.ToString(), "OK");
@@ -425,7 +425,7 @@ namespace PwF.CharacterSheet
             });
 
             Label CurrentMoney = new Label() {
-                Text = viewModel.character.Gold.GetTotal() + " GP",
+                Text = viewModel.character.Coin.GetTotal() + " GP",
                 FontSize = 24,
                 HorizontalTextAlignment = TextAlignment.Center
             };

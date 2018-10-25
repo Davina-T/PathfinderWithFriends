@@ -35,7 +35,7 @@ namespace PwF.CharacterCreation
                 Class = "Wizard";
             }else
             {
-                Class = Statics.CharacterCreating.CreatingCharacter.Class;
+                Class = Statics.CharacterCreating.CreatingCharacter.CharClass.Name;
             }
             
         }
@@ -57,7 +57,7 @@ namespace PwF.CharacterCreation
         public void PrevPage()
         {
             //Go back but don't show the familiar:
-            navManager.ShowSpellssPage(false);
+            navManager.ShowSpellsPage(false);
         }
 
         //View the information page:
