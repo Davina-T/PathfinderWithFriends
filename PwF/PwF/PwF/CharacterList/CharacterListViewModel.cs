@@ -99,5 +99,15 @@ namespace PwF.CharacterList
         public void StartNewCharacter(){
             navManager.ShowLevelPage();
         }
+
+        public void RemoveCharacter(int position) {
+            List<Objects.Character> Characters = Statics.JsonStuff.DeserializeCharacters();
+
+            Characters.RemoveAt(position);
+
+            Statics.JsonStuff.SerializeCharacters(Characters);
+
+            navManager.ShowCharacterList();
+        }
     }
 }

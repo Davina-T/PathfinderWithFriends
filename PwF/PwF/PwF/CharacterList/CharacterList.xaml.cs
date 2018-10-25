@@ -17,6 +17,9 @@ namespace PwF.CharacterList
     {
         CharacterListViewModel viewModel = new CharacterListViewModel();
 
+        AbsoluteLayout PageContent;
+        AbsoluteLayout popUpOverlay;
+
         AbsoluteLayout layout;
         ScrollView scroll;
         AbsoluteLayout allButtons;
@@ -53,6 +56,8 @@ namespace PwF.CharacterList
             {
                 Text = "CHOOSE CHARACTER",
                 HorizontalOptions = LayoutOptions.Center,
+                HorizontalTextAlignment=TextAlignment.Center,
+                VerticalTextAlignment=TextAlignment.Center,
                 TextColor = Color.FromHex("#C4DCC4"),
                 FontSize = 32,
                 FontAttributes = FontAttributes.Bold
@@ -221,7 +226,26 @@ namespace PwF.CharacterList
                     AbsoluteLayout.SetLayoutBounds(fauxButton, new Rectangle(0, 0, 1, 1));
                     AbsoluteLayout.SetLayoutFlags(fauxButton, AbsoluteLayoutFlags.All);
 
-                    
+                    Label DeleteText = new Label {
+                        Text = "X",
+                        FontSize = 24,
+                        HorizontalTextAlignment = TextAlignment.Center,
+                        VerticalTextAlignment = TextAlignment.Center
+                    };
+                    AbsoluteLayout.SetLayoutBounds(DeleteText, new Rectangle(.5, .5, 1, 1));
+                    AbsoluteLayout.SetLayoutFlags(DeleteText, AbsoluteLayoutFlags.All);
+
+                    AbsoluteLayout DeleteLayout = new AbsoluteLayout {
+                        BackgroundColor = Color.FromHex("#BBBBBB"),
+                        Children =
+                        {
+                        DeleteText,
+                    }
+                    };
+                    AbsoluteLayout.SetLayoutBounds(DeleteLayout, new Rectangle(1, 0, .15, .4));
+                    AbsoluteLayout.SetLayoutFlags(DeleteLayout, AbsoluteLayoutFlags.All);
+
+                    DeleteLayout.GestureRecognizers.Add(DeleteChar(i));
                     fauxButton.GestureRecognizers.Add(getOpenChar(i));
 
                     // Place the button and all the labels inside a layout
@@ -235,6 +259,8 @@ namespace PwF.CharacterList
                         classLayout,
                         moneyLayout,
                         fauxButton,
+                        DeleteLayout
+
                     }
                     };
                     AbsoluteLayout.SetLayoutBounds(buttonLayout, new Rectangle(0.5, (150 * i), 0.75, 100));
@@ -245,6 +271,16 @@ namespace PwF.CharacterList
                 }
             }
             Content = layout;
+        }
+
+        public TapGestureRecognizer DeleteChar(int position) {
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += (s, e) => {
+                //DisplayAlert("Alert", "Deleting Character", "okay");
+                DeleteCharPopUp(position);
+            };
+
+            return tapGestureRecognizer;
         }
 
         public TapGestureRecognizer getOpenChar(int position) {
@@ -310,6 +346,46 @@ namespace PwF.CharacterList
             // Add the layout to the allButtons layout
             allButtons.Children.Add(buttonLayout);
             Content = layout;
+        }
+
+        public void DeleteCharPopUp(int position) {
+            // Initialises the layout that will contain the popup layer
+            //DisplayAlert("Alert", "Creating overlay", "OK");
+
+            Command exitCommand = new Command(() => {
+                RemovePopup();
+            });
+
+            Command acceptCommand = new Command(() => {
+                viewModel.RemoveCharacter(position);
+            });
+
+            AbsoluteLayout popUp = Statics.GlobalFunctions.getPopupBase("Delete Character", exitCommand, acceptCommand);
+            AbsoluteLayout popUpFill = Statics.GlobalFunctions.getPopUpFill();
+
+            Label CharNameLabel = new Label {
+                Text = "Are you sure you want to delete \n" + viewModel.Characters[position].Name,
+                FontSize=24,
+                HorizontalTextAlignment=TextAlignment.Center,
+                VerticalTextAlignment=TextAlignment.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(CharNameLabel, new Rectangle(.5, .5, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(CharNameLabel, AbsoluteLayoutFlags.All);
+
+            popUp.Children.Add(popUpFill);
+
+            popUpFill.Children.Add(CharNameLabel);
+
+            popUpOverlay = popUp;
+
+            // Add this layout to the Content layout
+            layout.Children.Add(popUpOverlay);
+        }
+
+        public void RemovePopup() {
+
+            layout.Children.Remove(popUpOverlay);
+
         }
     }
 }

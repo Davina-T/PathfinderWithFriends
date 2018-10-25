@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PwF.CharacterList.CharacterList">
     <ContentPage.Content>
-        <StackLayout>
+        
+        <AbsoluteLayout
+            AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
             <!-- <Label Text="CHOOSE CHARACTER"
                 VerticalOptions="Start" 
                 HorizontalOptions="CenterAndExpand"
@@ -25,6 +27,6 @@
                 TextColor="#C4DCC4"
                 BackgroundColor="#1B2C34"/>
             -->
-        </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

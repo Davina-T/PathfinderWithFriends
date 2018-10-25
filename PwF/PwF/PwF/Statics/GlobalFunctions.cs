@@ -14,7 +14,12 @@ namespace PwF.Statics
 
             // if found Score then apply equation, round down number and return result
             temp = (Math.Floor(((double)scoreValue - 10) / 2));
-            return (int)temp;
+            if((int)temp > 0) {
+                return (int)temp;
+            } else {
+                return 0;
+            }
+            
 
         }
 
