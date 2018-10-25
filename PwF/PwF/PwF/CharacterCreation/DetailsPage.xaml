@@ -6,6 +6,7 @@
     <ContentPage.Content>
 
         <AbsoluteLayout
+            x:Name="PageContent"
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
 
             <!-- The Top Bar of the Application -->
@@ -52,6 +53,7 @@
 
                         <Entry
                             x:Name="Name"
+                            Text="{Binding Name}"
                             BackgroundColor="#ffffff"
                             FontSize="22"
                             AbsoluteLayout.LayoutBounds="1, 20, 0.5, 50"  
@@ -69,6 +71,7 @@
                             x:Name="Alignment"
                             BackgroundColor="White"
                             FontSize="22"
+                            SelectedItem="{Binding AlignmentString}"
                             AbsoluteLayout.LayoutBounds="1, 100, 0.5, 50"   
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
                             <Picker.Items>
@@ -94,6 +97,7 @@
 
                         <Entry
                             x:Name="Deity"
+                            Text="{Binding Details.Diety}"
                             BackgroundColor="#ffffff"
                             FontSize="22"
                             AbsoluteLayout.LayoutBounds="1, 180, 0.5, 50"  
@@ -109,6 +113,7 @@
 
                         <Entry
                             x:Name="Homeland"
+                            Text="{Binding Details.Homeland}"
                             BackgroundColor="#ffffff"
                             FontSize="22"
                             AbsoluteLayout.LayoutBounds="1, 260, 0.5, 50"  
@@ -122,13 +127,16 @@
                             AbsoluteLayout.LayoutBounds="0, 340, 0.5, 50"  
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
-                        <Entry
+                        <Label
                             x:Name="cSize"
+                            Text="Small"
                             BackgroundColor="#ffffff"
-                            FontSize="22"
+                            FontSize="26"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
                             AbsoluteLayout.LayoutBounds="1, 340, 0.5, 50"   
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
-
+                        
                         <Label 
                             Text="Gender"
                             TextColor="#C7BC91"
@@ -139,6 +147,7 @@
 
                         <Entry
                             x:Name="Gender"
+                            Text="{Binding Details.Gender}"
                             BackgroundColor="#ffffff"
                             FontSize="22"
                             AbsoluteLayout.LayoutBounds="1, 420, 0.5, 50"   
@@ -154,6 +163,7 @@
 
                         <Entry
                             x:Name="Age"
+                            Text="{Binding Details.Age}"
                             Keyboard="Numeric"
                             BackgroundColor="#ffffff"
                             FontSize="22"
@@ -170,6 +180,7 @@
 
                         <Entry
                             x:Name="cHeight"
+                            Text="{Binding Details.Height}"
                             Keyboard="Numeric"
                             BackgroundColor="#ffffff"
                             FontSize="22"
@@ -186,6 +197,7 @@
 
                         <Entry
                             x:Name="Weight"
+                            Text="{Binding Details.Weight}"
                             Keyboard="Numeric"
                             BackgroundColor="#ffffff"
                             FontSize="22"
@@ -202,6 +214,7 @@
 
                         <Entry
                             x:Name="Hair"
+                            Text="{Binding Details.Hair}"
                             BackgroundColor="#ffffff"
                             FontSize="22"
                             AbsoluteLayout.LayoutBounds="1, 740, 0.5, 50"  
@@ -217,6 +230,7 @@
 
                         <Entry
                             x:Name="Eyes"
+                            Text="{Binding Details.Eyes}"
                             BackgroundColor="#ffffff"
                             FontSize="22"
                             AbsoluteLayout.LayoutBounds="1, 820, 0.5, 50"  

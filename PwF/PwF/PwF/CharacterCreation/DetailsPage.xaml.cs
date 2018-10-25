@@ -13,39 +13,49 @@ namespace PwF.CharacterCreation
 	public partial class DetailsPage : ContentPage
 	{
         DetailsViewModel viewModel = new DetailsViewModel();
+        AbsoluteLayout popUpOverlay;
 
         public DetailsPage ()
 		{
 			InitializeComponent ();
             NavigationPage.SetHasNavigationBar(this, false);
 
+            Name.BindingContext = viewModel;
+            //Name.Text = viewModel.Name;
+
+            Alignment.BindingContext = viewModel;
+            //Alignment.SelectedItem = viewModel.AlignmentString;
+
+            Deity.BindingContext = viewModel;
+            //Deity.Text = viewModel.details.Diety;
+
+            Homeland.BindingContext = viewModel;
+            //Homeland.Text = viewModel.details.Homeland;
+
+            Gender.BindingContext = viewModel;
+            //Gender.Text = viewModel.details.Gender;
+
+            Age.BindingContext = viewModel;
+            //Age.Text = viewModel.details.Age.ToString();
+
+            cHeight.BindingContext = viewModel;
+            //cHeight.Text = viewModel.details.Height.ToString();
+
+            Weight.BindingContext = viewModel;
+            //Weight.Text = viewModel.details.Weight.ToString();
+
+            Hair.BindingContext = viewModel;
+            //Hair.Text = viewModel.details.Hair;
+
+            Eyes.BindingContext = viewModel;
+            //Eyes.Text = viewModel.details.Eyes;
+
+            cSize.Text = Statics.CharacterCreating.CreatingCharacter.CharRace.Size.ToString();
+
             // add the binding for the right arrow and a tap recognizer
             RightArrow.BindingContext = viewModel;
             var tapGestureRecognizer1 = new TapGestureRecognizer();
             tapGestureRecognizer1.Tapped += (s, e) => {
-                viewModel.SelectedName = Name.Text;
-                viewModel.SelectedAlignment = Alignment.SelectedItem.ToString();
-                viewModel.SelectedDeity = Deity.Text;
-                viewModel.SelectedHomeland = Homeland.Text;
-                viewModel.SelectedSize = cSize.Text;
-                viewModel.SelectedGender = Gender.Text;
-                viewModel.SelectedAge = Age.Text;
-                viewModel.SelectedHeight = cHeight.Text;
-                viewModel.SelectedWeight = Weight.Text;
-                viewModel.SelectedHair = Hair.Text;
-                viewModel.SelectedEyes = Eyes.Text;
-                /*DisplayAlert("Alert", viewModel.SelectedName + ", " +
-                                      viewModel.SelectedAlignment + ", " +
-                                      viewModel.SelectedDeity + ", " +
-                                      viewModel.SelectedHomeland + ", " +
-                                      viewModel.SelectedSize + ", " +
-                                      viewModel.SelectedGender + ", " +
-                                      viewModel.SelectedAge + ", " +
-                                      viewModel.SelectedHeight + ", " +
-                                      viewModel.SelectedWeight + ", " +
-                                      viewModel.SelectedHair + ", " +
-                                      viewModel.SelectedEyes, "OK");*/
-                //DisplayAlert("Alert", "Next Page", "OK");
                 viewModel.NextPage();
             };
             RightArrow.GestureRecognizers.Add(tapGestureRecognizer1);
@@ -63,10 +73,30 @@ namespace PwF.CharacterCreation
             InfoButton.BindingContext = viewModel;
             var tapGestureRecognizer3 = new TapGestureRecognizer();
             tapGestureRecognizer3.Tapped += (s, e) => {
-                //DisplayAlert("Alert", viewModel.SelectedName, "OK");
-                //viewModel.ViewInfo();
+                //DisplayAlert("Alert", Statics.JsonStuff.GetFile("Characters.json"), "OK");
+                // get data from the server
+                string content = "Details" + "\n\n" + "The details of your character does not affect gameplay but is details asociated with the character that makes them unique";
+
+                Compendium(content);
             };
             InfoButton.GestureRecognizers.Add(tapGestureRecognizer3);
         }
-	}
+
+        void Compendium(string content) {
+            Command exitCommand = new Command(() => {
+                RemovePopup();
+            });
+
+            popUpOverlay = Statics.GlobalFunctions.getCompendium("Compendium", content, exitCommand);
+
+            // Add this layout to the Content layout
+            PageContent.Children.Add(popUpOverlay);
+        }
+
+        public void RemovePopup() {
+
+            PageContent.Children.Remove(popUpOverlay);
+
+        }
+    }
 }

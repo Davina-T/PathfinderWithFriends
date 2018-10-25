@@ -14,6 +14,7 @@ namespace PwF.CharacterCreation
 	public partial class ClassPage : ContentPage
 	{
         ClassViewModel viewModel = new ClassViewModel();
+        AbsoluteLayout popUpOverlay;
         Compendium temp = new Compendium();
 
         public ClassPage()
@@ -48,19 +49,24 @@ namespace PwF.CharacterCreation
             InfoButton.BindingContext = viewModel;
             var tapGestureRecognizer3 = new TapGestureRecognizer();
             tapGestureRecognizer3.Tapped += (s, e) => {
-                //DisplayAlert("Alert", "Information View", "OK");
-                //viewModel.ViewInfo();
-                AbsoluteLayout overlay = temp.CreateOverlay(viewModel.GetCompendiumEntry());
-                pageContainer.Children.Add(overlay);
+                //DisplayAlert("Alert", Statics.JsonStuff.GetFile("Characters.json"), "OK");
+                // get data from the server
+                if (viewModel.SelectedClass != null) {
+                    // use web interfeace to get the description of feat selected
+                    string data = "This would be the data sent back from the server";
 
-                // add the binding for the compendium overlay and a tap recognizer
-                overlay.BindingContext = viewModel;
-                var tapGestureRecognizer4 = new TapGestureRecognizer();
-                tapGestureRecognizer4.Tapped += (s2, e2) => {
-                    //DisplayAlert("Alert", "Remove Overlay", "OK");
-                    pageContainer.Children.Remove(overlay);
-                };
-                overlay.GestureRecognizers.Add(tapGestureRecognizer4);
+                    string content = viewModel.SelectedClass.Title + "\n\n" + data;
+
+                    Compendium(content);
+
+                } else {
+                    // use web interfeace to get the description of feat selected
+                    string data = "Classes determine how you play the game, each class has a set of skills unique to them";
+
+                    string content = "Class" + "\n\n" + data;
+
+                    Compendium(content);
+                }
             };
             InfoButton.GestureRecognizers.Add(tapGestureRecognizer3);
 
@@ -75,6 +81,23 @@ namespace PwF.CharacterCreation
                 viewModel.SelectedClass = temp;
                 // save the Class option
             }
+        }
+
+        void Compendium(string content) {
+            Command exitCommand = new Command(() => {
+                RemovePopup();
+            });
+
+            popUpOverlay = Statics.GlobalFunctions.getCompendium("Compendium", content, exitCommand);
+
+            // Add this layout to the Content layout
+            PageContent.Children.Add(popUpOverlay);
+        }
+
+        public void RemovePopup() {
+
+            PageContent.Children.Remove(popUpOverlay);
+
         }
     }
 }

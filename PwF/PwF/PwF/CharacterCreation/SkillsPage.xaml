@@ -5,6 +5,7 @@
     <ContentPage.Content>
 
         <AbsoluteLayout
+            x:Name="PageContent"
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
 
             <!-- The Top Bar of the Application -->
@@ -43,6 +44,9 @@
                         BackgroundColor="#C7BC91"
                         AbsoluteLayout.LayoutBounds=".5,.65,1,.8"  
                         AbsoluteLayout.LayoutFlags="All">
+                        
+                        
+                        
                     </ScrollView>
                 </AbsoluteLayout>
             </AbsoluteLayout>

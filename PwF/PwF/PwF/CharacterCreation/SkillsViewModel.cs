@@ -10,17 +10,29 @@ namespace PwF.CharacterCreation
     class SkillsViewModel
     {
         private PageNavigationManager navManager;
-        private int remainingPoints { get; set; }
+        public int remainingPoints { get; set; }
+        public List<Skill> skills;
+
 
         public SkillsViewModel()
         {
             navManager = PageNavigationManager.Instance;
+            if (Statics.CharacterCreating.CreatingCharacter.CharClass.Skills != null) {
+                skills = Statics.CharacterCreating.CreatingCharacter.CharClass.Skills;
+            } else {
+                skills = new List<Skill>();
+            }
+
+            remainingPoints = (Statics.CharacterCreating.CreatingCharacter.CharClass.SkillPoints * 
+                Statics.CharacterCreating.CreatingCharacter.Level) + 
+                Statics.GlobalFunctions.ReturnModifier(Statics.CharacterCreating.CreatingCharacter.Scores.Intelligence.Value);
         }
 
         public void NextPage()
         {
             if (remainingPoints == 0)
             {
+                Statics.CharacterCreating.CreatingCharacter.Skills = skills;
                 navManager.ShowFeatsPage();
             }
         }

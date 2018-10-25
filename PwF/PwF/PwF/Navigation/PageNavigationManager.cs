@@ -33,12 +33,12 @@ namespace Pwf.Navigation
             navigation.PushAsync(new CharacterList());
         }
 
-        public void ShowCharacterSheet(bool forward = true) {
-            navigation.PushAsync(new CharacterSheet());
+        public void ShowCharacterSheet(int character,  bool forward = true) {
+            navigation.PushAsync(new CharacterSheet(character));
         }
 
-        public void ShowCombatPage(bool forward = true) {
-            navigation.PushAsync(new CombatPage());
+        public void ShowCombatPage(int character, bool forward = true) {
+            navigation.PushAsync(new CombatPage(character));
         }
 
         public void ShowLevelPage(bool forward = true) {
@@ -83,14 +83,10 @@ namespace Pwf.Navigation
         public void ShowLanguagesPage(bool forward = true) {
             // change navigation to send to Languages Page
             // navigation.PushAsync(new AbilityScorePage());
-            if (forward) {
-                ShowSpellssPage();
-            } else {
-                ShowFeatsPage(false);
-            }
+            navigation.PushAsync(new LanguagePage());
         }
 
-        public void ShowSpellssPage(bool forward = true) {
+        public void ShowSpellsPage(bool forward = true) {
             // change navigation to send to Spells Page
             // navigation.PushAsync(new AbilityScorePage());
             if (forward) {

@@ -47,10 +47,11 @@ namespace PwF.CharacterCreation
             InfoButton.BindingContext = viewModel;
             var tapGestureRecognizer3 = new TapGestureRecognizer();
             tapGestureRecognizer3.Tapped += (s, e) => {
-                //DisplayAlert("alert", "str: " + viewModel.Scores.Strength.Value + "\ndex: " + viewModel.Scores.Dexterity.Value + 
-                //    "con: " + viewModel.Scores.Constitution.Value + "\nint: " + viewModel.Scores.Intelligence.Value + 
-                //    "\nwis: " + viewModel.Scores.Wisdom.Value + "\ncha: " + viewModel.Scores.Charisma.Value, "ok");
-                viewModel.ViewInfo();
+                //DisplayAlert("Alert", Statics.JsonStuff.GetFile("Characters.json"), "OK");
+                // get data from the server
+                string content = "Ability Scores" + "\n\n" + "Each creature has six ability scores: Strength, Dexterity, Constitution, Intelligence, Wisdom, and Charisma. These scores represent a creature's most basic attributes. The higher the score, the more raw potential and talent your character possesses";
+
+                Compendium(content);
             };
             InfoButton.GestureRecognizers.Add(tapGestureRecognizer3);
           
@@ -524,6 +525,17 @@ namespace PwF.CharacterCreation
             // Add this layout to the Content layout
             PageContent.Children.Add(popUpOverlay);
 
+        }
+
+        void Compendium(string content) {
+            Command exitCommand = new Command(() => {
+                RemovePopup();
+            });
+
+            popUpOverlay = Statics.GlobalFunctions.getCompendium("Compendium", content, exitCommand);
+
+            // Add this layout to the Content layout
+            PageContent.Children.Add(popUpOverlay);
         }
 
         public void RemovePopup() {

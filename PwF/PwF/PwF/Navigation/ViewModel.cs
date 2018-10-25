@@ -22,11 +22,11 @@ namespace Pwf.Navigation
             });
 
             OpenCharacterSheet = new Command(() => {
-                navManager.ShowCharacterSheet();
+                //navManager.ShowCharacterSheet();
             });
 
             OpenCombatPage = new Command(() => {
-                navManager.ShowCombatPage();
+                //navManager.ShowCombatPage();
             });
 
             OpenTesterPage = new Command(() =>

@@ -13,7 +13,7 @@ namespace PwF.CharacterCreation
     public class AbilityScoreViewModel : ViewModelBase
     {
         private PageNavigationManager navManager;
-        private readonly Dice D6;        
+        private readonly Dice D6;
         public List<int> Numbers { get; set; }
         public AbilityScores Scores;
 
@@ -78,6 +78,5 @@ namespace PwF.CharacterCreation
             return position;
 
         }
-
     }
 }

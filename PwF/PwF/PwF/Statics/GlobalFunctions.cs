@@ -18,7 +18,7 @@ namespace PwF.Statics
 
         }
 
-        public static AbsoluteLayout getPopupBase(string title, Command exitCommand) {
+        public static AbsoluteLayout getPopupBase(string title, Command exitCommand, Command acceptCommand = null) {
             Label popUpTitleText = new Label {
                 Text = title,
                 FontSize = 24,
@@ -39,28 +39,56 @@ namespace PwF.Statics
             AbsoluteLayout.SetLayoutBounds(popUpTitle, new Rectangle(0, 0, 1, .2));
             AbsoluteLayout.SetLayoutFlags(popUpTitle, AbsoluteLayoutFlags.All);
 
-            Button popUpCloseButton = new Button {
-                BackgroundColor = Color.FromHex("#BB0000"),
-                Text = "Close",
-                FontSize = 20,
-                Command = exitCommand
-
-
-            };
-            AbsoluteLayout.SetLayoutBounds(popUpCloseButton, new Rectangle(0, 1, 1, .2));
-            AbsoluteLayout.SetLayoutFlags(popUpCloseButton, AbsoluteLayoutFlags.All);
-
             AbsoluteLayout popUp = new AbsoluteLayout {
                 BackgroundColor = Color.FromHex("#FFFFFF"),
 
                 Children =
                 {
-                    popUpTitle,
-                    popUpCloseButton
+                    popUpTitle
                 }
             };
             AbsoluteLayout.SetLayoutBounds(popUp, new Rectangle(.5, .5, .6, .4));
             AbsoluteLayout.SetLayoutFlags(popUp, AbsoluteLayoutFlags.All);
+
+            if (acceptCommand == null) {
+
+                Button popUpCloseButton = new Button {
+                    BackgroundColor = Color.FromHex("#BB0000"),
+                    Text = "Close",
+                    FontSize = 20,
+                    Command = exitCommand,
+
+                };
+                AbsoluteLayout.SetLayoutBounds(popUpCloseButton, new Rectangle(0, 1, 1, .2));
+                AbsoluteLayout.SetLayoutFlags(popUpCloseButton, AbsoluteLayoutFlags.All);
+
+                popUp.Children.Add(popUpCloseButton);
+            } else {
+                Button popUpCloseButton = new Button {
+                    BackgroundColor = Color.FromHex("#BB0000"),
+                    Text = "Close",
+                    FontSize = 20,
+                    Command = exitCommand,
+
+                };
+                AbsoluteLayout.SetLayoutBounds(popUpCloseButton, new Rectangle(0, 1, .5, .2));
+                AbsoluteLayout.SetLayoutFlags(popUpCloseButton, AbsoluteLayoutFlags.All);
+
+                popUp.Children.Add(popUpCloseButton);
+
+                Button popUpAcceptButton = new Button {
+                    BackgroundColor = Color.FromHex("#00BB00"),
+                    Text = "Accept",
+                    FontSize = 20,
+                    Command = acceptCommand,
+
+                };
+                AbsoluteLayout.SetLayoutBounds(popUpAcceptButton, new Rectangle(1, 1, .5, .2));
+                AbsoluteLayout.SetLayoutFlags(popUpAcceptButton, AbsoluteLayoutFlags.All);
+
+                popUp.Children.Add(popUpCloseButton);
+                popUp.Children.Add(popUpAcceptButton);
+            }
 
             return popUp;
         }

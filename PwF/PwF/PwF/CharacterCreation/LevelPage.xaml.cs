@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PwF.Template;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,13 +14,14 @@ namespace PwF.CharacterCreation
 	public partial class LevelPage : ContentPage
     {
         LevelViewModel viewModel = new LevelViewModel();
+        AbsoluteLayout popUpOverlay;
         Compendium temp = new Compendium();
 
         public LevelPage()
 		{
-			InitializeComponent ();
+			InitializeComponent();
 
-            // add the binding for the right arrow and a tap recognizer
+            //    // add the binding for the right arrow and a tap recognizer
             RightArrow.BindingContext = viewModel;
             var tapGestureRecognizer1 = new TapGestureRecognizer();
             tapGestureRecognizer1.Tapped += (s, e) => {
@@ -41,24 +43,33 @@ namespace PwF.CharacterCreation
             InfoButton.BindingContext = viewModel;
             var tapGestureRecognizer3 = new TapGestureRecognizer();
             tapGestureRecognizer3.Tapped += (s, e) => {
-                //DisplayAlert("Alert", "Information View", "OK");
-                //viewModel.ViewInfo();
-                String levelCompendium = "Select the starting level for your character.\n\nUnless your DM specificies otherwise you should start on level 1.";
-                AbsoluteLayout overlay = temp.CreateOverlay(levelCompendium);
-                pageContainer.Children.Add(overlay);
+                //DisplayAlert("Alert", Statics.JsonStuff.GetFile("Characters.json"), "OK");
+                // get data from the server
+                string content = "Level" + "\n\n" + "The Level of your character determines the abilities your character will possess" +
+                " and how strong they are";
 
-                // add the binding for the compendium overlay and a tap recognizer
-                overlay.BindingContext = viewModel;
-                var tapGestureRecognizer4 = new TapGestureRecognizer();
-                tapGestureRecognizer4.Tapped += (s2, e2) => {
-                    //DisplayAlert("Alert", "Remove Overlay", "OK");
-                    pageContainer.Children.Remove(overlay);
-                };
-                overlay.GestureRecognizers.Add(tapGestureRecognizer4);
+                Compendium(content);
             };
             InfoButton.GestureRecognizers.Add(tapGestureRecognizer3);
 
             ContainingLayout.BindingContext = viewModel;
         }
-	}
+
+        void Compendium(string content) {
+            Command exitCommand = new Command(() => {
+                RemovePopup();
+            });
+
+            popUpOverlay = Statics.GlobalFunctions.getCompendium("Compendium", content, exitCommand);
+
+            // Add this layout to the Content layout
+            PageContent.Children.Add(popUpOverlay);
+        }
+
+        public void RemovePopup() {
+
+            PageContent.Children.Remove(popUpOverlay);
+
+        }
+    }
 }

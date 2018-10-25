@@ -12,7 +12,7 @@ namespace PwF.CharacterSheet
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CombatPage : ContentPage
 	{
-		public CombatPage ()
+		public CombatPage (int i)
 		{
 			InitializeComponent ();
 		}

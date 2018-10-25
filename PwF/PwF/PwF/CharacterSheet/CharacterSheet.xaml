@@ -2,17 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PwF.CharacterSheet.CharacterSheet"
-             xmlns:navi="clr-namespace:Pwf.Navigation"
+             xmlns:local="clr-namespace:PwF.CharacterSheet"
              NavigationPage.HasNavigationBar="false">
     
     <ContentPage.Content>
-        
-        <AbsoluteLayout
-            AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
 
-            <AbsoluteLayout.BindingContext>
-                <navi:ViewModel/>
-            </AbsoluteLayout.BindingContext>
+        <AbsoluteLayout
+            x:Name="PageContent"
+            AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
 
             <!-- The Top Bar of the Application -->
             <AbsoluteLayout 
@@ -21,7 +18,7 @@
                 AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
                 <!-- The Label for displaying the Character's Name -->
                 <Label
-                    Text="Character Name"
+                    x:Name="CharacterName"
                     TextColor="#C7BC91"
                     Font="Bold, 32"
                     HorizontalOptions="Center" 
@@ -57,7 +54,7 @@
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional" />
 
                         <Label
-                            Text="*Race*"
+                            x:Name="RaceLabel"
                             Font="24"
                             HorizontalOptions="Center"
                             AbsoluteLayout.LayoutBounds="0,50,.5,100"
@@ -73,7 +70,7 @@
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional" />
 
                         <Label
-                            Text="*Class*"
+                            x:Name="ClassLabel"
                             Font="24"
                             HorizontalOptions="Center"
                             AbsoluteLayout.LayoutBounds="0,140,.5,100"
@@ -87,6 +84,7 @@
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
 
                             <AbsoluteLayout
+                                x:Name="MoneyField"
                                 BackgroundColor="#FFFF99"
                                 AbsoluteLayout.LayoutBounds=".5,.5,.95,.95"
                                 AbsoluteLayout.LayoutFlags="All">
@@ -101,32 +99,32 @@
 
                                 <!-- The Labels Relating to the Copper Pieces Data -->
                                 <Label
-                                    Text="CP: *0*"
-                                    Font="16"
+                                    x:Name="CPLabel"
+                                    Font="20"
                                     HorizontalOptions="Center"
                                     AbsoluteLayout.LayoutBounds="0,.55,.5,.3"
                                     AbsoluteLayout.LayoutFlags="All" />
 
                                 <!-- The Labels Relating to the Silver Pieces Data -->
                                 <Label
-                                    Text="SP: *0*"
-                                    Font="16"
+                                    x:Name="SPLabel"
+                                    Font="20"
                                     HorizontalOptions="Center"
                                     AbsoluteLayout.LayoutBounds="1,.55,.5,.3"
                                     AbsoluteLayout.LayoutFlags="All" />
 
                                 <!-- The Labels Relating to the Gold Pieces Data -->
                                 <Label
-                                    Text="GP: *0*"
-                                    Font="16"
+                                    x:Name="GPLabel"
+                                    Font="20"
                                     HorizontalOptions="Center"
                                     AbsoluteLayout.LayoutBounds="0,.95,.5,.3"
                                     AbsoluteLayout.LayoutFlags="All" />
 
                                 <!-- The Labels Relating to the Platinum Pieces Data -->
                                 <Label
-                                    Text="PP: *0*"
-                                    Font="16"
+                                    x:Name="PPLabel"
+                                    Font="20"
                                     HorizontalOptions="Center"
                                     AbsoluteLayout.LayoutBounds="1,.95,.5,.3"
                                     AbsoluteLayout.LayoutFlags="All" />
@@ -137,7 +135,7 @@
 
                         <!-- The Labels Relating to the Level Data -->
                         <Label
-                            Text="Level: *1*"
+                            x:Name="LevelLabel"
                             Font="Bold, 24"
                             HorizontalOptions="Center"
                             AbsoluteLayout.LayoutBounds=".9,140,.45,100"
@@ -145,6 +143,7 @@
 
                         <!-- The Field Relating to the Health Data -->
                         <AbsoluteLayout
+                            x:Name="HealthBar"
                             BackgroundColor="#000000"
                             AbsoluteLayout.LayoutBounds=".5,190,.9,40"
                             AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
@@ -157,6 +156,7 @@
                                 <!-- The Field Relating to Displaying the Health Data
                                 The third position of the "AbsoluteLayout.LayoutBounds" variable -->
                                 <AbsoluteLayout
+                                    x:Name="HealthBarLayout"
                                     BackgroundColor="#FF0000"
                                     AbsoluteLayout.LayoutBounds="0,0,.55,1"
                                     AbsoluteLayout.LayoutFlags="All">
@@ -172,7 +172,7 @@
                                     AbsoluteLayout.LayoutFlags="All"/>
 
                                 <Label
-                                    Text="11/20"
+                                    x:Name="HealthLabel"
                                     Font="Bold, 18"
                                     VerticalOptions="Center"
                                     HorizontalOptions="Center"
@@ -186,6 +186,7 @@
                         <!-- The Buttons used to Change Pages -->
                         <!-- The Button used to Open the Combat Page -->
                         <Button
+                            x:Name="CombatButton"
                             Text="Combat"
                             Font="Bold, 24"
                             BorderColor="Black"
@@ -197,11 +198,11 @@
                             WidthRequest="300"
                             HeightRequest="300"
                             AbsoluteLayout.LayoutBounds=".05,250,.45,120"
-                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"
-                            Command="{Binding OpenCombatPage}"/>
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                         <!-- The Button used to Open the Skills Page -->
                         <Button
+                            x:Name="SkillsButton"
                             Text="Skills"
                             Font="Bold, 24"
                             BorderColor="Black"
@@ -217,6 +218,7 @@
 
                         <!-- The Button used to Open the Spells Page -->
                         <Button
+                            x:Name="SpellsButton"
                             Text="Spells"
                             Font="Bold, 24"
                             BorderColor="Black"
@@ -232,6 +234,7 @@
 
                         <!-- The Button used to Open the Items Page -->
                         <Button
+                            x:Name="ItemsButton"
                             Text="Items"
                             Font="Bold, 24"
                             BorderColor="Black"
@@ -281,6 +284,7 @@
                                     AbsoluteLayout.LayoutFlags="All" />
 
                                 <Label
+                                    x:Name="STRLabel"
                                     Text="*10*"
                                     Font="Bold, 20"
                                     HorizontalOptions="Center"
@@ -298,6 +302,7 @@
                                     AbsoluteLayout.LayoutFlags="All" />
 
                                 <Label
+                                    x:Name="DEXLabel"
                                     Text="*10*"
                                     Font="Bold, 20"
                                     HorizontalOptions="Center"
@@ -315,6 +320,7 @@
                                     AbsoluteLayout.LayoutFlags="All" />
 
                                 <Label
+                                    x:Name="CONLabel"
                                     Text="*10*"
                                     Font="Bold, 20"
                                     HorizontalOptions="Center"
@@ -332,6 +338,7 @@
                                     AbsoluteLayout.LayoutFlags="All" />
 
                                 <Label
+                                    x:Name="INTLabel"
                                     Text="*10*"
                                     Font="Bold, 20"
                                     HorizontalOptions="Center"
@@ -349,6 +356,7 @@
                                     AbsoluteLayout.LayoutFlags="All" />
 
                                 <Label
+                                    x:Name="WISLabel"
                                     Text="*10*"
                                     Font="Bold, 20"
                                     HorizontalOptions="Center"
@@ -366,6 +374,7 @@
                                     AbsoluteLayout.LayoutFlags="All" />
 
                                 <Label
+                                    x:Name="CHALabel"
                                     Text="*10*"
                                     Font="Bold, 20"
                                     HorizontalOptions="Center"
@@ -412,7 +421,18 @@
                                     AbsoluteLayout.LayoutBounds="0,1,1,.8"
                                     AbsoluteLayout.LayoutFlags="All">
 
+                                    <ListView
+                                        x:Name="StatusListView"
+                                        AbsoluteLayout.LayoutBounds="0,1,1,.8"
+                                        AbsoluteLayout.LayoutFlags="All">
 
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextCell Text="{Binding Title}" TextColor="Black"></TextCell>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+
+                                    </ListView>
 
                                 </ScrollView>
 
@@ -423,6 +443,7 @@
 
                         <!-- The Button used to Remove Status Effects -->
                         <Button
+                            x:Name="StatusRemoveButton"
                             Text="Remove"
                             Font="20"
                             BorderColor="Black"
@@ -437,6 +458,7 @@
 
                         <!-- The Button used to Add Status Effects -->
                         <Button
+                            x:Name="StatusAddButton"
                             Text="Add"
                             Font="20"
                             BorderColor="Black"
@@ -522,7 +544,14 @@
                                     AbsoluteLayout.LayoutBounds="0,1,1,.7"
                                     AbsoluteLayout.LayoutFlags="All">
 
+                                    <Label
+                                        x:Name="LanguagesLabel"
+                                        Font="24"
+                                        AbsoluteLayout.LayoutBounds=".5,.5,1,1"
+                                        AbsoluteLayout.LayoutFlags="All"
+                                        HorizontalTextAlignment="Center">
 
+                                    </Label>
 
                                 </ScrollView>
 
@@ -533,6 +562,7 @@
 
                         <!-- The Button used to Remove Languages -->
                         <Button
+                            x:Name="LagnuageRemoveButton"
                             Text="Remove"
                             Font="20"
                             BorderColor="Black"
@@ -547,6 +577,7 @@
 
                         <!-- The Button used to Add Languages -->
                         <Button
+                            x:Name="LagnuageAddButton"
                             Text="Add"
                             Font="20"
                             BorderColor="Black"
@@ -561,6 +592,7 @@
 
                         <!-- The Button used to Change Character -->
                         <Button
+                            x:Name="ChangeCharacterButton"
                             Text="Change Character"
                             Font="Bold, 20"
                             BorderColor="Black"
@@ -572,8 +604,7 @@
                             WidthRequest="300"
                             HeightRequest="300"
                             AbsoluteLayout.LayoutBounds=".5,1160,.9,50"
-                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"
-                            Command="{Binding OpenCharacterList}"/>
+                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
                     </AbsoluteLayout>
 
