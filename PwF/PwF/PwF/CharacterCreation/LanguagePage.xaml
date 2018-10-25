@@ -9,7 +9,7 @@
 
         <AbsoluteLayout
             AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional"
-            x:Name = "pageContainer">
+            x:Name = "PageContent">
 
             <!-- The Top Bar of the Application -->
             <AbsoluteLayout
@@ -31,77 +31,83 @@
             <!-- The Main Pages Content -->
             <AbsoluteLayout
                 BackgroundColor="#607F6F"
-                AbsoluteLayout.LayoutBounds="0,1,1,.9"  
+                AbsoluteLayout.LayoutBounds="0,.5,1,.8"  
                 AbsoluteLayout.LayoutFlags="All">
 
                 <!-- The ScrollView for Displaying the Pages Content -->
-                <ScrollView
+                <AbsoluteLayout
                     BackgroundColor="#C1DAC5"
-                    AbsoluteLayout.LayoutBounds=".5,25,.9,.8"  
-                    AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, HeightProportional">
+                    AbsoluteLayout.LayoutBounds=".5,.5,.9,.9"  
+                    AbsoluteLayout.LayoutFlags="All">
 
-                    <!-- The Layout that Contains the Pages Content -->
                     <AbsoluteLayout
-                        x:Name="ContainingLayout"
-                        AbsoluteLayout.LayoutBounds="0,0,1,1"  
+                        AbsoluteLayout.LayoutBounds=".5,.5,1,1"  
                         AbsoluteLayout.LayoutFlags="All">
 
-                        <!-- Character Level Label -->
-                        <Label
-                            Text="Your race: "
-                            TextColor="#030303"
-                            Font="22"
-                            HorizontalOptions="Center"
-                            AbsoluteLayout.LayoutBounds=".2, 60, .4, 50"
-                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+                        <!-- Feats Search Entry -->
+                        <Entry
+                            x:Name="LanguageSearchEntry"
+                            Placeholder="Languages Search"
+                            FontSize="22"
+                            HorizontalTextAlignment="Center"
+                            BackgroundColor="White"
+                            AbsoluteLayout.LayoutBounds=".5,.02,.8,.1"
+                            AbsoluteLayout.LayoutFlags="All"/>
 
-                        <!-- Bind selected race -->
-                        <Label
-                            Text="Dwarf"
-                            TextColor="#80171C"
-                            Font="24"
-                            HorizontalOptions="Center"
-                            AbsoluteLayout.LayoutBounds=".8, 60, .4, 50"
-                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
 
-                        <Label
-                            Text="Begins play speaking:"
-                            TextColor="#030303"
-                            Font="20"
-                            HorizontalOptions="Center"
-                            AbsoluteLayout.LayoutBounds=".5, 100, 1, 50"
-                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
-                        
-                        <!-- Bind Languages -->
-                        <Label
-                            Text="Common and Dwarven"
-                            TextColor="#80171C"
-                            Font="24"
-                            HorizontalOptions="Center"
-                            AbsoluteLayout.LayoutBounds=".5, 140, 1, 50"
-                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+                        <ScrollView
+                            AbsoluteLayout.LayoutBounds=".5,.22,.95,.35"
+                            AbsoluteLayout.LayoutFlags="All"
+                            BackgroundColor="White">
 
-                        <Label
-                            Text="With a high Intelligence score, you can choose from the following:"
-                            TextColor="#030303"
-                            Font="20"
-                            HorizontalOptions="Center"
-                            AbsoluteLayout.LayoutBounds=".5, 180, .9, 70"
-                            AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+                            <ListView x:Name="PossibleLanguages" ItemSelected="OnItemPossibleSelected"
+                                      HeightRequest="0">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextCell Text="{Binding Title}" TextColor="Black"></TextCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
 
-                        <ListView x:Name="SelectionGroup" ItemSelected="OnItemSelected" SelectedItem="{Binding SelectedLanguages}"
-                                  AbsoluteLayout.LayoutBounds=".5, 240, 1, 220"
-                                  AbsoluteLayout.LayoutFlags="XProportional, WidthProportional">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <TextCell Text="{Binding Title}" TextColor="Black"></TextCell>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                        
+                        </ScrollView>
+
+                        <Label x:Name="LanguageLeftIdentifier"
+                               FontSize="18"
+                               HorizontalTextAlignment="Center"
+                               AbsoluteLayout.LayoutBounds=".1,.60,.3,.15"
+                               AbsoluteLayout.LayoutFlags="All">
+
+                        </Label>
+                        <Image x:Name="DownArrow"
+                               Source="ArrowDown.png" 
+                               AbsoluteLayout.LayoutBounds=".9,.575,.15,.15"
+                               AbsoluteLayout.LayoutFlags="All"
+                               HeightRequest="0"/>
+                        <Image x:Name="UpArrow"
+                               Source="ArrowUp.png" 
+                               AbsoluteLayout.LayoutBounds=".5,.575,.15,.15"
+                               AbsoluteLayout.LayoutFlags="All"
+                               HeightRequest="0"/>
+
+                        <ScrollView
+                            AbsoluteLayout.LayoutBounds=".5,.98,.95,.35"
+                            AbsoluteLayout.LayoutFlags="All"
+                            BackgroundColor="White">
+
+                            <ListView x:Name="SelectedLanguages" ItemSelected="OnItemSelectSelected">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextCell Text="{Binding Title}" TextColor="Black"></TextCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                        </ScrollView>
+
+
                     </AbsoluteLayout>
-
-                </ScrollView>
+                    
+                </AbsoluteLayout>
 
             </AbsoluteLayout>
 

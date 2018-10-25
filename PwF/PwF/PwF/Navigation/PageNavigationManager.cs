@@ -83,11 +83,7 @@ namespace Pwf.Navigation
         public void ShowLanguagesPage(bool forward = true) {
             // change navigation to send to Languages Page
             // navigation.PushAsync(new AbilityScorePage());
-            if (forward) {
-                ShowSpellsPage();
-            } else {
-                ShowFeatsPage(false);
-            }
+            navigation.PushAsync(new LanguagePage());
         }
 
         public void ShowSpellsPage(bool forward = true) {

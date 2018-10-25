@@ -32,6 +32,7 @@ namespace PwF.CharacterCreation
         {
             if (remainingPoints == 0)
             {
+                Statics.CharacterCreating.CreatingCharacter.Skills = skills;
                 navManager.ShowFeatsPage();
             }
         }

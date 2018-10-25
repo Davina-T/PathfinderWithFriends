@@ -45,7 +45,8 @@ namespace PwF.CharacterCreation
                 // use Race to get data for race to create race object
                 Objects.Race CharacterRace = new Objects.Race() {
                     Name = SelectedRace.Title,
-                    Languages = new List<string>() { "Commoner", "Elfish", "Dwarven", "Draconic", "UnCommon", "Celestial" },
+                    Languages = new List<string>() { "Elfish", "Dwarven", "Draconic", "UnCommon", "Celestial" },
+                    StartingLanguages = new List<string>() { "Commoner" },
                     Size = Enums.Size.Medium,
                     Feats = new List<Objects.Feat>() { new Objects.Feat("Adaptive Fortune", "Increase the number of times per day you can use the adaptable luck racial trait by 1", "Fortunate One, adaptable luck racial trait, character level 10th, halfling"),
                     new Objects.Feat("Blundering Defense","Whenever you fight defensively or use the total defense action, allies gain a luck bonus to AC and CMD equal to 1/2 the dodge bonus you gain from the action you are taking","Cautious Fighter, halfling"),

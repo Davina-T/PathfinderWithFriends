@@ -31,9 +31,7 @@ namespace PwF.CharacterCreation
         }
 
         int GetAmountofFeats() {
-            //int temp = (int)(Math.Floor((double)CharacterCreating.CreatingCharacter.Level+1)/2);
-
-            int temp = (int)(Math.Floor((double)4 + 1) / 2);
+            int temp = (int)(Math.Floor((double)Statics.CharacterCreating.CreatingCharacter.Level+1)/2);
 
             return temp;
         }

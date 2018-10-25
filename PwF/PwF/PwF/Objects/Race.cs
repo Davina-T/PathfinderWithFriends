@@ -9,6 +9,7 @@ namespace PwF.Objects
     {
         public string Name { get; set; }
         public List<string> Languages { get; set; }
+        public List<string> StartingLanguages { get; set; }
         public List<Feat> Feats { get; set; }
         public List<SpecialAbility> SpecialAbilities { get; set; }
         public Enums.Size Size { get; set; }
