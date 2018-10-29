@@ -63,7 +63,7 @@ namespace PwF.CharacterCreation
             InfoButton.BindingContext = viewModel;
             var tapGestureRecognizer3 = new TapGestureRecognizer();
             tapGestureRecognizer3.Tapped += (s, e) => {
-                //DisplayAlert("Alert", viewModel.SelectedName, "OK");
+                DisplayAlert("Alert", "Count: "+ Statics.CharacterCreating.CreatingCharacter.Equipments.Gears.Count, "OK");
                 //viewModel.ViewInfo();
             };
             InfoButton.GestureRecognizers.Add(tapGestureRecognizer3);

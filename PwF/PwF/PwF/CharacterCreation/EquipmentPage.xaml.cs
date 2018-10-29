@@ -48,6 +48,7 @@ namespace PwF.CharacterCreation
             var tapGestureRecognizer3 = new TapGestureRecognizer();
 
             tapGestureRecognizer3.Tapped += (s, e) => {
+                DisplayAlert("Alert", "Selected Weapon: " + viewModel.SelectedWeapons.Count + "\nSelected Gear: " + viewModel.SelectedGear.Count + "\nSelected Armour: " + viewModel.SelectedArmour.Count, "OK");
                 viewModel.ViewInfo();
             };
             InfoButton.GestureRecognizers.Add(tapGestureRecognizer3);

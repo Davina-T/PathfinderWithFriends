@@ -12,6 +12,24 @@ namespace PwF.Objects
 
         public Equipment() {
 
+            if(Weapons == null)
+            {
+                Weapons = new List<Weapon>();
+            }
+
+            if (Armours == null)
+            {
+                Armours = new List<Armour>();
+            }
+
+            if (Gears == null)
+            {
+                Gears = new List<Gear>();
+            }
+
+            
+            
+
         }
 
         // The handlers of the Weapons

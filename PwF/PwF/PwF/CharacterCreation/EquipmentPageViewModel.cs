@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+//Workspace for the page:
 namespace PwF.CharacterCreation
 {
     //The EquipmentPage viewmodel:
@@ -12,13 +13,11 @@ namespace PwF.CharacterCreation
     {
         //Globals:
         private PageNavigationManager navManager;
-        public List<Equipment> Equipment;
         public List<Weapon> Weapons;
-        public List<Gear> Gear;
         public List<Armour> Armour;
+        public List<Gear> Gear;
         public Money Coin { get; set; }
         public string SelectedTab = "Weapons";
-        public string[] PossibleTabs = { "Weapons", "Armour", "Gear" };
 
         //Custom Cells:
         public List<CustomCell> PossibleWeapons { get; }
@@ -38,7 +37,9 @@ namespace PwF.CharacterCreation
             navManager = PageNavigationManager.Instance;
 
             //Setup the Object Lists:
-            Equipment = new List<Equipment>();
+            Weapons = new List<Weapon>();
+            Armour = new List<Armour>();
+            Gear = new List<Gear>();
             PossibleWeapons = getWeapons();
             SelectedWeapons = new List<CustomCell>();
             PossibleArmour = getArmour();
@@ -51,10 +52,7 @@ namespace PwF.CharacterCreation
             {
                 //Create a money Object:
                 Coin = new Money();
-                Coin.PP = 1;
-                Coin.GP = 53;
-                Coin.SP = 24;
-                Coin.CP = 99;
+
             }
             else{
 
@@ -62,7 +60,6 @@ namespace PwF.CharacterCreation
                 Coin = Statics.CharacterCreating.CreatingCharacter.Coin;
 
             }
-
         }
 
         //Move selected weapon to selected:
@@ -74,6 +71,8 @@ namespace PwF.CharacterCreation
                 //If the selected weapon is found:
                 if (cell.Equals(PossibleWeapons[i]))
                  {
+                    //Stubbed Price: --GET PRICE FROM SERVER--
+                    Coin.Subtract(5);
                     //Remove it from the possible lsit:
                     PossibleWeapons.Remove(cell);
                     //Add it to the selected list:
@@ -93,6 +92,8 @@ namespace PwF.CharacterCreation
                 //If the selected armour is found:
                 if (cell.Equals(PossibleArmour[i]))
                 {
+                    //Stubbed Price: --GET PRICE FROM SERVER--
+                    Coin.Subtract(10);
                     //Remove it from the possible lsit:
                     PossibleArmour.Remove(cell);
                     //Add it to the selected list:
@@ -111,6 +112,8 @@ namespace PwF.CharacterCreation
                 //If the selected gear is found:
                 if (cell.Equals(PossibleGear[i]))
                 {
+                    //Stubbed Price: --GET PRICE FROM SERVER--
+                    Coin.Subtract(2);
                     //Remove it from the possible lsit:
                     PossibleGear.Remove(cell);
                     //Add it to the selected list:
@@ -129,6 +132,8 @@ namespace PwF.CharacterCreation
                 //If the two cells match:
                 if (cell.Equals(SelectedWeapons[i]))
                 {
+                    //Stubbed Refund: --GET PRICE FROM SERVER--
+                    Coin.Add(5);
                     //Add the weapon back to the possible list:
                     PossibleWeapons.Add(cell);
                     //Remove the weapon from the selected list:
@@ -147,6 +152,8 @@ namespace PwF.CharacterCreation
                 //If the two cells match:
                 if (cell.Equals(SelectedArmour[i]))
                 {
+                    //Stubbed Refund: --GET PRICE FROM SERVER--
+                    Coin.Add(10);
                     //Add the armour back to the possible list:
                     PossibleArmour.Add(cell);
                     //Remove the armour from the selected list:
@@ -165,6 +172,8 @@ namespace PwF.CharacterCreation
                 //If the two cells match:
                 if (cell.Equals(SelectedGear[i]))
                 {
+                    //Stubbed Refund: --GET PRICE FROM SERVER--
+                    Coin.Add(2);
                     //Add the gear back to the possible list:
                     PossibleGear.Add(cell);
                     //Remove the gear from the selected list:
@@ -180,7 +189,7 @@ namespace PwF.CharacterCreation
             //Get data from database here:
             //STUB DATA:
             string[] weapons = new string[] {
-                "Long Sword", "Short Sword", "Simple Staff", "Recurve Bow", "Spear", "Mace"};
+                "Hook hand", "Kunai", "Heavy mace", "Morningstar", "Lantern Staff", "Heavy crossbow"};
 
             //Create the list of cells:
             List<CustomCell> CustomCells = new List<CustomCell>();
@@ -201,7 +210,7 @@ namespace PwF.CharacterCreation
             //Get data from database here:
             //STUB DATA:
             string[] armour = new string[] {
-                "Heavy Curas", "Heavy Legs", "Heavy Gauntlets", "Heavy Gloves", "Heavy Healm", "Heavy Shield", "Wizard's Robes"};
+                "Silken ceremonial", "Scale mail", "Agile breastplate", "Full plate", "Hellknight plate", "Light steel", "War-shield, dwarven"};
 
             //Create the list of cells:
             List<CustomCell> CustomCells = new List<CustomCell>();
@@ -222,7 +231,7 @@ namespace PwF.CharacterCreation
             //Get data from database here:
             //STUB DATA:
             string[] gear = new string[] {
-                "Bedroll", "Rassions", "Waterskin", "Torch", "Tanked", "Mirror", "Empty Vile"};
+                "Area map", "Bedroll", "Blanket", "Cane (elegant)", "City map", "Compass", "Dusk lantern"};
 
             //Create the list of cells:
             List<CustomCell> CustomCells = new List<CustomCell>();
@@ -240,62 +249,50 @@ namespace PwF.CharacterCreation
         //Go to the next page:
         public void NextPage()
         {
-            //Make sure that none of the item lists are null:
-            if(SelectedArmour == null && SelectedGear == null && SelectedWeapons == null)
+
+            //Stub Data GET FROM SERVER:
+            string[] weapons = new string[] { "Hook hand", "Kunai", "Heavy mace", "Morningstar", "Lantern Staff", "Heavy crossbow"};
+            string[] armour = new string[] {"Silken ceremonial", "Scale mail", "Agile breastplate", "Full plate", "Hellknight plate", "Light steel", "War-shield, dwarven"};
+            string[] gear = new string[] {"Area map", "Bedroll", "Blanket", "Cane (elegant)", "City map", "Compass", "Dusk lantern"};
+            string[] type = new string[] { "STUB" };
+            int[] critical = new int[] { 1 };
+            int[][] damage = new int[][]
             {
-                //Get Weapon Names:
-                string[] weaponNames = new string[SelectedWeapons.Count];
-                //Go through the entire selected list of items:
-                for (int i = 0; i < weaponNames.Length; i++)
+                new int[]{1}
+            };
+
+            //Make sure that none of the item lists are null:
+            if (SelectedArmour != null && SelectedGear != null && SelectedWeapons != null)
+            {
+
+                //Add all selected weapons to the list:
+                for(int i=0; i<SelectedWeapons.Count; i++)
                 {
-                    //Add each item name to the lsit:
-                    weaponNames[i] = SelectedWeapons[i].Title;
+                    //Add a stubbed weapon:
+                    Weapons.Add(new Weapon(weapons[i], type, 0.25, 4, critical, damage, 4, 0.35, "STUB"));
                 }
 
-                //Get Armour Names:
-                string[] armourNames = new string[SelectedArmour.Count];
-                //Go through the entire selected list of items:
-                for (int i = 0; i < armourNames.Length; i++)
+                //Add all selected armour to the list:
+                for (int i = 0; i < SelectedArmour.Count; i++)
                 {
-                    //Add each item name to the lsit:
-                    armourNames[i] = SelectedArmour[i].Title;
+                    //Add a stubbed armour:
+                    Armour.Add(new Armour(armour[i], 4, "H", 4, 2, 0.35, "STUB"));
                 }
 
-                //Get Armour Names:
-                string[] gearNames = new string[SelectedGear.Count];
-                //Go through the entire selected list of items:
-                for (int i = 0; i < gearNames.Length; i++)
+                //Add all selected gear to the list:
+                for (int i = 0; i < SelectedGear.Count; i++)
                 {
-                    //Add each item name to the lsit:
-                    gearNames[i] = SelectedGear[i].Title;
+                    //Add a stubbed gear:
+                    Gear.Add(new Gear(gear[i], 0.35));
                 }
 
-                //Add Weapons to character:
-                for (int i = 0; i < weaponNames.Length; i++)
-                {
-                    //Equipment.AddWeapon(weaponNames[i], )
-                }
-
-                //Add Gear to character:
-                for (int i = 0; i < gearNames.Length; i++)
-                {
-                    //Equipment.AddGear(gearNames[i], )
-                }
-
-                //Add Gear to character:
-                for (int i = 0; i < armourNames.Length; i++)
-                {
-                    //Equipment.AddGear(armourNames[i], )
-                }
 
                 //Send user to the next page:
+                Statics.CharacterCreating.CreatingCharacter.Equipments.Weapons = Weapons;
+                Statics.CharacterCreating.CreatingCharacter.Equipments.Armours = Armour;
+                Statics.CharacterCreating.CreatingCharacter.Equipments.Gears = Gear;
                 navManager.ShowCharacterDetailsPage();
             }
-
-            //STUB:::::
-            navManager.ShowCharacterDetailsPage();
-
-
         }
 
         //Go to the previous page:
@@ -308,7 +305,7 @@ namespace PwF.CharacterCreation
         //View the compendium:
         public void ViewInfo()
         {
-            // open the informative page
+            // open info page
         }
 
         //Show the weapons page:

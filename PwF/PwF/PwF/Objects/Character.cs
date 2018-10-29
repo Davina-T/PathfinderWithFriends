@@ -28,6 +28,12 @@ namespace PwF.Objects
 
         public Character() {
             Scores = new AbilityScores();
+
+            if(Equipments == null)
+            {
+                Equipments = new Equipment();
+            }
+            
         }
 
         // The handlers of the Skills
