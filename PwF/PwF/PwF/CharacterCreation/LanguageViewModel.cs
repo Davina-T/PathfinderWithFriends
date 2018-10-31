@@ -115,7 +115,7 @@ namespace PwF.CharacterCreation
 
         public void NextPage()
         {
-            if (LanguagesLeft == 0) {
+            if (LanguagesLeft == 0 || PossibleLanguages.Count == 0) {
 
                 List<string> languages = new List<string>();
                 for (int i = 0; i < SelectedLanguages.Count; i++) {
