@@ -22,6 +22,10 @@ namespace PwF.Statics
 
             List<Objects.Character> characters = JsonConvert.DeserializeObject<List<Objects.Character>>(obj);
 
+            if(characters == null) {
+                characters = new List<Objects.Character>();
+            }
+
             return characters;
         }
 
