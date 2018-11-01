@@ -86,7 +86,7 @@ namespace PwF.CharacterCreation
         }
 
         public void NextPage() {
-            if (FeatsLeft == 0) {
+            if (FeatsLeft == 0 || PossibleFeats.Count == 0) {
 
                 // get list and data
                 string[] featNames = new string[SelectedFeats.Count];

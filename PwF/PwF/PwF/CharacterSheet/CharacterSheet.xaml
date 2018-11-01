@@ -529,7 +529,7 @@
                                     AbsoluteLayout.LayoutFlags="All">
 
                                     <Label
-                                        Text="Laugages"
+                                        Text="Languages"
                                         Font="Bold, 20"
                                         HorizontalOptions="Center"
                                         VerticalOptions="Center"

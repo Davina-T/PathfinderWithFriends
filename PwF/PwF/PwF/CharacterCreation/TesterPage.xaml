@@ -21,7 +21,7 @@
                 AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional">
                 <!-- The Label for displaying the Character's Name -->
                 <Label
-                    Text="TesterPage"
+                    Text="Confirm Character"
                     TextColor="#C7BC91"
                     Font="Bold, 32"
                     HorizontalOptions="Center" 
