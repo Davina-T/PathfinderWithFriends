@@ -45,8 +45,7 @@ namespace PwF.CharacterCreation
             tapGestureRecognizer3.Tapped += (s, e) => {
                 //DisplayAlert("Alert", Statics.JsonStuff.GetFile("Characters.json"), "OK");
                 // get data from the server
-                string content = "Money" + "\n\n" + "Your character carries currency in the form of coins being Copper Peices, Silver Pieces, " +
-                "Gold Pieces, and Platinum Pieces. Each coin is worth 100 of the previous coin.";
+                string content = "Level" + "\n\n" + "The level of your character is used to develop your character through gameplay";
 
                 Compendium(content);
             };
