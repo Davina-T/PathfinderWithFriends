@@ -53,4 +53,8 @@
       <DependentUpon>LevelPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="UnitTests\" />
+  </ItemGroup>
 </Project>

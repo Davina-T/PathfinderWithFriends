@@ -8,7 +8,7 @@ using Xamarin.Forms.PlatformConfiguration;
 
 namespace PwF.Statics
 {
-    static class JsonStuff {
+    public static class JsonStuff {
 
         public static void SerializeCharacters(List<Objects.Character> obj) {
 
